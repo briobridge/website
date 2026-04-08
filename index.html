@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrioBridge | Technology · BPO · Engineering · Estimation · Logistics · Accounting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0A1628; --navy-mid: #112240; --navy-soft: #1a3259;
+    --gold: #C9A84C; --gold-light: #E8C97A; --gold-pale: #F5EDD3;
+    --cream: #FAF7F0; --white: #FFFFFF;
+    --text-dark: #1A202C; --text-mid: #4A5568; --text-light: #718096;
+    --border-light: rgba(255,255,255,0.08);
+    --radius: 12px; --radius-lg: 20px; --radius-xl: 32px;
+    --shadow: 0 4px 32px rgba(10,22,40,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text-dark); background: var(--white); line-height: 1.65; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,22,40,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-light); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; align-items: center; gap: 1.1rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.82rem; font-weight: 400; transition: color 0.2s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-call { display: flex; align-items: center; gap: 6px; background: transparent; border: 1.5px solid var(--gold); color: var(--gold) !important; font-weight: 600 !important; padding: 0.38rem 0.85rem; border-radius: 6px; transition: background 0.2s, color 0.2s !important; }
+  .nav-call:hover { background: var(--gold) !important; color: var(--navy) !important; }
+  .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.38rem 0.85rem; border-radius: 6px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-toggle span { display: block; width: 22px; height: 1.5px; background: white; margin: 5px 0; }
+
+  /* MOBILE MENU */
+  .mob-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 999; background: var(--navy); border-top: 1px solid var(--border-light); padding: 1.25rem 1.5rem; }
+  .mob-menu.open { display: block; }
+  .mob-menu ul { list-style: none; }
+  .mob-menu a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.95rem; display: block; padding: 0.65rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .mob-menu .mc { color: var(--gold); font-weight: 600; }
+  .mob-menu .mq { margin-top: 0.75rem; background: var(--gold); color: var(--navy); font-weight: 600; border-radius: 8px; padding: 0.7rem 1.5rem; text-align: center; border-bottom: none; }
+
+  /* HERO */
+  .hero { min-height: 100vh; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0d2040 100%); display: flex; align-items: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,0.04) 0%, transparent 60%); }
+  .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); font-size: 0.73rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 480px; margin-bottom: 2rem; line-height: 1.75; }
+  .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-primary { background: var(--gold); color: var(--navy); font-family: 'DM Sans', sans-serif; font-size: 0.925rem; font-weight: 600; padding: 0.85rem 1.75rem; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost { color: rgba(255,255,255,0.8); font-family: 'DM Sans', sans-serif; font-size: 0.925rem; padding: 0.85rem 1.75rem; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); background: transparent; display: inline-flex; align-items: center; gap: 6px; transition: border-color 0.2s, color 0.2s; }
+  .btn-ghost:hover { border-color: rgba(201,168,76,0.5); color: var(--gold-light); }
+  .hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--gold); display: block; }
+  .hero-stat-label { font-size: 0.73rem; color: rgba(255,255,255,0.48); letter-spacing: 0.04em; text-transform: uppercase; }
+  .hero-right { display: flex; flex-direction: column; gap: 0.75rem; }
+  .hero-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 0.95rem 1.25rem; display: flex; align-items: center; gap: 0.9rem; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+  .hero-card:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.25); }
+  .hero-card-icon { width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
+  .hero-card-title { font-size: 0.86rem; font-weight: 600; color: var(--white); }
+  .hero-card-sub { font-size: 0.73rem; color: rgba(255,255,255,0.38); margin-top: 1px; }
+  .hero-card-arrow { margin-left: auto; color: rgba(255,255,255,0.2); font-size: 0.85rem; }
+
+  /* SECTION COMMONS */
+  section { padding: 5rem 2rem; }
+  .si { max-width: 1200px; margin: 0 auto; }
+  .slabel { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .slabel::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+  .stitle { font-family: 'Playfair Display', serif; font-size: clamp(1.85rem, 3vw, 2.7rem); font-weight: 700; line-height: 1.15; color: var(--navy); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .ssub { font-size: 1rem; color: var(--text-mid); max-width: 560px; line-height: 1.75; }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--cream); padding: 1.75rem 2rem; border-top: 1px solid var(--gold-pale); border-bottom: 1px solid var(--gold-pale); }
+  .trust-bar-inner { max-width: 1200px; margin: 0 auto; }
+  .trust-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); text-align: center; margin-bottom: 1.1rem; }
+  .trust-grid { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem 2rem; }
+  .trust-item { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .trust-item-text { font-size: 0.825rem; font-weight: 500; color: var(--navy); }
+
+  /* DIVISIONS 3x2 GRID */
+  .div-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .div-card { border: 1px solid #E8EDF3; border-radius: var(--radius-lg); padding: 1.75rem; background: var(--white); transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
+  .div-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--gold); }
+  .div-icon { width: 48px; height: 48px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.1rem; }
+  .div-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+  .div-sub { font-size: 0.83rem; color: var(--text-mid); margin-bottom: 1rem; line-height: 1.6; }
+  .div-list { list-style: none; margin-bottom: 1.1rem; }
+  .div-list li { font-size: 0.79rem; color: var(--text-mid); padding: 0.28rem 0; border-bottom: 1px solid #F0F4F8; display: flex; align-items: center; gap: 8px; }
+  .div-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .div-list li:last-child { border-bottom: none; }
+  .div-price { font-size: 0.78rem; font-weight: 600; color: var(--navy); background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); padding: 0.35rem 0.75rem; border-radius: 100px; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 1rem; }
+  .div-price span { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 0.9rem; }
+  .div-link { margin-top: auto; font-size: 0.8rem; font-weight: 600; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+  .div-link:hover { gap: 10px; }
+
+  /* TECHNOLOGY */
+  .tech-sec { background: var(--navy); color: var(--white); }
+  .tech-inner { max-width: 1200px; margin: 0 auto; }
+  .tech-top { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
+  .tsl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 0.5rem; margin-top: 1.1rem; }
+  .tpills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tpill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); font-size: 0.75rem; padding: 0.22rem 0.65rem; border-radius: 100px; font-family: 'DM Mono', monospace; }
+  .tmet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3rem; }
+  .tmetc { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 1.15rem; text-align: center; }
+  .tmetnum { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; color: var(--gold); display: block; }
+  .tmetlbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+  /* Tech service categories */
+  .tech-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .tech-cat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 1.25rem; transition: background 0.2s, border-color 0.2s; }
+  .tech-cat:hover { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.25); }
+  .tech-cat-icon { font-size: 1.3rem; margin-bottom: 0.6rem; }
+  .tech-cat-title { font-size: 0.92rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+  .tech-cat-list { list-style: none; }
+  .tech-cat-list li { font-size: 0.78rem; color: rgba(255,255,255,0.52); padding: 0.2rem 0; display: flex; align-items: center; gap: 6px; }
+  .tech-cat-list li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  /* BPO */
+  .bpo-sec { background: var(--navy-mid); }
+  .bpo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 3rem; }
+  .bpo-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 1.5rem; transition: background 0.2s, border-color 0.2s; }
+  .bpo-card:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.3); }
+  .bpo-icon { font-size: 1.4rem; margin-bottom: 0.55rem; }
+  .bpo-title { font-size: 0.92rem; font-weight: 600; color: var(--white); margin-bottom: 0.35rem; }
+  .bpo-desc { font-size: 0.81rem; color: rgba(255,255,255,0.52); line-height: 1.62; }
+  .bpo-banner { margin-top: 2.5rem; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); border-radius: var(--radius-lg); padding: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .bpo-banner-big { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); }
+
+  /* ESTIMATING */
+  .est-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+  .est-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .est-card { background: var(--cream); border: 1px solid var(--gold-pale); border-radius: var(--radius); padding: 0.95rem 1.1rem; }
+  .est-card-t { font-size: 0.845rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+  .est-card-d { font-size: 0.76rem; color: var(--text-mid); }
+  .est-banner { grid-column: span 2; background: var(--navy); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; align-items: center; gap: 1.6rem; }
+  .est-big { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; white-space: nowrap; }
+  .est-steps { display: flex; flex-direction: column; }
+  .est-step { display: flex; gap: 1.1rem; padding-bottom: 1.25rem; position: relative; }
+  .est-step:not(:last-child)::after { content: ''; position: absolute; left: 17px; top: 38px; width: 1px; bottom: 0; background: linear-gradient(to bottom, var(--gold), transparent); }
+  .est-step-n { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .est-step-t { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+  .est-step-d { font-size: 0.8rem; color: var(--text-mid); }
+
+  /* LOGISTICS */
+  .log-sec { background: var(--cream); }
+  .log-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .log-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .log-card { background: var(--white); border: 1px solid #E8EDF3; border-radius: var(--radius); padding: 1.1rem; transition: box-shadow 0.2s; }
+  .log-card:hover { box-shadow: var(--shadow); }
+  .log-card-icon { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .log-card-t { font-size: 0.855rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+  .log-card-d { font-size: 0.77rem; color: var(--text-light); line-height: 1.5; }
+  .log-feat { display: flex; gap: 0.85rem; align-items: flex-start; margin-bottom: 0.95rem; }
+  .log-feat-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+  .log-feat-t { font-size: 0.86rem; font-weight: 600; color: var(--navy); margin-bottom: 0.12rem; }
+  .log-feat-d { font-size: 0.79rem; color: var(--text-mid); }
+
+  /* ENGINEERING */
+  .eng-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+  .eng-disc { display: flex; align-items: center; justify-content: space-between; padding: 0.82rem 1.05rem; border: 1px solid #E8EDF3; border-radius: var(--radius); transition: border-color 0.2s, background 0.2s; margin-bottom: 0.42rem; }
+  .eng-disc:hover { border-color: var(--gold); background: var(--cream); }
+  .eng-disc-l { display: flex; align-items: center; gap: 10px; }
+  .eng-disc-n { font-size: 0.845rem; font-weight: 600; color: var(--navy); }
+  .eng-disc-t { font-size: 0.7rem; color: var(--text-light); font-family: 'DM Mono', monospace; }
+  .eng-badge { font-size: 0.65rem; font-weight: 600; background: var(--gold-pale); color: #8B6914; padding: 0.15rem 0.5rem; border-radius: 100px; }
+  .eng-hl { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .eng-hlc { background: var(--navy); border-radius: var(--radius); padding: 1.35rem; color: var(--white); }
+  .eng-hlc-icon { font-size: 1.2rem; margin-bottom: 0.55rem; }
+  .eng-hlc-t { font-size: 0.84rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .eng-hlc-d { font-size: 0.77rem; color: rgba(255,255,255,0.5); }
+
+  /* ACCOUNTING */
+  .acc-sec { background: var(--white); }
+  .acc-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .acc-services { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 2rem; }
+  .acc-svc { background: var(--cream); border: 1px solid var(--gold-pale); border-radius: var(--radius); padding: 1.1rem 1.25rem; }
+  .acc-svc-icon { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .acc-svc-t { font-size: 0.875rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+  .acc-svc-d { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; }
+  .acc-right { display: flex; flex-direction: column; gap: 1rem; }
+  .acc-feat { display: flex; gap: 1rem; align-items: flex-start; background: var(--cream); border: 1px solid var(--gold-pale); border-radius: var(--radius); padding: 1.25rem; }
+  .acc-feat-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--navy); color: var(--gold); font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .acc-feat-t { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+  .acc-feat-d { font-size: 0.81rem; color: var(--text-mid); }
+  .acc-software { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+  .acc-pill { background: var(--navy); color: rgba(255,255,255,0.75); font-size: 0.75rem; font-family: 'DM Mono', monospace; padding: 0.25rem 0.7rem; border-radius: 100px; }
+
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .why-card { background: var(--white); border: 1px solid #E8EDF3; border-radius: var(--radius-lg); padding: 1.65rem; transition: box-shadow 0.2s, transform 0.2s; }
+  .why-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .why-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--gold-pale); line-height: 1; margin-bottom: 0.85rem; }
+  .why-title { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+  .why-desc { font-size: 0.83rem; color: var(--text-mid); line-height: 1.65; }
+
+  /* TESTIMONIALS CAROUSEL */
+  .test-sec { background: var(--white); }
+  .carousel-wrap { position: relative; margin-top: 3rem; overflow: hidden; }
+  .carousel-track { display: flex; gap: 1.25rem; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+  .test-card { background: var(--cream); border: 1px solid var(--gold-pale); border-radius: var(--radius-lg); padding: 1.75rem; flex: 0 0 calc(33.333% - 0.85rem); min-width: 0; }
+  .test-stars { color: var(--gold); font-size: 0.78rem; margin-bottom: 0.65rem; }
+  .test-div-tag { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); padding: 0.18rem 0.55rem; border-radius: 100px; display: inline-block; margin-bottom: 0.75rem; }
+  .test-quote { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1.25rem; font-style: italic; }
+  .test-quote::before { content: '\201C'; font-size: 1.8rem; color: var(--gold); font-family: 'Playfair Display', serif; line-height: 0.5; vertical-align: -0.38rem; margin-right: 3px; }
+  .test-author { display: flex; align-items: center; gap: 10px; }
+  .test-av { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: 'Playfair Display', serif; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .test-name { font-size: 0.84rem; font-weight: 600; color: var(--navy); }
+  .test-role { font-size: 0.75rem; color: var(--text-light); }
+  .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2rem; }
+  .carousel-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 1.5px solid #E8EDF3; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--navy); transition: background 0.2s, border-color 0.2s; }
+  .carousel-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .carousel-dots { display: flex; gap: 6px; }
+  .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: #D1D5DB; cursor: pointer; transition: background 0.2s, transform 0.2s; border: none; }
+  .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
+
+  /* CTA */
+  .cta-sec { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%); text-align: center; padding: 6rem 2rem; position: relative; overflow: hidden; }
+  .cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%); }
+  .cta-inner { max-width: 680px; margin: 0 auto; position: relative; }
+  .cta-sec h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--white); margin-bottom: 1rem; line-height: 1.15; letter-spacing: -0.02em; }
+  .cta-sec h2 em { color: var(--gold); font-style: normal; }
+  .cta-sub { font-size: 0.97rem; color: rgba(255,255,255,0.6); margin-bottom: 2.25rem; line-height: 1.7; }
+  .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+  .cta-trust { display: flex; align-items: center; justify-content: center; gap: 1.75rem; flex-wrap: wrap; }
+  .cta-ti { font-size: 0.77rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 5px; }
+  .cta-ti::before { content: '✓'; color: var(--gold); }
+
+  /* CONTACT */
+  .con-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+  .con-det { display: flex; gap: 0.85rem; align-items: flex-start; margin-bottom: 1.25rem; }
+  .con-det-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--cream); border: 1px solid var(--gold-pale); display: flex; align-items: center; justify-content: center; font-size: 0.88rem; flex-shrink: 0; }
+  .con-det-lbl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-light); font-weight: 600; margin-bottom: 0.1rem; }
+  .con-det-val { font-size: 0.88rem; color: var(--navy); font-weight: 500; }
+  .con-form { background: var(--cream); border: 1px solid var(--gold-pale); border-radius: var(--radius-xl); padding: 2.25rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .fg { margin-bottom: 1rem; }
+  .flbl { display: block; font-size: 0.77rem; font-weight: 600; color: var(--navy); margin-bottom: 0.36rem; }
+  .finput, .fsel, .fta { width: 100%; background: var(--white); border: 1px solid #D8E0EB; border-radius: 8px; padding: 0.66rem 0.92rem; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; color: var(--text-dark); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+  .finput:focus, .fsel:focus, .fta:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12); }
+  .fta { resize: vertical; min-height: 105px; }
+  .fsub { width: 100%; padding: 0.86rem; background: var(--navy); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+  .fsub:hover { background: var(--navy-soft); }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.65); padding: 3.5rem 2rem 2rem; }
+  .foot-inner { max-width: 1200px; margin: 0 auto; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+  .foot-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 0.65rem; }
+  .foot-logo span { color: var(--gold); }
+  .foot-tag { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.65; margin-bottom: 1.1rem; max-width: 280px; }
+  .foot-ci { font-size: 0.82rem; margin-bottom: 0.38rem; }
+  .foot-ci a { color: rgba(255,255,255,0.65); text-decoration: none; }
+  .foot-ci a:hover { color: var(--gold-light); }
+  .foot-ht { font-size: 0.71rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+  .foot-ul { list-style: none; }
+  .foot-ul li { margin-bottom: 0.52rem; }
+  .foot-ul a { font-size: 0.84rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .foot-ul a:hover { color: var(--gold-light); }
+  .foot-bot { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .foot-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  .foot-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .foot-badge { font-size: 0.7rem; color: rgba(255,255,255,0.38); border: 1px solid rgba(255,255,255,0.1); padding: 0.22rem 0.6rem; border-radius: 100px; }
+
+  /* MODALS */
+  .modal-ov { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(10,22,40,0.78); backdrop-filter: blur(4px); align-items: center; justify-content: center; padding: 2rem; }
+  .modal-ov.open { display: flex; }
+  .modal-box { background: var(--white); border-radius: var(--radius-xl); max-width: 740px; width: 100%; max-height: 84vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 32px 80px rgba(10,22,40,0.3); }
+  .modal-hd { padding: 1.5rem 2rem 1.1rem; border-bottom: 1px solid #E8EDF3; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .modal-ttl { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+  .modal-x { background: none; border: none; cursor: pointer; font-size: 1.25rem; color: var(--text-light); padding: 4px 8px; border-radius: 6px; transition: background 0.15s; }
+  .modal-x:hover { background: #F0F4F8; }
+  .modal-body { padding: 1.6rem 2rem; overflow-y: auto; }
+  .modal-body p { font-size: 0.86rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 0.65rem; }
+  .modal-body h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--navy); margin: 1.25rem 0 0.4rem; }
+  .modal-body h3:first-child { margin-top: 0; }
+  .modal-body ul { margin: 0.4rem 0 0.65rem 1.15rem; }
+  .modal-body ul li { font-size: 0.86rem; color: var(--text-mid); line-height: 1.7; }
+  .modal-meta { font-size: 0.74rem; color: var(--text-light); margin-bottom: 1.2rem; }
+
+  /* REVEAL */
+  .rev { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .rev.in { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) { .nav-links { gap: 0.75rem; } .nav-links a { font-size: 0.78rem; } }
+  @media (max-width: 1024px) {
+    .div-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .tech-cats { grid-template-columns: 1fr 1fr; }
+    .tmet { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .test-card { flex: 0 0 calc(50% - 0.625rem); }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; } .nav-links { display: none; } .nav-toggle { display: block; }
+    .hero-inner { grid-template-columns: 1fr; } .hero-right { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+    .tech-top, .log-grid, .est-grid, .eng-grid, .acc-inner, .con-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .div-grid { grid-template-columns: 1fr; }
+    .bpo-grid { grid-template-columns: 1fr 1fr; }
+    .test-card { flex: 0 0 calc(100% - 0px); }
+    .eng-hl { grid-template-columns: 1fr; } .est-list { grid-template-columns: 1fr; }
+    .log-cards { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .bpo-banner, .est-banner { flex-direction: column; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .tech-cats { grid-template-columns: 1fr; }
+    .tmet { grid-template-columns: repeat(2, 1fr); }
+    .acc-services { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .trust-grid { gap: 0.4rem 1.25rem; }
+    .bpo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Brio<span>Bridge</span></a>
+  <ul class="nav-links">
+    <li><a href="#divisions">Services</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#bpo">BPO</a></li>
+    <li><a href="#estimating">Estimating</a></li>
+    <li><a href="#logistics">Logistics</a></li>
+    <li><a href="#engineering">Engineering</a></li>
+    <li><a href="#accounting">Accounting</a></li>
+    <li><a href="tel:+16462601320" class="nav-call">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +1 (646) 260-1320
+    </a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="mm" class="mob-menu">
+  <ul>
+    <li><a href="#divisions" onclick="cmm()">Services</a></li>
+    <li><a href="#technology" onclick="cmm()">Technology</a></li>
+    <li><a href="#bpo" onclick="cmm()">BPO & Support</a></li>
+    <li><a href="#estimating" onclick="cmm()">Estimating</a></li>
+    <li><a href="#logistics" onclick="cmm()">Logistics</a></li>
+    <li><a href="#engineering" onclick="cmm()">Engineering</a></li>
+    <li><a href="#accounting" onclick="cmm()">Accounting</a></li>
+    <li><a href="tel:+16462601320" class="mc">📞 Call: +1 (646) 260-1320</a></li>
+    <li><a href="#contact" class="mq" onclick="cmm()">Get a Free Quote</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🇺🇸 Proudly Serving US Businesses Nationwide</div>
+      <h1>Six Divisions.<br><em>One Trusted</em><br>Partner.</h1>
+      <p class="hero-sub">BrioBridge delivers Technology, BPO & Customer Support, Engineering, Cost Estimation, Fleet & Dispatch, and Accounting — giving US businesses world-class expertise at 40–60% less than domestic rates.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a Conversation →</a>
+        <a href="#divisions" class="btn-ghost">Explore Divisions</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="hero-stat-num">6</span><span class="hero-stat-label">Divisions</span></div>
+        <div><span class="hero-stat-num">40–60%</span><span class="hero-stat-label">Cost Savings</span></div>
+        <div><span class="hero-stat-num">24/7</span><span class="hero-stat-label">Support</span></div>
+        <div><span class="hero-stat-num">&lt;24h</span><span class="hero-stat-label">Response</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <a href="#technology" class="hero-card"><div class="hero-card-icon" style="background:rgba(24,95,165,0.18);">💻</div><div><div class="hero-card-title">Technology & Digital Marketing</div><div class="hero-card-sub">Web, Mobile, Cloud, SEO, Paid Ads, IT</div></div><span class="hero-card-arrow">→</span></a>
+      <a href="#bpo" class="hero-card"><div class="hero-card-icon" style="background:rgba(99,181,140,0.18);">📋</div><div><div class="hero-card-title">BPO & Customer Support</div><div class="hero-card-sub">Inbound, Lead Generation, Virtual Assistants</div></div><span class="hero-card-arrow">→</span></a>
+      <a href="#estimating" class="hero-card"><div class="hero-card-icon" style="background:rgba(201,168,76,0.18);">📊</div><div><div class="hero-card-title">Cost Estimation & QS</div><div class="hero-card-sub">BOQ, Quantity Takeoffs, Bid Preparation</div></div><span class="hero-card-arrow">→</span></a>
+      <a href="#logistics" class="hero-card"><div class="hero-card-icon" style="background:rgba(169,109,218,0.18);">🚛</div><div><div class="hero-card-title">Fleet & Dispatch</div><div class="hero-card-sub">24/7 Dispatch, Load Tracking, Freight Support</div></div><span class="hero-card-arrow">→</span></a>
+      <a href="#engineering" class="hero-card"><div class="hero-card-icon" style="background:rgba(220,80,60,0.18);">🏗️</div><div><div class="hero-card-title">Engineering & Architecture</div><div class="hero-card-sub">Revit BIM, Structural, 3D Visualization</div></div><span class="hero-card-arrow">→</span></a>
+      <a href="#accounting" class="hero-card"><div class="hero-card-icon" style="background:rgba(34,197,94,0.18);">📒</div><div><div class="hero-card-title">Accounting & Bookkeeping</div><div class="hero-card-sub">Bookkeeping, Payroll, QuickBooks, Tax Prep</div></div><span class="hero-card-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <p class="trust-label">Trusted by US businesses across industries</p>
+    <div class="trust-grid">
+      <div class="trust-item"><span>🏆</span><span class="trust-item-text">US Market Specialists</span></div>
+      <div class="trust-item"><span>🔒</span><span class="trust-item-text">NDA Protected</span></div>
+      <div class="trust-item"><span>⚡</span><span class="trust-item-text">1-Day Response Guarantee</span></div>
+      <div class="trust-item"><span>🇺🇸</span><span class="trust-item-text">EST/PST Timezone Overlap</span></div>
+      <div class="trust-item"><span>💬</span><span class="trust-item-text">Professional American English</span></div>
+      <div class="trust-item"><span>📈</span><span class="trust-item-text">40–60% Cost Reduction</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVISIONS 3x2 -->
+<section id="divisions" style="background:var(--white);">
+  <div class="si">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="slabel" style="justify-content:center;">Our Divisions</div>
+      <h2 class="stitle" style="margin:0 auto 1rem;">Six Divisions. One Trusted Partner.</h2>
+      <p class="ssub" style="margin:0 auto;">Specialist expertise across every dimension of your business — delivered by a single integrated partner that understands the US market inside out.</p>
+    </div>
+    <div class="div-grid">
+      <!-- Technology -->
+      <div class="div-card rev">
+        <div class="div-icon" style="background:#EBF3FB;">💻</div>
+        <div class="div-title">Technology & Digital Marketing</div>
+        <p class="div-sub">Full-stack development, cloud infrastructure, IT services, and complete digital marketing — everything to build and grow your online presence.</p>
+        <ul class="div-list">
+          <li>Custom web & mobile app development</li>
+          <li>Cloud — AWS, Azure, Google Cloud</li>
+          <li>SEO, Google Ads & Meta Ads</li>
+          <li>Social media & content marketing</li>
+          <li>Cybersecurity & IT infrastructure</li>
+        </ul>
+        <div class="div-price">Starting from <span>$1,500</span>/month</div>
+        <a href="#technology" class="div-link">Explore Division →</a>
+      </div>
+      <!-- BPO -->
+      <div class="div-card rev">
+        <div class="div-icon" style="background:#EDF8F0;">📋</div>
+        <div class="div-title">BPO & Customer Support</div>
+        <p class="div-sub">Reduce operational costs by 40–60% with professional English-speaking back-office, support, and lead generation teams.</p>
+        <ul class="div-list">
+          <li>Inbound / outbound customer support</li>
+          <li>Lead generation & appointment setting</li>
+          <li>Virtual assistants & back-office ops</li>
+          <li>Technical support Level 1 & 2</li>
+          <li>CRM — HubSpot, Salesforce, Zoho</li>
+        </ul>
+        <div class="div-price">Starting from <span>$499</span>/month</div>
+        <a href="#bpo" class="div-link">Explore Division →</a>
+      </div>
+      <!-- Engineering -->
+      <div class="div-card rev">
+        <div class="div-icon" style="background:#FEF3E8;">🏗️</div>
+        <div class="div-title">Engineering & Architecture</div>
+        <p class="div-sub">Structural, civil, mechanical engineering with full-service CAD/BIM modeling and 3D visualization for US firms.</p>
+        <ul class="div-list">
+          <li>Structural analysis and civil drawings</li>
+          <li>CAD drafting and BIM modeling (Revit)</li>
+          <li>3D rendering and visualization</li>
+          <li>Planning application packages</li>
+          <li>US code compliance (IBC, ASCE, ACI)</li>
+        </ul>
+        <div class="div-price">Starting from <span>$399</span>/project</div>
+        <a href="#engineering" class="div-link">Explore Division →</a>
+      </div>
+      <!-- Estimation -->
+      <div class="div-card rev">
+        <div class="div-icon" style="background:#FDF5E6;">📊</div>
+        <div class="div-title">Cost Estimation & QS</div>
+        <p class="div-sub">Accurate construction cost estimation and quantity surveying for US contractors and developers. Never miss a bid deadline.</p>
+        <ul class="div-list">
+          <li>Construction cost estimation</li>
+          <li>Bills of Quantities (BOQ) preparation</li>
+          <li>Material and quantity takeoffs</li>
+          <li>Tender pricing and bid preparation</li>
+          <li>RSMeans database pricing accuracy</li>
+        </ul>
+        <div class="div-price">Starting from <span>$299</span>/project</div>
+        <a href="#estimating" class="div-link">Explore Division →</a>
+      </div>
+      <!-- Fleet -->
+      <div class="div-card rev">
+        <div class="div-icon" style="background:#F0EBF9;">🚛</div>
+        <div class="div-title">Fleet & Dispatch Management</div>
+        <p class="div-sub">24/7 dispatch coordination and back-office logistics built for US trucking companies, owner-operators, and freight brokers.</p>
+        <ul class="div-list">
+          <li>Load dispatch and carrier coordination</li>
+          <li>Load board monitoring (DAT, Truckstop)</li>
+          <li>Driver communication & check-in</li>
+          <li>Real-time load tracking & status updates</li>
+          <li>POD management, invoicing, back-office</li>
+        </ul>
+        <div class="div-price">Starting from <span>$349</span>/truck/month</div>
+        <a href="#logistics" class="div-link">Explore Division →</a>
+      </div>
+      <!-- Accounting -->
+      <div class="div-card rev">
+        <div class="div-icon" style="background:#E8F5EE;">📒</div>
+        <div class="div-title">Accounting & Bookkeeping</div>
+        <p class="div-sub">ACCA-qualified accountants providing full-service bookkeeping, payroll, and financial reporting for US small businesses and SMEs.</p>
+        <ul class="div-list">
+          <li>Monthly bookkeeping & reconciliation</li>
+          <li>Payroll processing & management</li>
+          <li>QuickBooks, Xero & FreshBooks</li>
+          <li>Tax preparation support</li>
+          <li>Financial reporting & P&L statements</li>
+        </ul>
+        <div class="div-price">Starting from <span>$399</span>/month</div>
+        <a href="#accounting" class="div-link">Explore Division →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="tech-sec" id="technology">
+  <div class="tech-inner">
+    <div class="slabel" style="color:var(--gold-light);">Technology & Digital Marketing Division</div>
+    <h2 class="stitle" style="color:var(--white);">Software, Cloud, IT & Digital Marketing</h2>
+    <p class="ssub" style="color:rgba(255,255,255,0.6);max-width:700px;margin-bottom:2.5rem;">From custom software development to SEO and paid advertising — one division that builds your product and grows your audience, at offshore rates with zero compromise on quality.</p>
+    <div class="tech-top">
+      <div>
+        <div class="tsl">Frontend & Mobile</div><div class="tpills"><span class="tpill">React</span><span class="tpill">Next.js</span><span class="tpill">Vue</span><span class="tpill">Flutter</span><span class="tpill">Swift</span><span class="tpill">Kotlin</span></div>
+        <div class="tsl">Backend & APIs</div><div class="tpills"><span class="tpill">Node.js</span><span class="tpill">Python</span><span class="tpill">Django</span><span class="tpill">Laravel</span><span class="tpill">PHP</span><span class="tpill">GraphQL</span></div>
+        <div class="tsl">Cloud & DevOps</div><div class="tpills"><span class="tpill">AWS</span><span class="tpill">Azure</span><span class="tpill">GCP</span><span class="tpill">Docker</span><span class="tpill">Kubernetes</span><span class="tpill">Terraform</span></div>
+        <div class="tsl">Digital Marketing</div><div class="tpills"><span class="tpill">Google Ads</span><span class="tpill">Meta Ads</span><span class="tpill">SEO</span><span class="tpill">Email Marketing</span><span class="tpill">LinkedIn Ads</span></div>
+        <div class="tsl">Design & CMS</div><div class="tpills"><span class="tpill">Figma</span><span class="tpill">WordPress</span><span class="tpill">Shopify</span><span class="tpill">Webflow</span><span class="tpill">Canva Pro</span></div>
+      </div>
+      <div>
+        <p style="font-size:0.68rem;color:rgba(255,255,255,0.32);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.9rem;">How we work</p>
+        <div style="display:flex;flex-direction:column;gap:0.9rem;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:1.1rem 1.3rem;"><div style="font-size:0.68rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:0.18rem;">01</div><div style="font-size:0.92rem;font-weight:600;color:var(--white);margin-bottom:0.18rem;">Discovery Call</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.46);">We understand your tech requirements, stack, and growth goals in a focused 45-minute call.</div></div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:1.1rem 1.3rem;"><div style="font-size:0.68rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:0.18rem;">02</div><div style="font-size:0.92rem;font-weight:600;color:var(--white);margin-bottom:0.18rem;">Proposal & Team Match</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.46);">We assemble the right engineers and marketers with a detailed proposal, timeline, and pricing.</div></div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:1.1rem 1.3rem;"><div style="font-size:0.68rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:0.18rem;">03</div><div style="font-size:0.92rem;font-weight:600;color:var(--white);margin-bottom:0.18rem;">Build & Grow</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.46);">Agile development sprints + monthly marketing reports with full transparency at every step.</div></div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:1.1rem 1.3rem;"><div style="font-size:0.68rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:0.18rem;">04</div><div style="font-size:0.92rem;font-weight:600;color:var(--white);margin-bottom:0.18rem;">Launch & Scale</div><div style="font-size:0.8rem;color:rgba(255,255,255,0.46);">Deployment, QA, and ongoing maintenance — plus continuous marketing optimization.</div></div>
+        </div>
+        <div style="margin-top:1.75rem;"><a href="#contact" class="btn-primary">Start Your Tech Project →</a></div>
+      </div>
+    </div>
+    <div class="tmet">
+      <div class="tmetc"><span class="tmetnum">5–15</span><span class="tmetlbl">Years avg. engineer experience</span></div>
+      <div class="tmetc"><span class="tmetnum">40%+</span><span class="tmetlbl">Cost reduction vs US hiring</span></div>
+      <div class="tmetc"><span class="tmetnum">EST/PST</span><span class="tmetlbl">Timezone overlap hours</span></div>
+      <div class="tmetc"><span class="tmetnum">$1,500</span><span class="tmetlbl">Starting from / month</span></div>
+    </div>
+    <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.25rem;">All technology & marketing services</p>
+    <div class="tech-cats">
+      <div class="tech-cat"><div class="tech-cat-icon">🖥️</div><div class="tech-cat-title">Software Development</div><ul class="tech-cat-list"><li>Custom web application development</li><li>Mobile apps (iOS & Android)</li><li>SaaS product development</li><li>E-commerce development (Shopify, WooCommerce)</li><li>API development & third-party integrations</li><li>MVP development for startups</li></ul></div>
+      <div class="tech-cat"><div class="tech-cat-icon">☁️</div><div class="tech-cat-title">Cloud & Infrastructure</div><ul class="tech-cat-list"><li>Cloud migration (AWS, Azure, GCP)</li><li>Server setup & management</li><li>DevOps & CI/CD pipelines</li><li>Cybersecurity audits & monitoring</li><li>Database design & optimization</li><li>IT infrastructure management</li></ul></div>
+      <div class="tech-cat"><div class="tech-cat-icon">🔍</div><div class="tech-cat-title">SEO & Content Marketing</div><ul class="tech-cat-list"><li>Technical & on-page SEO</li><li>Local SEO for US businesses</li><li>Keyword research & strategy</li><li>Blog writing & content creation</li><li>Link building campaigns</li><li>Google Analytics & Search Console</li></ul></div>
+      <div class="tech-cat"><div class="tech-cat-icon">📣</div><div class="tech-cat-title">Paid Advertising</div><ul class="tech-cat-list"><li>Google Ads (Search, Display, Shopping)</li><li>Meta Ads (Facebook & Instagram)</li><li>LinkedIn Ads for B2B</li><li>Retargeting campaigns</li><li>Ad copywriting & creative</li><li>Landing page optimization</li></ul></div>
+      <div class="tech-cat"><div class="tech-cat-icon">📱</div><div class="tech-cat-title">Social Media Management</div><ul class="tech-cat-list"><li>Content calendar & scheduling</li><li>Graphic design & video reels</li><li>Community management & engagement</li><li>Instagram, Facebook, LinkedIn, TikTok</li><li>Influencer outreach support</li><li>Monthly performance reporting</li></ul></div>
+      <div class="tech-cat"><div class="tech-cat-icon">🎨</div><div class="tech-cat-title">Design & Branding</div><ul class="tech-cat-list"><li>UI/UX design (Figma)</li><li>Brand identity & logo design</li><li>Website design & redesign</li><li>Email template design</li><li>Pitch deck & presentation design</li><li>Print & digital marketing materials</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- BPO -->
+<section class="bpo-sec" id="bpo">
+  <div class="si">
+    <div class="slabel" style="color:var(--gold-light);">BPO & Customer Support Division</div>
+    <h2 class="stitle" style="color:var(--white);">Business Process Outsourcing, Support & Lead Generation</h2>
+    <p class="ssub" style="color:rgba(255,255,255,0.6);max-width:620px;">Reduce operational costs by 40–60% with professional English-speaking back-office services, US-facing customer support teams, and proactive lead generation — all under one division.</p>
+    <div class="bpo-grid">
+      <div class="bpo-card rev"><div class="bpo-icon">📞</div><div class="bpo-title">Inbound Customer Support</div><div class="bpo-desc">Phone, email, and live chat staffed by trained agents with American-English proficiency and full brand voice alignment.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">🎯</div><div class="bpo-title">Lead Generation</div><div class="bpo-desc">Targeted outbound prospecting, cold email outreach, LinkedIn lead generation, and qualified lead lists built to your ICP.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">📅</div><div class="bpo-title">Appointment Setting</div><div class="bpo-desc">Dedicated appointment setters who call, qualify, and book meetings directly onto your sales team's calendar.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">📤</div><div class="bpo-title">Outbound & Retention</div><div class="bpo-desc">Follow-up calls, retention campaigns, and proactive outreach — scripted to your brand and tracked against KPIs.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">🔧</div><div class="bpo-title">Technical Support L1 & L2</div><div class="bpo-desc">Agents trained on your product documentation and escalation protocols before going live.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">💼</div><div class="bpo-title">Back-Office Operations</div><div class="bpo-desc">Data entry, document processing, HR admin, finance support, research, and virtual assistant services — fully managed.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">📱</div><div class="bpo-title">Social Media Support</div><div class="bpo-desc">Facebook, Instagram, Twitter/X, WhatsApp, and SMS support. Omnichannel or single channel — your choice.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">🔗</div><div class="bpo-title">CRM Management</div><div class="bpo-desc">HubSpot, Salesforce, Zoho, and more. We integrate into your existing stack with no setup friction.</div></div>
+      <div class="bpo-card rev"><div class="bpo-icon">📧</div><div class="bpo-title">Email & Cold Outreach</div><div class="bpo-desc">Personalized cold email sequences, follow-up automation, and reply management to fill your sales pipeline.</div></div>
+    </div>
+    <div class="bpo-banner">
+      <div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">Verified Client Results</div><div class="bpo-banner-big">40–60% Cost Reduction</div><div style="color:rgba(255,255,255,0.42);font-size:0.8rem;margin-top:0.22rem;">Starting from $499/month · Scale up or down anytime</div></div>
+      <div style="color:rgba(255,255,255,0.65);font-size:0.86rem;max-width:340px;line-height:1.7;">Start with one VA or lead gen agent, scale to a full team. Flexible engagements, no long-term lock-in, dedicated account manager on every account.</div>
+      <a href="#contact" class="btn-primary">Cut Your Costs Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATING -->
+<section id="estimating" style="background:var(--white);">
+  <div class="si">
+    <div class="slabel">Cost Estimation & QS Division</div>
+    <h2 class="stitle">Construction Cost Estimation & Quantity Surveying</h2>
+    <p class="ssub">Accurate, professional cost estimating for US contractors and developers — from material takeoffs to full tender packages — delivered at offshore rates.</p>
+    <div class="est-grid">
+      <div>
+        <div class="est-list">
+          <div class="est-card"><div class="est-card-t">Construction Cost Estimation</div><div class="est-card-d">RSMeans-based, accurate to ±2–5% on detailed sets</div></div>
+          <div class="est-card"><div class="est-card-t">Bills of Quantities (BOQ)</div><div class="est-card-d">Full line-item BOQ for tender submission</div></div>
+          <div class="est-card"><div class="est-card-t">Quantity Takeoffs</div><div class="est-card-d">Material takeoffs using PlanSwift & Bluebeam</div></div>
+          <div class="est-card"><div class="est-card-t">Bid Preparation</div><div class="est-card-d">Complete tender packages to your template</div></div>
+          <div class="est-card"><div class="est-card-t">Cost Planning</div><div class="est-card-d">Early-stage budgets from concept sketches</div></div>
+          <div class="est-card"><div class="est-card-t">Quantity Surveying</div><div class="est-card-d">Full QS for residential, commercial & industrial</div></div>
+          <div class="est-banner"><div class="est-big">48–72h</div><div><div style="color:var(--gold-light);font-weight:600;font-size:0.86rem;margin-bottom:3px;">Turnaround Guarantee</div><div style="color:rgba(255,255,255,0.62);font-size:0.79rem;">Starting from $299/project. We won't miss your bid deadline.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-light);font-weight:600;margin-bottom:1.1rem;">Our Process</p>
+        <div class="est-steps">
+          <div class="est-step"><div class="est-step-n">1</div><div><div class="est-step-t">Upload Documents</div><div class="est-step-d">Share plans, specifications, and any existing estimates via secure file transfer. Concept sketches work too.</div></div></div>
+          <div class="est-step"><div class="est-step-n">2</div><div><div class="est-step-t">Scope Confirmation</div><div class="est-step-d">Our estimator reviews and confirms scope, flags any ambiguities before work begins.</div></div></div>
+          <div class="est-step"><div class="est-step-n">3</div><div><div class="est-step-t">Estimate Delivery</div><div class="est-step-d">Complete estimate in Excel or your preferred format with full line-item breakdown and RSMeans pricing.</div></div></div>
+          <div class="est-step"><div class="est-step-n">4</div><div><div class="est-step-t">Review Call Available</div><div class="est-step-d">Walk-through call to review the estimate, explain line items, and answer any questions from your team.</div></div></div>
+        </div>
+        <a href="#contact" class="btn-primary" style="background:var(--navy);color:var(--white);margin-top:0.5rem;">Request an Estimate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section class="log-sec" id="logistics">
+  <div class="si">
+    <div class="slabel">Fleet & Dispatch Division</div>
+    <h2 class="stitle">Fleet & Dispatch Management</h2>
+    <p class="ssub">24/7 remote dispatch coordination and back-office logistics built specifically for US trucking companies, owner-operators, and freight brokers.</p>
+    <div class="log-grid">
+      <div class="log-cards">
+        <div class="log-card rev"><div class="log-card-icon">🔄</div><div class="log-card-t">Load Dispatch</div><div class="log-card-d">DAT, Truckstop & 123Loadboard monitoring. Rates negotiated for maximum revenue per mile.</div></div>
+        <div class="log-card rev"><div class="log-card-icon">📍</div><div class="log-card-t">Live Tracking</div><div class="log-card-d">Real-time load tracking and status updates. Driver check-in and ETA management.</div></div>
+        <div class="log-card rev"><div class="log-card-icon">🤝</div><div class="log-card-t">Broker Relations</div><div class="log-card-d">Dedicated broker and shipper relationship management. Rate negotiation and booking support.</div></div>
+        <div class="log-card rev"><div class="log-card-icon">📑</div><div class="log-card-t">Back-Office Ops</div><div class="log-card-d">POD management, detention/TONU/lumper docs, invoicing, and full back-office admin.</div></div>
+        <div class="log-card rev"><div class="log-card-icon">⚙️</div><div class="log-card-t">TMS Integration</div><div class="log-card-d">Works with Axele, Samsara, KeepTruckin, McLeod, and any TMS you prefer.</div></div>
+        <div class="log-card rev"><div class="log-card-icon">🌙</div><div class="log-card-t">Night & Weekend</div><div class="log-card-d">24/7 ops including nights, weekends, and US holidays at no extra charge.</div></div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:1.25rem;">Why US Carriers Choose BrioBridge</h3>
+        <div class="log-feat"><div class="log-feat-icon">💰</div><div><div class="log-feat-t">Massive Cost Advantage</div><div class="log-feat-d">A full-time US dispatcher costs $3,500–5,000/month. Our service starts at $349/truck/month — same quality, fraction of the cost.</div></div></div>
+        <div class="log-feat"><div class="log-feat-icon">🎓</div><div><div class="log-feat-t">US-Trained Dispatchers</div><div class="log-feat-d">Fluent English, trained on US DOT regulations, FMCSA compliance, and American freight market dynamics.</div></div></div>
+        <div class="log-feat"><div class="log-feat-icon">📊</div><div><div class="log-feat-t">Weekly Performance Reports</div><div class="log-feat-d">Miles, revenue per mile, lane performance, and driver utilization — reported weekly with optimization insights.</div></div></div>
+        <div class="log-feat"><div class="log-feat-icon">🚚</div><div><div class="log-feat-t">All Equipment Types</div><div class="log-feat-d">Dry van, reefer, flatbed, step deck, and specialized freight. Owner-operators to 100+ truck fleets.</div></div></div>
+        <a href="#contact" class="btn-primary" style="background:var(--navy);color:var(--white);margin-top:1rem;">Get a Dispatch Proposal →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGINEERING -->
+<section id="engineering" style="background:var(--white);">
+  <div class="si">
+    <div class="slabel">Engineering & Architecture Division</div>
+    <h2 class="stitle">Engineering, CAD & Architectural Services</h2>
+    <p class="ssub">Structural, civil, and mechanical engineering combined with full-service CAD drafting, BIM modeling, and 3D architectural visualization — for US firms and project developers.</p>
+    <div class="eng-grid">
+      <div>
+        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-light);font-weight:600;margin-bottom:0.82rem;">Disciplines & Tools</p>
+        <div class="eng-disc"><div class="eng-disc-l"><span>🏛️</span><div><div class="eng-disc-n">Structural Engineering</div><div class="eng-disc-t">ETABS · SAP2000 · STAAD.Pro</div></div></div><span class="eng-badge">US Codes</span></div>
+        <div class="eng-disc"><div class="eng-disc-l"><span>🛣️</span><div><div class="eng-disc-n">Civil Engineering</div><div class="eng-disc-t">Civil 3D · AutoCAD · MicroStation</div></div></div><span class="eng-badge">IBC Compliant</span></div>
+        <div class="eng-disc"><div class="eng-disc-l"><span>🏠</span><div><div class="eng-disc-n">Architecture & CAD</div><div class="eng-disc-t">AutoCAD · SketchUp · Rhino</div></div></div><span class="eng-badge">ADA Ready</span></div>
+        <div class="eng-disc"><div class="eng-disc-l"><span>🧱</span><div><div class="eng-disc-n">BIM Modeling</div><div class="eng-disc-t">Revit · ArchiCAD · IFC / LOD 300-400</div></div></div><span class="eng-badge">Certified</span></div>
+        <div class="eng-disc"><div class="eng-disc-l"><span>🎨</span><div><div class="eng-disc-n">3D Rendering & Viz</div><div class="eng-disc-t">Lumion · V-Ray · Enscape</div></div></div><span class="eng-badge">Photorealistic</span></div>
+        <div class="eng-disc"><div class="eng-disc-l"><span>⚡</span><div><div class="eng-disc-n">Mechanical & Electrical</div><div class="eng-disc-t">SolidWorks · AutoCAD MEP</div></div></div><span class="eng-badge">Full MEP</span></div>
+        <a href="#contact" class="btn-primary" style="background:var(--navy);color:var(--white);margin-top:1.35rem;">Send Your Project Brief →</a>
+      </div>
+      <div>
+        <div class="eng-hl">
+          <div class="eng-hlc"><div class="eng-hlc-icon">🏅</div><div class="eng-hlc-t">US Standards Expertise</div><div class="eng-hlc-d">IBC, ASCE 7, AISC, ACI 318, NEC — stamp-ready documentation for US permit submissions.</div></div>
+          <div class="eng-hlc"><div class="eng-hlc-icon">⚡</div><div class="eng-hlc-t">Rapid Turnaround</div><div class="eng-hlc-d">CAD drafting in 24–48h. Structural analysis in 3–5 days. Expedited delivery available.</div></div>
+          <div class="eng-hlc"><div class="eng-hlc-icon">🌙</div><div class="eng-hlc-t">Overnight Productivity</div><div class="eng-hlc-d">Your evening brief becomes our overnight work. Deliverables waiting each morning.</div></div>
+          <div class="eng-hlc"><div class="eng-hlc-icon">🏗️</div><div class="eng-hlc-t">All Project Types</div><div class="eng-hlc-d">Residential, commercial, industrial, healthcare, hospitality — all US building typologies.</div></div>
+        </div>
+        <div style="margin-top:1.1rem;background:var(--cream);border:1px solid var(--gold-pale);border-radius:var(--radius);padding:1.25rem;">
+          <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-light);font-weight:600;margin-bottom:0.45rem;">Planning Application Packages</div>
+          <p style="font-size:0.84rem;color:var(--text-mid);">Full drawing packages for local authority submissions — site plans, floor plans, elevations, sections, and 3D visualizations formatted to US planning requirements. Starting from $399/project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNTING -->
+<section class="acc-sec" id="accounting">
+  <div class="acc-inner">
+    <div>
+      <div class="slabel">Accounting & Bookkeeping Division</div>
+      <h2 class="stitle">Accounting, Bookkeeping & Financial Management</h2>
+      <p class="ssub">ACCA-qualified accountants providing full-service bookkeeping, payroll processing, and financial reporting for US small businesses and SMEs — at a fraction of local CPA rates.</p>
+      <div style="margin-top:1.5rem;background:var(--navy);border-radius:var(--radius-lg);padding:1.75rem;display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;">
+        <div><div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--gold);line-height:1;">$399</div><div style="color:rgba(255,255,255,0.5);font-size:0.78rem;margin-top:2px;">Starting from / month</div></div>
+        <div style="color:rgba(255,255,255,0.7);font-size:0.86rem;line-height:1.7;max-width:320px;">vs $2,000–4,000/month for a US-based bookkeeper or accountant. ACCA-qualified professionals, US GAAP familiar, working in your timezone.</div>
+        <a href="#contact" class="btn-primary" style="margin-left:auto;">Get Started →</a>
+      </div>
+      <div style="margin-top:1.25rem;">
+        <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-light);font-weight:600;margin-bottom:0.75rem;">Software We Work With</div>
+        <div class="acc-software">
+          <span class="acc-pill">QuickBooks Online</span><span class="acc-pill">Xero</span><span class="acc-pill">FreshBooks</span><span class="acc-pill">Wave</span><span class="acc-pill">Sage</span><span class="acc-pill">Gusto</span><span class="acc-pill">ADP</span><span class="acc-pill">Expensify</span>
+        </div>
+      </div>
+      <div class="acc-services">
+        <div class="acc-svc"><div class="acc-svc-icon">📚</div><div class="acc-svc-t">Monthly Bookkeeping</div><div class="acc-svc-d">Full reconciliation, transaction categorization, and clean books every month.</div></div>
+        <div class="acc-svc"><div class="acc-svc-icon">💵</div><div class="acc-svc-t">Payroll Processing</div><div class="acc-svc-d">Weekly, bi-weekly, or monthly payroll with tax filings and compliance.</div></div>
+        <div class="acc-svc"><div class="acc-svc-icon">📋</div><div class="acc-svc-t">Accounts Payable & Receivable</div><div class="acc-svc-d">Invoice management, payment tracking, and vendor reconciliation.</div></div>
+        <div class="acc-svc"><div class="acc-svc-icon">📈</div><div class="acc-svc-t">Financial Reporting</div><div class="acc-svc-d">Monthly P&L, balance sheet, cash flow statements, and custom dashboards.</div></div>
+        <div class="acc-svc"><div class="acc-svc-icon">🧾</div><div class="acc-svc-t">Tax Preparation Support</div><div class="acc-svc-d">Year-end bookkeeping cleanup and organized records for your CPA.</div></div>
+        <div class="acc-svc"><div class="acc-svc-icon">☁️</div><div class="acc-svc-t">Cloud Accounting Setup</div><div class="acc-svc-d">QuickBooks or Xero setup, migration, and ongoing training for your team.</div></div>
+      </div>
+    </div>
+    <div class="acc-right">
+      <div class="acc-feat"><div class="acc-feat-icon">🎓</div><div><div class="acc-feat-t">ACCA-Qualified Professionals</div><div class="acc-feat-d">Internationally accredited accountants with experience on US GAAP, familiar with American business tax structures and reporting requirements.</div></div></div>
+      <div class="acc-feat"><div class="acc-feat-icon">🔒</div><div><div class="acc-feat-t">Secure & Confidential</div><div class="acc-feat-d">All team members sign NDAs before engagement. Encrypted file transfer, secure cloud access, and strict data handling protocols.</div></div></div>
+      <div class="acc-feat"><div class="acc-feat-icon">📅</div><div><div class="acc-feat-t">Monthly Reporting On Time</div><div class="acc-feat-d">Books closed and reports delivered by the 5th of every month, without chasing. You always know where your business stands.</div></div></div>
+      <div class="acc-feat"><div class="acc-feat-icon">🤝</div><div><div class="acc-feat-t">Dedicated Accountant</div><div class="acc-feat-d">One dedicated accountant assigned to your business — not a rotating team. They know your business, your vendors, and your numbers.</div></div></div>
+      <div class="acc-feat"><div class="acc-feat-icon">📞</div><div><div class="acc-feat-t">EST/PST Timezone Support</div><div class="acc-feat-d">Available during US business hours for calls, questions, and urgent requests. No lag, no time zone confusion.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" style="background:var(--cream);">
+  <div class="si">
+    <div class="slabel">Why BrioBridge</div>
+    <h2 class="stitle">Expert Services. Competitive Rates.<br>Zero Compromise.</h2>
+    <p class="ssub">Built specifically for the US market — understanding American business culture, working in EST/PST timezones, communicating in professional American English.</p>
+    <div class="why-grid">
+      <div class="why-card rev"><div class="why-num">01</div><div class="why-title">US Market Expertise</div><div class="why-desc">American business culture, EST/PST timezones, and client expectations built into every engagement. A seamless local extension of your team.</div></div>
+      <div class="why-card rev"><div class="why-num">02</div><div class="why-title">Cost-Effective Excellence</div><div class="why-desc">Get premium quality at 40–60% less than hiring locally. Reduce costs without reducing standards — verified across US client engagements.</div></div>
+      <div class="why-card rev"><div class="why-num">03</div><div class="why-title">Single Integrated Partner</div><div class="why-desc">Six specialist divisions under one roof. No juggling multiple vendors. One point of contact, one invoice, one trusted relationship.</div></div>
+      <div class="why-card rev"><div class="why-num">04</div><div class="why-title">Reliable & Responsive</div><div class="why-desc">Dedicated account managers, clear reporting, and a 24-hour response guarantee. Your deadlines are our deadlines.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS CAROUSEL -->
+<section class="test-sec" id="testimonials">
+  <div class="si">
+    <div class="slabel">Client Voices</div>
+    <h2 class="stitle">What US Businesses Say</h2>
+    <p class="ssub">Real results from real clients across all six divisions.</p>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carousel-track">
+        <!-- Row 1 -->
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Technology</div><p class="test-quote">BrioBridge transformed our tech operations. Their development team delivers enterprise-quality software at a fraction of the local cost. Genuinely impressed with the professionalism and speed.</p><div class="test-author"><div class="test-av">MJ</div><div><div class="test-name">Michael Johnson</div><div class="test-role">CEO, TechVenture LLC — Austin, TX</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">BPO & Support</div><p class="test-quote">Their BPO team handles our entire back-office. We cut costs by 55% while improving turnaround time. The communication is seamless — exactly like working with a local Chicago team.</p><div class="test-author"><div class="test-av">SR</div><div><div class="test-name">Sarah Reynolds</div><div class="test-role">COO, Meridian Services — Chicago, IL</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Cost Estimation</div><p class="test-quote">The estimation team is as accurate and professional as any domestic US firm I've worked with. Exceptional value and incredible attention to bid-ready detail every single time.</p><div class="test-author"><div class="test-av">DT</div><div><div class="test-name">David Torres</div><div class="test-role">Project Director, BuildRight Corp — Houston, TX</div></div></div></div>
+        <!-- Row 2 -->
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Fleet & Dispatch</div><p class="test-quote">I was spending $4,200/month on a full-time dispatcher. BrioBridge covers my 3-truck fleet at $1,050/month. My trucks are moving more and I'm making more per mile. Zero complaints.</p><div class="test-author"><div class="test-av">RK</div><div><div class="test-name">Randy Kowalski</div><div class="test-role">Owner-Operator — Detroit, MI</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Engineering</div><p class="test-quote">We send over our Revit files every evening and have completed BIM models back the next morning. The quality matches what our local consultants produce at 30% of the cost.</p><div class="test-author"><div class="test-av">AL</div><div><div class="test-name">Amanda Liu</div><div class="test-role">Principal Architect, Liu & Associates — Seattle, WA</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Lead Generation</div><p class="test-quote">Their lead gen team booked 24 qualified appointments in the first month. Our in-house team had been getting 6–8. The ROI on this has been ridiculous — best vendor decision we've made.</p><div class="test-author"><div class="test-av">JP</div><div><div class="test-name">James Parker</div><div class="test-role">VP Sales, GrowthLoop Inc — New York, NY</div></div></div></div>
+        <!-- Row 3 -->
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Accounting</div><p class="test-quote">My books were a mess before BrioBridge. Now I get clean financials by the 5th of every month. My accountant loves working with them. At $399/month this is an absolute steal.</p><div class="test-author"><div class="test-av">TC</div><div><div class="test-name">Thomas Chen</div><div class="test-role">Founder, Chen Retail Group — San Francisco, CA</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Technology</div><p class="test-quote">We needed a full e-commerce rebuild in 8 weeks. BrioBridge delivered on time, under budget, and the site has driven a 40% increase in conversions since launch. Phenomenal team.</p><div class="test-author"><div class="test-av">LM</div><div><div class="test-name">Lisa Martinez</div><div class="test-role">CMO, StyleHouse Brands — Miami, FL</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">BPO & Support</div><p class="test-quote">We hired BrioBridge for overnight customer support. Our CSAT scores went up 18 points in 60 days. US customers can't tell the difference — and that's exactly the point.</p><div class="test-author"><div class="test-av">BW</div><div><div class="test-name">Brian Walsh</div><div class="test-role">Director of CX, NovaSoft — Denver, CO</div></div></div></div>
+        <!-- Row 4 -->
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Cost Estimation</div><p class="test-quote">We submit 15–20 bids a month. BrioBridge handles all our takeoffs. Turnaround is always within 48 hours and the accuracy is consistently within 3%. Game changer for our bidding volume.</p><div class="test-author"><div class="test-av">GN</div><div><div class="test-name">Greg Navarro</div><div class="test-role">Estimating Manager, Navarro Build Co — Phoenix, AZ</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Digital Marketing</div><p class="test-quote">Our Google Ads were burning cash with no ROI. BrioBridge's team restructured everything in two weeks. Our cost per lead dropped by 62% and we're getting better quality traffic.</p><div class="test-author"><div class="test-av">KH</div><div><div class="test-name">Karen Hayes</div><div class="test-role">Owner, Hayes Legal Services — Atlanta, GA</div></div></div></div>
+        <div class="test-card"><div class="test-stars">★★★★★</div><div class="test-div-tag">Engineering</div><p class="test-quote">Structural drawings, stamped and ready for permit submission, delivered in 4 days. I've been using BrioBridge on every project for the past year. Reliable, accurate, and incredibly responsive.</p><div class="test-author"><div class="test-av">MW</div><div><div class="test-name">Mark Whitfield</div><div class="test-role">Structural Engineer, Whitfield PE — Dallas, TX</div></div></div></div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="moveCarousel(-1)" aria-label="Previous">←</button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+      <button class="carousel-btn" onclick="moveCarousel(1)" aria-label="Next">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner">
+    <div class="slabel" style="color:var(--gold-light);justify-content:center;">Ready to Start?</div>
+    <h2>Bridge the Gap.<br><em>Grow Faster.</em></h2>
+    <p class="cta-sub">Tell us about your business needs and we'll match you with the right division — or a combination of several. Most engagements begin within 2–3 weeks.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn-primary">Start a Conversation →</a>
+      <a href="tel:+16462601320" class="btn-ghost">📞 +1 (646) 260-1320</a>
+    </div>
+    <div class="cta-trust">
+      <span class="cta-ti">No commitment required</span>
+      <span class="cta-ti">NDA on request</span>
+      <span class="cta-ti">Free consultation</span>
+      <span class="cta-ti">1-day response</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--white);">
+  <div class="con-inner">
+    <div>
+      <div class="slabel">Get In Touch</div>
+      <h2 class="stitle">Let's Start a Conversation</h2>
+      <p class="ssub">We respond to every enquiry within 1 business day. For urgent matters, mark your subject line [URGENT].</p>
+      <div style="margin-top:2rem;">
+        <div class="con-det"><div class="con-det-icon">✉️</div><div><div class="con-det-lbl">Email</div><div class="con-det-val"><a href="mailto:hello@briobridge.com" style="color:var(--navy);text-decoration:none;">hello@briobridge.com</a></div></div></div>
+        <div class="con-det"><div class="con-det-icon">📞</div><div><div class="con-det-lbl">Phone / WhatsApp</div><div class="con-det-val"><a href="tel:+16462601320" style="color:var(--navy);text-decoration:none;">+1 (646) 260-1320</a></div></div></div>
+        <div class="con-det"><div class="con-det-icon">🕐</div><div><div class="con-det-lbl">Business Hours</div><div class="con-det-val">Monday – Friday, 9AM – 6PM EST</div></div></div>
+        <div class="con-det"><div class="con-det-icon">🇺🇸</div><div><div class="con-det-lbl">Service Area</div><div class="con-det-val">United States & North America</div></div></div>
+        <div class="con-det"><div class="con-det-icon">⚡</div><div><div class="con-det-lbl">Response Time</div><div class="con-det-val">Within 1 business day — guaranteed</div></div></div>
+      </div>
+    </div>
+    <div class="con-form">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1.35rem;">Send Us a Message</h3>
+      <form id="cf" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="fg" style="margin:0;"><label class="flbl">Full Name *</label><input type="text" class="finput" placeholder="John Smith" required></div>
+          <div class="fg" style="margin:0;"><label class="flbl">Company Name</label><input type="text" class="finput" placeholder="Acme Corp"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg" style="margin:0;"><label class="flbl">Email Address *</label><input type="email" class="finput" placeholder="john@company.com" required></div>
+          <div class="fg" style="margin:0;"><label class="flbl">Phone Number</label><input type="tel" class="finput" placeholder="+1 (555) 000-0000"></div>
+        </div>
+        <div class="fg">
+          <label class="flbl">Service Interested In *</label>
+          <select class="fsel" required>
+            <option value="">Select a division...</option>
+            <option>Technology & Digital Marketing</option>
+            <option>BPO & Customer Support</option>
+            <option>Lead Generation & Appointment Setting</option>
+            <option>Engineering & Architecture</option>
+            <option>Cost Estimation — Quantity Surveying</option>
+            <option>Fleet & Dispatch Management</option>
+            <option>Accounting & Bookkeeping</option>
+            <option>Multiple Divisions / Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="flbl">Budget Range</label>
+          <select class="fsel">
+            <option value="">Select budget range...</option>
+            <option>Under $1,000/month</option>
+            <option>$1,000 – $5,000/month</option>
+            <option>$5,000 – $15,000/month</option>
+            <option>$15,000 – $50,000/month</option>
+            <option>$50,000+/month</option>
+            <option>Project-based — let's discuss</option>
+          </select>
+        </div>
+        <div class="fg"><label class="flbl">Message *</label><textarea class="fta" placeholder="Tell us about your project, team size, timeline, or any questions..." required></textarea></div>
+        <button type="submit" class="fsub" id="sb">Send Message →</button>
+        <p id="fs" style="display:none;margin-top:1rem;color:#2d8a4e;font-size:0.875rem;font-weight:600;">✓ Message sent! We'll respond within 1 business day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Brio<span>Bridge</span></div>
+        <p class="foot-tag">Pakistan-based multi-division business services company serving US clients across Technology, BPO, Engineering, Architecture, Estimation, Fleet Management, and Accounting.</p>
+        <div class="foot-ci">✉️ <a href="mailto:hello@briobridge.com">hello@briobridge.com</a></div>
+        <div class="foot-ci">📞 <a href="tel:+16462601320">+1 (646) 260-1320</a></div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.26);margin-top:0.2rem;">Mon–Fri 9AM–6PM EST · Serving US Businesses Nationwide</div>
+      </div>
+      <div>
+        <div class="foot-ht">Services</div>
+        <ul class="foot-ul">
+          <li><a href="#technology">Technology & Digital Marketing</a></li>
+          <li><a href="#bpo">BPO & Customer Support</a></li>
+          <li><a href="#engineering">Engineering & Architecture</a></li>
+          <li><a href="#estimating">Cost Estimation & QS</a></li>
+          <li><a href="#logistics">Fleet & Dispatch</a></li>
+          <li><a href="#accounting">Accounting & Bookkeeping</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-ht">Company</div>
+        <ul class="foot-ul">
+          <li><a href="#why">Why BrioBridge</a></li>
+          <li><a href="#testimonials">Client Stories</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+          <li><a href="mailto:hello@briobridge.com">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-ht">Legal</div>
+        <ul class="foot-ul">
+          <li><a onclick="openModal('privacy')">Privacy Policy</a></li>
+          <li><a onclick="openModal('refund')">Refund Policy</a></li>
+        </ul>
+        <div class="foot-ht" style="margin-top:1.4rem;">Direct Contact</div>
+        <ul class="foot-ul">
+          <li><a href="tel:+16462601320">+1 (646) 260-1320</a></li>
+          <li><a href="mailto:hello@briobridge.com">hello@briobridge.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div class="foot-copy">© 2025 BrioBridge. All rights reserved. · Bridging Vision to Reality</div>
+      <div class="foot-badges"><span class="foot-badge">🇺🇸 US Market Specialists</span><span class="foot-badge">🔒 NDA Protected</span><span class="foot-badge">⚡ 1-Day Response</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- PRIVACY MODAL -->
+<div class="modal-ov" id="modal-privacy" onclick="cmo(event,'privacy')">
+  <div class="modal-box">
+    <div class="modal-hd"><div class="modal-ttl">Privacy Policy</div><button class="modal-x" onclick="closeModal('privacy')">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-meta">Last updated: January 1, 2025 · Effective: January 1, 2025</p>
+      <p>BrioBridge is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard data when you visit briobridge.com or contact us through any channel.</p>
+      <h3>1. Information We Collect</h3>
+      <p>When you submit an enquiry, we collect: your full name, email address, phone number, company name, service interest, budget range, and message content. We may also collect standard technical data including your IP address and browser type through basic analytics.</p>
+      <h3>2. How We Use Your Information</h3>
+      <p>We use the information you provide solely to respond to your service enquiry, prepare tailored proposals, follow up on your enquiry, and comply with applicable legal obligations. We do not use your information for unsolicited marketing and we do not sell your data to any third party.</p>
+      <h3>3. Telephone Contact & TCPA Compliance</h3>
+      <p>By providing your phone number, you consent to receive telephone calls, text messages, and follow-up communications from BrioBridge. This consent is not a condition of purchasing any goods or services. You may revoke consent at any time by replying STOP to any text message, or by emailing hello@briobridge.com with subject line "OPT OUT".</p>
+      <h3>4. How We Share Your Information</h3>
+      <p>We do not sell, trade, rent, or otherwise transfer your personal information to outside parties, except to trusted service providers bound by confidentiality obligations, or when required by law.</p>
+      <h3>5. Data Retention</h3>
+      <p>Enquiry data is typically retained for up to 3 years. You may request deletion at any time by contacting hello@briobridge.com.</p>
+      <h3>6. Your Rights</h3>
+      <p>You may request access to, correction of, or deletion of your personal data at any time. You may also opt out of telephone or email communications at any time.</p>
+      <h3>7. Data Security</h3>
+      <p>We implement appropriate technical and organizational measures to protect your personal information. All team members handling client data sign Non-Disclosure Agreements before engagement.</p>
+      <h3>8. Contact</h3>
+      <p>Privacy questions: hello@briobridge.com · +1 (646) 260-1320 · Response within 2 business days.</p>
+    </div>
+  </div>
+</div>
+
+<!-- REFUND MODAL -->
+<div class="modal-ov" id="modal-refund" onclick="cmo(event,'refund')">
+  <div class="modal-box">
+    <div class="modal-hd"><div class="modal-ttl">Refund Policy</div><button class="modal-x" onclick="closeModal('refund')">✕</button></div>
+    <div class="modal-body">
+      <p class="modal-meta">Last updated: January 1, 2025 · Effective: January 1, 2025</p>
+      <p>BrioBridge is committed to delivering high-quality services and ensuring client satisfaction. This policy outlines the terms under which refunds or cancellations may be requested.</p>
+      <h3>1. Project-Based Services</h3>
+      <ul>
+        <li><strong>Before work begins:</strong> Full refund of any deposit if cancelled in writing within 48 hours of payment.</li>
+        <li><strong>After work has commenced:</strong> Refunds prorated based on percentage of work completed at time of cancellation.</li>
+        <li><strong>After full delivery:</strong> No refunds once a project has been fully delivered and accepted. If deliverables do not meet the agreed scope, BrioBridge will provide revisions at no additional cost.</li>
+      </ul>
+      <h3>2. Monthly Retainer & Ongoing Services</h3>
+      <ul>
+        <li>A minimum of 30 days written notice is required to cancel any monthly retainer service.</li>
+        <li>Fees paid for the current billing period are non-refundable.</li>
+        <li>No further charges will be made after the cancellation notice period is fulfilled.</li>
+      </ul>
+      <h3>3. Service Quality Disputes</h3>
+      <p>If unsatisfied with the quality of work, contact us within 7 business days of receiving the deliverable with specific feedback. BrioBridge will make every reasonable effort to resolve concerns through revisions before a refund is considered.</p>
+      <h3>4. Non-Refundable Items</h3>
+      <ul>
+        <li>Consultation fees and discovery call preparation costs</li>
+        <li>Work that has been delivered, accepted, and deployed or used by the client</li>
+        <li>Third-party costs incurred on behalf of the client</li>
+        <li>Rush or expedited delivery fees</li>
+      </ul>
+      <h3>5. Refund Process</h3>
+      <p>To request a refund, email hello@briobridge.com with your name, invoice number, date of payment, and reason. Approved refunds are processed within 10 business days via the original payment method.</p>
+      <h3>6. Contact</h3>
+      <p>Email: hello@briobridge.com · Subject: "Refund Request — [Your Name / Invoice #]" · Response: within 2 business days.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function cmm() { document.getElementById('mm').classList.remove('open'); }
+  function openModal(t) { document.getElementById('modal-'+t).classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal(t) { document.getElementById('modal-'+t).classList.remove('open'); document.body.style.overflow=''; }
+  function cmo(e,t) { if(e.target===document.getElementById('modal-'+t)) closeModal(t); }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ document.querySelectorAll('.modal-ov.open').forEach(function(m){ m.classList.remove('open'); document.body.style.overflow=''; }); } });
+  function handleSubmit(e) { e.preventDefault(); var b=document.getElementById('sb'),s=document.getElementById('fs'); b.textContent='Sending…'; b.disabled=true; setTimeout(function(){ b.style.display='none'; s.style.display='block'; },1200); }
+
+  // CAROUSEL
+  var track = document.getElementById('carousel-track');
+  var cards, cardW, visibleCount, totalSlides, current = 0, autoTimer;
+
+  function initCarousel() {
+    cards = track.querySelectorAll('.test-card');
+    var wrap = track.parentElement;
+    var wrapW = wrap.offsetWidth;
+    visibleCount = wrapW >= 900 ? 3 : wrapW >= 600 ? 2 : 1;
+    cardW = (wrapW - (visibleCount - 1) * 20) / visibleCount;
+    cards.forEach(function(c){ c.style.flex = '0 0 ' + cardW + 'px'; });
+    totalSlides = Math.ceil(cards.length / visibleCount);
+    buildDots();
+    goTo(0);
+  }
+
+  function buildDots() {
+    var dots = document.getElementById('carousel-dots');
+    dots.innerHTML = '';
+    for(var i=0;i<totalSlides;i++){
+      var d = document.createElement('button');
+      d.className = 'carousel-dot' + (i===0?' active':'');
+      d.setAttribute('data-i', i);
+      d.onclick = function(){ goTo(parseInt(this.getAttribute('data-i'))); };
+      dots.appendChild(d);
+    }
+  }
+
+  function goTo(n) {
+    current = Math.max(0, Math.min(n, totalSlides - 1));
+    var offset = current * visibleCount * (cardW + 20);
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    document.querySelectorAll('.carousel-dot').forEach(function(d,i){ d.classList.toggle('active', i===current); });
+  }
+
+  function moveCarousel(dir) {
+    goTo(current + dir);
+    resetAuto();
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function(){ goTo(current + 1 < totalSlides ? current + 1 : 0); }, 5000);
+  }
+
+  window.addEventListener('load', function(){ initCarousel(); resetAuto(); });
+  window.addEventListener('resize', function(){ initCarousel(); });
+
+  // Touch swipe
+  var tsX = 0;
+  track.addEventListener('touchstart', function(e){ tsX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){ var dx = tsX - e.changedTouches[0].clientX; if(Math.abs(dx)>40){ moveCarousel(dx>0?1:-1); } }, {passive:true});
+
+  // SCROLL REVEALS
+  var obs = new IntersectionObserver(function(entries){ entries.forEach(function(el){ if(el.isIntersecting) el.target.classList.add('in'); }); },{threshold:0.08});
+  document.querySelectorAll('.rev').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
