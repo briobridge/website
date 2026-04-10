@@ -327,6 +327,93 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
 .footer-bottom a:hover{color:var(--gold)}
 .footer-tagline-r{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:.9rem}
 
+/* TESTIMONIAL CAROUSEL */
+.testi-carousel-wrap{position:relative;overflow:hidden}
+.testi-carousel-track{display:flex;gap:1.5rem;transition:transform .5s var(--ease);will-change:transform}
+.testi-carousel-track .testi-card{min-width:calc(33.333% - 1rem);flex-shrink:0}
+@media(max-width:1023px){.testi-carousel-track .testi-card{min-width:calc(50% - .75rem)}}
+@media(max-width:640px){.testi-carousel-track .testi-card{min-width:85%}}
+.testi-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:2rem}
+.testi-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:1rem;transition:all .2s}
+.testi-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.testi-dots{display:flex;gap:.5rem}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s}
+.testi-dot.active{background:var(--gold);width:24px;border-radius:4px}
+
+/* SERVICE PAGE VISUAL GALLERY */
+.p-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.75rem;cursor:pointer;transition:all .3s var(--ease);display:flex;flex-direction:column;gap:1.25rem}
+.p-card:hover{border-color:var(--pc);box-shadow:0 8px 32px var(--pcl);transform:translateY(-4px)}
+.p-card-head{display:flex;align-items:center;gap:.875rem}
+.p-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.p-name{font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.3}
+.p-from{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+.p-from span{font-weight:800;color:var(--pc);font-size:.92rem}
+.p-list{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--border);padding-top:1rem;flex:1;gap:0}
+.p-list li{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:.8rem;gap:.5rem}
+.p-list li:last-child{border-bottom:none}
+.p-list li span{color:var(--text);font-weight:400}
+.p-list li strong{color:var(--navy);font-weight:700;text-align:right;white-space:nowrap;font-size:.78rem}
+.p-cta{font-size:.82rem;font-weight:700;color:var(--pc);display:flex;align-items:center;gap:.3rem;padding-top:.75rem;border-top:1px solid var(--border);transition:gap .2s}
+.p-card:hover .p-cta{gap:.6rem}
+@media(max-width:1023px){#pricingCards{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:640px){#pricingCards{grid-template-columns:1fr!important}}
+
+/* CAROUSEL */
+.testi-carousel-wrap{position:relative;overflow:hidden;margin:0 -.5rem}
+.testi-carousel-track{display:flex;gap:1.5rem;transition:transform .5s var(--ease);will-change:transform;padding:.5rem .5rem 1rem}
+.testi-carousel-track .testi-card{min-width:calc(33.333% - 1rem);flex-shrink:0;box-sizing:border-box}
+@media(max-width:1023px){.testi-carousel-track .testi-card{min-width:calc(50% - .75rem)}}
+@media(max-width:640px){.testi-carousel-track .testi-card{min-width:calc(100% - 1rem)}}
+.testi-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem}
+.testi-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:1rem;transition:all .2s;line-height:1}
+.testi-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.testi-dots{display:flex;gap:.5rem;align-items:center}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s}
+.testi-dot.active{background:var(--gold);width:24px;border-radius:4px}
+
+.svc-visual-strip{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;gap:.75rem;margin-bottom:3rem;border-radius:14px;overflow:hidden}
+.svc-visual-strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);display:block}
+.svc-visual-strip img:hover{transform:scale(1.04)}
+.svc-visual-strip-2col{grid-template-columns:repeat(2,1fr)}
+.svc-process-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:3rem;background:var(--navy);border-radius:14px;overflow:hidden}
+.svc-process-item{padding:1.75rem 1.25rem;text-align:center;border-right:1px solid rgba(255,255,255,.08);position:relative}
+.svc-process-item:last-child{border-right:none}
+.svc-process-num{font-size:2rem;font-weight:800;color:var(--gold);opacity:.25;line-height:1;margin-bottom:.5rem}
+.svc-process-icon{font-size:1.5rem;margin-bottom:.5rem}
+.svc-process-item h4{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.svc-process-item p{font-size:.73rem;color:rgba(255,255,255,.45);line-height:1.6}
+@media(max-width:640px){.p-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.75rem;cursor:pointer;transition:all .3s var(--ease);display:flex;flex-direction:column;gap:1.25rem}
+.p-card:hover{border-color:var(--pc);box-shadow:0 8px 32px var(--pcl);transform:translateY(-4px)}
+.p-card-head{display:flex;align-items:center;gap:.875rem}
+.p-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.p-name{font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.3}
+.p-from{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+.p-from span{font-weight:800;color:var(--pc);font-size:.92rem}
+.p-list{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--border);padding-top:1rem;flex:1;gap:0}
+.p-list li{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:.8rem;gap:.5rem}
+.p-list li:last-child{border-bottom:none}
+.p-list li span{color:var(--text);font-weight:400}
+.p-list li strong{color:var(--navy);font-weight:700;text-align:right;white-space:nowrap;font-size:.78rem}
+.p-cta{font-size:.82rem;font-weight:700;color:var(--pc);display:flex;align-items:center;gap:.3rem;padding-top:.75rem;border-top:1px solid var(--border);transition:gap .2s}
+.p-card:hover .p-cta{gap:.6rem}
+@media(max-width:1023px){#pricingCards{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:640px){#pricingCards{grid-template-columns:1fr!important}}
+
+/* CAROUSEL */
+.testi-carousel-wrap{position:relative;overflow:hidden;margin:0 -.5rem}
+.testi-carousel-track{display:flex;gap:1.5rem;transition:transform .5s var(--ease);will-change:transform;padding:.5rem .5rem 1rem}
+.testi-carousel-track .testi-card{min-width:calc(33.333% - 1rem);flex-shrink:0;box-sizing:border-box}
+@media(max-width:1023px){.testi-carousel-track .testi-card{min-width:calc(50% - .75rem)}}
+@media(max-width:640px){.testi-carousel-track .testi-card{min-width:calc(100% - 1rem)}}
+.testi-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem}
+.testi-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:1rem;transition:all .2s;line-height:1}
+.testi-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.testi-dots{display:flex;gap:.5rem;align-items:center}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s}
+.testi-dot.active{background:var(--gold);width:24px;border-radius:4px}
+
+.svc-visual-strip{grid-template-columns:1fr}.svc-process-strip{grid-template-columns:repeat(2,1fr)}.svc-visual-strip img{height:120px}}
+
 @media(max-width:1023px){.nav-links,.topbar,.btn-nav,.nav-phone{display:none!important}.hamburger{display:flex!important}}
 @media(max-width:640px){.hero h1{font-size:2.5rem}.hero-btns{flex-direction:column}.btn{justify-content:center}.about-layout{gap:2rem}.f-row{grid-template-columns:1fr}}
 </style>
@@ -432,153 +519,98 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
   <!-- PRICING -->
   <section class="section section-alt" id="pricing">
     <div class="container">
-      <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
+      <div style="text-align:center;margin-bottom:3rem" class="reveal">
         <div class="eyebrow" style="justify-content:center">Transparent Pricing</div>
         <h2 class="section-title">Starting Rates Across <span class="gradient-text">All Divisions</span></h2>
         <p class="lead" style="max-width:580px;margin:.875rem auto 0">Industry-standard pricing for world-class delivery. Every engagement begins with a free consultation and a clear, fixed quote — no hidden fees, ever.</p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr;gap:1.25rem" id="pricingGrid">
-
-        <!-- Technology -->
-        <div class="pricing-card reveal" style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .3s var(--ease)" onmouseover="this.style.borderColor='rgba(201,146,42,.35)';this.style.boxShadow='0 8px 30px rgba(201,146,42,.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-          <div>
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
-              <div style="width:42px;height:42px;border-radius:10px;background:rgba(42,109,212,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">💻</div>
-              <div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.1rem">Technology & Digital Solutions</h3><p style="font-size:.75rem;color:var(--muted)">Software, Web, Mobile, Design, Marketing</p></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <span style="background:rgba(42,109,212,.07);color:#1a4f9c;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Web Dev from $1,500</span>
-              <span style="background:rgba(42,109,212,.07);color:#1a4f9c;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Mobile App from $5,000</span>
-              <span style="background:rgba(42,109,212,.07);color:#1a4f9c;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Custom Software from $8,000</span>
-              <span style="background:rgba(42,109,212,.07);color:#1a4f9c;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">SEO from $500/mo</span>
-              <span style="background:rgba(42,109,212,.07);color:#1a4f9c;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Staff Aug from $1,200/mo/dev</span>
-            </div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.25rem">Starting From</div>
-            <div style="font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-1px">$500</div>
-            <div style="font-size:.75rem;color:var(--muted)">/project or /month</div>
-            <button onclick="showDetail('technology')" style="margin-top:.875rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Get Quote →</button>
-          </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem" class="reveal" id="pricingCards">
+        <div class="p-card" onclick="showDetail('technology')" style="--pc:#2A6DD4;--pcl:rgba(42,109,212,.08)">
+          <div class="p-card-head"><div class="p-icon" style="background:rgba(42,109,212,.12)">&#128187;</div><div><div class="p-name">Technology &amp; Digital</div><div class="p-from">From <span>$500</span></div></div></div>
+          <ul class="p-list">
+            <li><span>Web Development</span><strong>from $1,500</strong></li>
+            <li><span>Mobile App (iOS/Android)</span><strong>from $5,000</strong></li>
+            <li><span>Custom Software</span><strong>from $8,000</strong></li>
+            <li><span>SEO / Performance Mktg</span><strong>from $500/mo</strong></li>
+            <li><span>UI/UX Design</span><strong>from $800</strong></li>
+            <li><span>E-Commerce Store</span><strong>from $2,500</strong></li>
+            <li><span>Staff Augmentation</span><strong>from $1,200/mo</strong></li>
+          </ul>
+          <div class="p-cta">Get a Quote &#8594;</div>
         </div>
-
-        <!-- Engineering -->
-        <div class="pricing-card reveal" style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .3s var(--ease)" onmouseover="this.style.borderColor='rgba(201,146,42,.35)';this.style.boxShadow='0 8px 30px rgba(201,146,42,.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-          <div>
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
-              <div style="width:42px;height:42px;border-radius:10px;background:rgba(230,81,0,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🏗️</div>
-              <div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.1rem">Engineering & Estimation</h3><p style="font-size:.75rem;color:var(--muted)">CAD, BIM, Structural, Cost Estimating</p></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <span style="background:rgba(230,81,0,.07);color:#b35200;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">CAD Drafting from $150/sheet</span>
-              <span style="background:rgba(230,81,0,.07);color:#b35200;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">BIM Modeling from $800/project</span>
-              <span style="background:rgba(230,81,0,.07);color:#b35200;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Cost Estimate from $300/trade</span>
-              <span style="background:rgba(230,81,0,.07);color:#b35200;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Xactimate from $250/claim</span>
-              <span style="background:rgba(230,81,0,.07);color:#b35200;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">QTO Takeoff from $200/trade</span>
-            </div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.25rem">Starting From</div>
-            <div style="font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-1px">$150</div>
-            <div style="font-size:.75rem;color:var(--muted)">/sheet or /project</div>
-            <button onclick="showDetail('construction-estimating')" style="margin-top:.875rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Get Quote →</button>
-          </div>
+        <div class="p-card" onclick="showDetail('construction-estimating')" style="--pc:#E65100;--pcl:rgba(230,81,0,.08)">
+          <div class="p-card-head"><div class="p-icon" style="background:rgba(230,81,0,.12)">&#127959;</div><div><div class="p-name">Engineering &amp; Estimation</div><div class="p-from">From <span>$150</span></div></div></div>
+          <ul class="p-list">
+            <li><span>CAD Drafting</span><strong>from $150/sheet</strong></li>
+            <li><span>BIM Modeling (Revit)</span><strong>from $800/project</strong></li>
+            <li><span>Structural Engineering</span><strong>from $500/project</strong></li>
+            <li><span>Cost Estimate (per trade)</span><strong>from $300</strong></li>
+            <li><span>MEP Estimating</span><strong>from $400/trade</strong></li>
+            <li><span>Xactimate Estimate</span><strong>from $250/claim</strong></li>
+            <li><span>QTO Takeoff</span><strong>from $200/trade</strong></li>
+          </ul>
+          <div class="p-cta">Get a Quote &#8594;</div>
         </div>
-
-        <!-- Logistics -->
-        <div class="pricing-card reveal" style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .3s var(--ease)" onmouseover="this.style.borderColor='rgba(201,146,42,.35)';this.style.boxShadow='0 8px 30px rgba(201,146,42,.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-          <div>
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
-              <div style="width:42px;height:42px;border-radius:10px;background:rgba(21,101,192,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🚛</div>
-              <div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.1rem">Logistics & Fleet Management</h3><p style="font-size:.75rem;color:var(--muted)">Dispatch, Freight, Fleet Ops</p></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <span style="background:rgba(21,101,192,.07);color:#0d4a8a;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Dispatch from $300/truck/mo</span>
-              <span style="background:rgba(21,101,192,.07);color:#0d4a8a;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Or 5–8% of gross per load</span>
-              <span style="background:rgba(21,101,192,.07);color:#0d4a8a;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Fleet Mgmt from $150/truck/mo</span>
-              <span style="background:rgba(21,101,192,.07);color:#0d4a8a;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">DOT Compliance from $200/mo</span>
-            </div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.25rem">Starting From</div>
-            <div style="font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-1px">$300</div>
-            <div style="font-size:.75rem;color:var(--muted)">/truck per month</div>
-            <button onclick="showDetail('logistics')" style="margin-top:.875rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Get Quote →</button>
-          </div>
+        <div class="p-card" onclick="showDetail('logistics')" style="--pc:#1565C0;--pcl:rgba(21,101,192,.08)">
+          <div class="p-card-head"><div class="p-icon" style="background:rgba(21,101,192,.12)">&#128666;</div><div><div class="p-name">Logistics &amp; Fleet</div><div class="p-from">From <span>$300/truck</span></div></div></div>
+          <ul class="p-list">
+            <li><span>Truck Dispatching</span><strong>from $300/truck/mo</strong></li>
+            <li><span>Per-load billing option</span><strong>5–8% of gross</strong></li>
+            <li><span>Fleet Management</span><strong>from $150/truck/mo</strong></li>
+            <li><span>DOT Compliance</span><strong>from $200/mo</strong></li>
+            <li><span>Permits &amp; Route Planning</span><strong>from $75/permit</strong></li>
+            <li><span>Freight Brokerage</span><strong>custom quote</strong></li>
+            <li><span>Logistics Consulting</span><strong>from $500/mo</strong></li>
+          </ul>
+          <div class="p-cta">Get a Quote &#8594;</div>
         </div>
-
-        <!-- BPO -->
-        <div class="pricing-card reveal" style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .3s var(--ease)" onmouseover="this.style.borderColor='rgba(201,146,42,.35)';this.style.boxShadow='0 8px 30px rgba(201,146,42,.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-          <div>
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
-              <div style="width:42px;height:42px;border-radius:10px;background:rgba(46,125,50,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">📋</div>
-              <div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.1rem">BPO / Customer Support</h3><p style="font-size:.75rem;color:var(--muted)">Inbound, Outbound, Back-Office</p></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <span style="background:rgba(46,125,50,.07);color:#1a5c1e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Dedicated Agent from $800/mo</span>
-              <span style="background:rgba(46,125,50,.07);color:#1a5c1e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Shared Agent from $350/mo</span>
-              <span style="background:rgba(46,125,50,.07);color:#1a5c1e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Lead Gen from $12/qualified lead</span>
-              <span style="background:rgba(46,125,50,.07);color:#1a5c1e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">24/7 Coverage available</span>
-            </div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.25rem">Starting From</div>
-            <div style="font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-1px">$350</div>
-            <div style="font-size:.75rem;color:var(--muted)">/agent per month</div>
-            <button onclick="showDetail('bpo')" style="margin-top:.875rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Get Quote →</button>
-          </div>
+        <div class="p-card" onclick="showDetail('bpo')" style="--pc:#2E7D32;--pcl:rgba(46,125,50,.08)">
+          <div class="p-card-head"><div class="p-icon" style="background:rgba(46,125,50,.12)">&#128203;</div><div><div class="p-name">BPO / Customer Support</div><div class="p-from">From <span>$350/agent</span></div></div></div>
+          <ul class="p-list">
+            <li><span>Shared Agent Pool</span><strong>from $350/mo</strong></li>
+            <li><span>Dedicated Full-Time Agent</span><strong>from $800/mo</strong></li>
+            <li><span>Lead Generation</span><strong>from $12/qualified lead</strong></li>
+            <li><span>Appointment Setting</span><strong>from $15/appt</strong></li>
+            <li><span>Data Entry / Back-Office</span><strong>from $400/mo</strong></li>
+            <li><span>Multilingual Support</span><strong>custom quote</strong></li>
+            <li><span>24/7 Coverage</span><strong>available</strong></li>
+          </ul>
+          <div class="p-cta">Get a Quote &#8594;</div>
         </div>
-
-        <!-- Finance -->
-        <div class="pricing-card reveal" style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .3s var(--ease)" onmouseover="this.style.borderColor='rgba(201,146,42,.35)';this.style.boxShadow='0 8px 30px rgba(201,146,42,.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-          <div>
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
-              <div style="width:42px;height:42px;border-radius:10px;background:rgba(201,146,42,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">📊</div>
-              <div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.1rem">Finance & Accounting</h3><p style="font-size:.75rem;color:var(--muted)">Bookkeeping, Payroll, Tax, CFO Advisory</p></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <span style="background:rgba(201,146,42,.1);color:#8a6010;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Bookkeeping from $400/mo</span>
-              <span style="background:rgba(201,146,42,.1);color:#8a6010;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Payroll from $150/mo</span>
-              <span style="background:rgba(201,146,42,.1);color:#8a6010;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Tax Prep from $500/year</span>
-              <span style="background:rgba(201,146,42,.1);color:#8a6010;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Fractional CFO from $1,500/mo</span>
-            </div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.25rem">Starting From</div>
-            <div style="font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-1px">$400</div>
-            <div style="font-size:.75rem;color:var(--muted)">/month</div>
-            <button onclick="showDetail('finance')" style="margin-top:.875rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Get Quote →</button>
-          </div>
+        <div class="p-card" onclick="showDetail('finance')" style="--pc:#C9922A;--pcl:rgba(201,146,42,.08)">
+          <div class="p-card-head"><div class="p-icon" style="background:rgba(201,146,42,.12)">&#128202;</div><div><div class="p-name">Finance &amp; Accounting</div><div class="p-from">From <span>$400/mo</span></div></div></div>
+          <ul class="p-list">
+            <li><span>Bookkeeping</span><strong>from $400/mo</strong></li>
+            <li><span>Accounts Payable / AR</span><strong>from $300/mo</strong></li>
+            <li><span>Payroll Administration</span><strong>from $150/mo</strong></li>
+            <li><span>Tax Preparation</span><strong>from $500/year</strong></li>
+            <li><span>Tax Compliance (ongoing)</span><strong>from $200/mo</strong></li>
+            <li><span>Fractional CFO</span><strong>from $1,500/mo</strong></li>
+            <li><span>NetSuite ERP Setup</span><strong>from $3,000</strong></li>
+          </ul>
+          <div class="p-cta">Get a Quote &#8594;</div>
         </div>
-
-        <!-- HR -->
-        <div class="pricing-card reveal" style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:start;transition:all .3s var(--ease)" onmouseover="this.style.borderColor='rgba(201,146,42,.35)';this.style.boxShadow='0 8px 30px rgba(201,146,42,.08)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-          <div>
-            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem">
-              <div style="width:42px;height:42px;border-radius:10px;background:rgba(103,58,183,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem">👥</div>
-              <div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.1rem">HR & People Operations</h3><p style="font-size:.75rem;color:var(--muted)">Recruitment, Payroll, Compliance, Training</p></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-              <span style="background:rgba(103,58,183,.07);color:#4a1a9e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">HR Outsourcing from $600/mo</span>
-              <span style="background:rgba(103,58,183,.07);color:#4a1a9e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Recruitment from $800/hire</span>
-              <span style="background:rgba(103,58,183,.07);color:#4a1a9e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">Payroll Admin from $200/mo</span>
-              <span style="background:rgba(103,58,183,.07);color:#4a1a9e;font-size:.75rem;font-weight:600;padding:.3rem .75rem;border-radius:6px">RPA/Automation from $1,200/mo</span>
-            </div>
-          </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.25rem">Starting From</div>
-            <div style="font-size:1.75rem;font-weight:800;color:var(--navy);letter-spacing:-1px">$200</div>
-            <div style="font-size:.75rem;color:var(--muted)">/month</div>
-            <button onclick="showDetail('hr')" style="margin-top:.875rem;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif">Get Quote →</button>
-          </div>
+        <div class="p-card" onclick="showDetail('hr')" style="--pc:#6b21a8;--pcl:rgba(107,33,168,.08)">
+          <div class="p-card-head"><div class="p-icon" style="background:rgba(107,33,168,.12)">&#128101;</div><div><div class="p-name">HR &amp; People Operations</div><div class="p-from">From <span>$200/mo</span></div></div></div>
+          <ul class="p-list">
+            <li><span>Payroll Administration</span><strong>from $200/mo</strong></li>
+            <li><span>HR Help Desk</span><strong>from $350/mo</strong></li>
+            <li><span>Full HR Outsourcing</span><strong>from $600/mo</strong></li>
+            <li><span>Recruitment (per hire)</span><strong>from $800/hire</strong></li>
+            <li><span>Benefits Administration</span><strong>from $250/mo</strong></li>
+            <li><span>Training &amp; Development</span><strong>from $500/program</strong></li>
+            <li><span>RPA / AI Integration</span><strong>from $1,200/mo</strong></li>
+          </ul>
+          <div class="p-cta">Get a Quote &#8594;</div>
         </div>
-
       </div>
-      <div class="reveal" style="text-align:center;margin-top:2.5rem;padding:1.5rem;background:var(--navy);border-radius:12px">
-        <p style="font-size:.875rem;color:rgba(255,255,255,.65);line-height:1.7">All prices shown are starting rates. Final quotes are based on scope, volume, and engagement model. <strong style="color:#fff">Every engagement includes a free consultation and fixed-price proposal.</strong> No hourly surprises.</p>
+      <div class="reveal" style="text-align:center;margin-top:2rem;padding:1.25rem 2rem;background:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap">
+        <p style="font-size:.875rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0">All prices shown are starting rates. Final quotes depend on scope, volume &amp; engagement model. <strong style="color:#fff">Every engagement includes a free consultation.</strong></p>
+        <button class="btn btn-gold" onclick="nav('contact')" style="flex-shrink:0;white-space:nowrap">Get Custom Quote &#8594;</button>
       </div>
     </div>
   </section>
+
   <!-- WHY -->
   <section class="section section-dark">
     <div class="container">
@@ -638,17 +670,21 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS CAROUSEL -->
   <section class="section">
     <div class="container">
       <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
         <div class="eyebrow" style="justify-content:center">Client Stories</div>
         <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
+        <p class="lead" style="max-width:540px;margin:.875rem auto 0">20 real stories from clients across every division — technology, engineering, logistics, BPO, finance, and HR.</p>
       </div>
-      <div class="testi-grid">
-        <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-q">"Brio Bridge transformed our entire digital presence. Their team delivered a custom platform that increased our conversion rate by 340%. They're not just vendors — they're partners."</p><div class="testi-foot"><div class="name">James Crawford</div><div class="co">CEO, Pinnacle Ventures</div></div></div>
-        <div class="testi-card reveal" style="transition-delay:.1s"><div class="testi-stars">★★★★★</div><p class="testi-q">"We needed reliable construction estimates at scale, and Brio Bridge delivered consistently. Their accuracy and turnaround time are unmatched in the industry."</p><div class="testi-foot"><div class="name">Maria Santos</div><div class="co">VP Operations, Atlas Builders</div></div></div>
-        <div class="testi-card reveal" style="transition-delay:.2s"><div class="testi-stars">★★★★★</div><p class="testi-q">"Their BPO team ramped up 40 agents in under two weeks and maintained a 97% CSAT score from month one. Incredible execution."</p><div class="testi-foot"><div class="name">Robert Kim</div><div class="co">COO, Clearpoint Solutions</div></div></div>
+      <div class="testi-carousel-wrap reveal" id="testiCarouselWrap">
+        <div class="testi-carousel-track" id="testiTrack"></div>
+      </div>
+      <div class="testi-nav">
+        <button class="testi-btn" onclick="testiPrev()">&#8592;</button>
+        <div class="testi-dots" id="testiDots"></div>
+        <button class="testi-btn" onclick="testiNext()">&#8594;</button>
       </div>
     </div>
   </section>
@@ -814,7 +850,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
           <div class="eyebrow">Contact Details</div>
           <h2 class="section-title" style="font-size:1.75rem;margin-bottom:2rem">We're Here to Help</h2>
           <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+16462601320">+1 (646) 260-1320</a></div></div></div>
-          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:hello@briobridge.com">hello@briobridge.com</a></div></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">Email</div><div class="ci-val">hello@briobridge.com</div></div></div>
           <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="ci-label">Response Time</div><div class="ci-val">Within 1 business day</div></div></div>
           <div style="margin-top:1.5rem">
             <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:1rem">Our Offices</p>
@@ -867,11 +903,11 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
       <p>Brio Bridge ("we," "us," or "our") is committed to protecting the privacy of our clients, partners, and website visitors.</p>
       <h4>1. Information We Collect</h4><p>We may collect personal information including: name, email address, phone number, company name, job title, and project details submitted through our contact forms. We also collect technical data such as IP addresses, browser type, and usage analytics.</p>
       <h4>2. How We Use Your Information</h4><p>We use collected information to respond to inquiries; deliver and improve our services; communicate about projects and offerings; comply with legal obligations; and protect our rights and property.</p>
-      <h4>3. Telephone Contact &amp; TCPA Compliance</h4><p>By providing your phone number and checking the consent box on our contact form, you expressly consent to receive telephone calls, text messages (SMS), and follow-up communications from Brio Bridge at the phone number provided. This consent is not a condition of purchasing any goods or services. You may opt out at any time by replying STOP to any text message or emailing <a href="mailto:hello@briobridge.com">hello@briobridge.com</a>.</p>
+      <h4>3. Telephone Contact &amp; TCPA Compliance</h4><p>By providing your phone number and checking the consent box on our contact form, you expressly consent to receive telephone calls, text messages (SMS), and follow-up communications from Brio Bridge at the phone number provided. This consent is not a condition of purchasing any goods or services. You may opt out at any time by replying STOP to any text message or emailing hello@briobridge.com.</p>
       <h4>4. Information Sharing</h4><p>We do not sell or rent your personal information to third parties. We may share information with trusted service providers who assist in operating our website and conducting our business, subject to confidentiality agreements.</p>
       <h4>5. Data Security</h4><p>We implement industry-standard security measures to protect your personal information.</p>
-      <h4>6. Your Rights</h4><p>You may request access to, correction of, or deletion of your personal information by contacting us at <a href="mailto:hello@briobridge.com">hello@briobridge.com</a>. We will respond within 30 business days.</p>
-      <h4>7. Contact Us</h4><p>Questions about this Privacy Policy? Contact us at <a href="mailto:hello@briobridge.com">hello@briobridge.com</a> or +1 (646) 260-1320.</p>
+      <h4>6. Your Rights</h4><p>You may request access to, correction of, or deletion of your personal information by contacting us at hello@briobridge.com. We will respond within 30 business days.</p>
+      <h4>7. Contact Us</h4><p>Questions about this Privacy Policy? Contact us at hello@briobridge.com or +1 (646) 260-1320.</p>
     </div>
   </div>
 </div>
@@ -946,7 +982,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="tel:+16462601320">+1 (646) 260-1320</a>
-        <a href="mailto:hello@briobridge.com">hello@briobridge.com</a>
+        hello@briobridge.com
         <a style="cursor:default">📍 Lahore, Pakistan (HQ)</a>
         <a style="cursor:default">📍 New York, USA</a>
         <a style="cursor:default">📍 Riyadh, Saudi Arabia</a>
@@ -964,8 +1000,6 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
   </div>
 </footer>
 </template>
-
-
 <script>
 // ═══════════════════ DATA ═══════════════════
 const SVCS = [
@@ -976,38 +1010,52 @@ const SVCS = [
     img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80',
     stats:'30+ Specializations | 200+ Projects Delivered',
     formHead:"Let's Build Something Great Together", formBtn:'Start My Project',
+    photos:[
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80',
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80',
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80',
+      'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80',
+      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+      'https://images.unsplash.com/photo-1607706189992-eae578626c86?w=600&q=80'
+    ],
+    process:[
+      {icon:'🔍',title:'Discovery & Scoping',desc:'We deep-dive into your requirements, tech stack, and business goals.'},
+      {icon:'📐',title:'Architecture & Design',desc:'Wireframes, system architecture, and tech stack finalized.'},
+      {icon:'⚙️',title:'Agile Development',desc:'Sprint-based delivery with daily updates and weekly demos.'},
+      {icon:'🚀',title:'Launch & Support',desc:'Deployment, QA, documentation, and ongoing maintenance.'}
+    ],
     groups:[
       {g:'Software & Development',items:[
-        {n:'Custom Software Development',d:'Purpose-built applications designed to solve your unique business challenges, from internal tools to customer-facing platforms. Scalable, maintainable solutions using modern tech stacks.'},
-        {n:'Web Development',d:'High-performance websites and web applications built with cutting-edge frameworks. From marketing sites to complex SaaS platforms — pixel-perfect, responsive experiences.'},
-        {n:'Mobile App Development',d:'Native iOS and Android applications that deliver exceptional user experiences. We handle concept, design, deployment, and ongoing support.'},
-        {n:'Cross-Platform App Development',d:'Build once, deploy everywhere with React Native and Flutter. Cost-effective mobile solutions with native performance across platforms.'},
-        {n:'API Development & Integration',d:'Robust RESTful and GraphQL APIs that connect your systems seamlessly. We design, build, and document APIs that scale with your business.'},
-        {n:'Cloud Application Development',d:'Cloud-native applications on AWS, Azure, or GCP. Serverless architectures, containers, and microservices for maximum scalability.'},
-        {n:'SaaS Product Development',d:'Full-cycle SaaS product engineering from MVP to scale. Multi-tenant architecture, subscription management, and analytics built in from day one.'},
-        {n:'E-Commerce Development',d:'Custom e-commerce on Shopify, WooCommerce, or fully custom platforms. Optimized for conversion, speed, and seamless checkout experiences.'},
+        {n:'Custom Software Development',d:'Purpose-built applications from internal tools to customer-facing platforms. Scalable, maintainable solutions using modern tech stacks.'},
+        {n:'Web Development',d:'High-performance websites and web applications. From marketing sites to complex SaaS platforms — pixel-perfect, responsive experiences.'},
+        {n:'Mobile App Development',d:'Native iOS and Android applications. We handle concept, design, deployment, and ongoing support.'},
+        {n:'Cross-Platform App Development',d:'Build once, deploy everywhere with React Native and Flutter. Cost-effective mobile solutions with native performance.'},
+        {n:'API Development & Integration',d:'Robust RESTful and GraphQL APIs. We design, build, and document APIs that scale with your business.'},
+        {n:'Cloud Application Development',d:'Cloud-native applications on AWS, Azure, or GCP. Serverless architectures, containers, and microservices.'},
+        {n:'SaaS Product Development',d:'Full-cycle SaaS from MVP to scale. Multi-tenant architecture, subscription management, and analytics built in.'},
+        {n:'E-Commerce Development',d:'Custom e-commerce on Shopify, WooCommerce, or custom platforms. Optimized for conversion, speed, and checkout.'},
       ]},
       {g:'Design & Product',items:[
-        {n:'UI/UX Design',d:'Research-driven design that puts users first. Intuitive interfaces backed by data, user testing, and industry best practices.'},
-        {n:'Product Architecture & Strategy',d:'Strategic product planning that aligns technology decisions with business goals. Roadmapping, feasibility analysis, and technical architecture.'},
-        {n:'Prototyping & Wireframing',d:'Rapid prototyping to validate ideas before development. Interactive wireframes and clickable prototypes that bring concepts to life.'},
-        {n:'Brand Identity Design',d:'Comprehensive brand systems including logos, color palettes, typography, and brand guidelines that make lasting impressions.'},
-        {n:'Graphic Design',d:'Visual content that captivates — from marketing collateral to presentation decks, infographics, and social media assets.'},
-        {n:'Motion Graphics & Video',d:'Engaging motion design and video production for product demos, explainers, social content, and brand storytelling.'},
+        {n:'UI/UX Design',d:'Research-driven design that puts users first. Intuitive interfaces backed by data and user testing.'},
+        {n:'Product Architecture & Strategy',d:'Strategic product planning aligned with business goals. Roadmapping, feasibility, and technical architecture.'},
+        {n:'Prototyping & Wireframing',d:'Rapid prototyping to validate ideas before development. Interactive wireframes and clickable prototypes.'},
+        {n:'Brand Identity Design',d:'Comprehensive brand systems including logos, color palettes, typography, and brand guidelines.'},
+        {n:'Graphic Design',d:'Visual content that captivates — marketing collateral, presentation decks, infographics, and social media assets.'},
+        {n:'Motion Graphics & Video',d:'Engaging motion design and video production for demos, explainers, and brand storytelling.'},
       ]},
       {g:'Digital Marketing',items:[
-        {n:'Performance Marketing',d:'Data-driven Google Ads, Meta Ads, and PPC campaigns engineered for maximum ROI. Continuous optimization based on real-time performance data.'},
-        {n:'Social Media Marketing',d:'Strategic social media management across all major platforms. Content creation, community management, and paid social campaigns.'},
-        {n:'Search Engine Optimization',d:'Comprehensive SEO strategies that drive organic growth. Technical SEO, content optimization, link building, and local SEO.'},
-        {n:'Content Marketing & Strategy',d:'Content that converts — blog posts, whitepapers, case studies, and thought leadership pieces aligned with your business objectives.'},
-        {n:'Email Marketing Automation',d:'Automated email workflows that nurture leads and drive conversions. Campaign design, segmentation, A/B testing, and analytics.'},
-        {n:'Analytics & Reporting',d:'Custom dashboards and reporting that turn data into actionable insights. Google Analytics, conversion tracking, and attribution modeling.'},
+        {n:'Performance Marketing',d:'Data-driven Google Ads, Meta Ads, and PPC campaigns engineered for maximum ROI.'},
+        {n:'Social Media Marketing',d:'Strategic social media management. Content creation, community management, and paid social campaigns.'},
+        {n:'Search Engine Optimization',d:'Comprehensive SEO strategies. Technical SEO, content optimization, link building, and local SEO.'},
+        {n:'Content Marketing & Strategy',d:'Content that converts — blog posts, whitepapers, case studies, and thought leadership pieces.'},
+        {n:'Email Marketing Automation',d:'Automated email workflows that nurture leads. Campaign design, segmentation, A/B testing, and analytics.'},
+        {n:'Analytics & Reporting',d:'Custom dashboards and reporting. Google Analytics, conversion tracking, and attribution modeling.'},
       ]},
       {g:'Talent & Staffing',items:[
-        {n:'Staff Augmentation',d:'Vetted developers, designers, and project managers who integrate seamlessly with your existing team. Flexible engagement models.'},
-        {n:'Dedicated Development Teams',d:'Full cross-functional teams dedicated exclusively to your project. Managed delivery with transparent processes and regular reporting.'},
-        {n:'IT Project Management',d:'Experienced project managers who keep your initiatives on track, on budget, and aligned with business objectives.'},
-        {n:'Quality Assurance & Testing',d:'Comprehensive QA services including manual testing, automation, performance testing, and security audits.'},
+        {n:'Staff Augmentation',d:'Vetted developers, designers, and project managers who integrate with your existing team.'},
+        {n:'Dedicated Development Teams',d:'Full cross-functional teams dedicated to your project. Managed delivery with transparent reporting.'},
+        {n:'IT Project Management',d:'Experienced PMs who keep your initiatives on track, on budget, and aligned with business objectives.'},
+        {n:'Quality Assurance & Testing',d:'Comprehensive QA including manual testing, automation, performance testing, and security audits.'},
       ]},
     ],
     fields:[
@@ -1026,46 +1074,60 @@ const SVCS = [
     img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80',
     stats:'40+ Specializations | 300+ Projects Delivered',
     formHead:'Get Your Free Estimate or Engineering Quote', formBtn:'Request My Estimate',
+    photos:[
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80',
+      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80',
+      'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80',
+      'https://images.unsplash.com/photo-1590907047706-ee9c08cf3189?w=600&q=80',
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80',
+      'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80'
+    ],
+    process:[
+      {icon:'📋',title:'Upload Plans',desc:'Share drawings, specs, and project requirements securely.'},
+      {icon:'🔎',title:'Scope Review',desc:'Our estimator reviews and flags ambiguities before work begins.'},
+      {icon:'📊',title:'Estimate Delivery',desc:'Complete estimate in Excel with full line-item breakdown in 24–72 hours.'},
+      {icon:'📞',title:'Review & Support',desc:'Walk-through call available to explain the estimate in detail.'}
+    ],
     groups:[
       {g:'Engineering & Architecture',items:[
-        {n:'Structural Engineering',d:'Comprehensive structural analysis and design for buildings, bridges, and infrastructure. Load calculations, foundation design, and structural detailing.'},
+        {n:'Structural Engineering',d:'Structural analysis and design for buildings, bridges, and infrastructure. Load calculations, foundation design, and detailing.'},
         {n:'Civil Engineering',d:'Site development, grading plans, stormwater management, utility design, and municipal infrastructure engineering.'},
-        {n:'Mechanical Engineering',d:'HVAC system design, plumbing engineering, fire protection systems, and energy modeling for commercial and residential projects.'},
-        {n:'Electrical Engineering',d:'Power distribution design, lighting layouts, fire alarm systems, low-voltage design, and electrical load calculations.'},
+        {n:'Mechanical Engineering',d:'HVAC system design, plumbing engineering, fire protection systems, and energy modeling.'},
+        {n:'Electrical Engineering',d:'Power distribution design, lighting layouts, fire alarm systems, and low-voltage design.'},
         {n:'CAD Drafting Services',d:'Professional 2D drafting in AutoCAD — floor plans, sections, elevations, and construction detail drawings.'},
         {n:'BIM Modeling (LOD 300–400)',d:'High-detail Building Information Modeling using Revit. Clash detection, coordination, and 4D/5D BIM integration.'},
-        {n:'3D Rendering & Visualization',d:'Photorealistic architectural renders using Lumion, V-Ray, and Enscape for interior and exterior client presentations.'},
-        {n:'Planning Applications',d:'Complete planning application packages including site plans, design & access statements, and regulatory compliance documentation.'},
+        {n:'3D Rendering & Visualization',d:'Photorealistic architectural renders using Lumion, V-Ray, and Enscape for client presentations.'},
+        {n:'Planning Applications',d:'Complete planning packages including site plans, design & access statements, and regulatory compliance documentation.'},
         {n:'Interior Design',d:'Space planning, material selection, furniture layouts, and finish schedules for commercial and residential interiors.'},
-        {n:'As-Built Drawings',d:'Accurate as-built documentation from site surveys and point cloud data. Updated construction records for facility management.'},
+        {n:'As-Built Drawings',d:'Accurate as-built documentation from site surveys and point cloud data for facility management.'},
       ]},
       {g:'Estimating by Project Type',items:[
         {n:'Commercial Estimating',d:'Detailed cost estimates for office buildings, retail spaces, hospitality venues, and large-scale commercial projects.'},
-        {n:'Residential Estimating',d:'Comprehensive residential estimates for single-family homes, multi-family units, townhouses, and luxury residences.'},
+        {n:'Residential Estimating',d:'Comprehensive residential estimates for single-family homes, multi-family units, and luxury residences.'},
         {n:'Industrial Estimating',d:'Specialized estimates for manufacturing plants, warehouses, distribution centers, and industrial facilities.'},
         {n:'Renovation Estimating',d:'Accurate budgeting for remodels, tenant improvements, historic renovations, and adaptive reuse projects.'},
         {n:'New Construction Estimating',d:'Ground-up estimating with complete trade breakdowns, material quantification, and labor analysis.'},
       ]},
       {g:'Estimating by Discipline',items:[
         {n:'MEP Estimating',d:'Combined Mechanical, Electrical, and Plumbing estimates with coordinated trade breakdowns and system-level pricing.'},
-        {n:'Electrical Estimating',d:'Complete electrical takeoffs including power distribution, lighting, fire alarm, low voltage, and specialty systems.'},
-        {n:'Plumbing Estimating',d:'Detailed plumbing estimates covering domestic water, sanitary, storm drainage, gas piping, and specialty systems.'},
-        {n:'Concrete Estimating',d:'Foundation, structural, and flatwork concrete estimates with rebar, formwork, and finishing included.'},
-        {n:'Structural Steel Estimating',d:'Complete structural steel takeoffs including beams, columns, connections, miscellaneous metals, and erection costs.'},
+        {n:'Electrical Estimating',d:'Complete electrical takeoffs including power distribution, lighting, fire alarm, and specialty systems.'},
+        {n:'Plumbing Estimating',d:'Detailed plumbing estimates covering domestic water, sanitary, storm drainage, and gas piping.'},
+        {n:'Concrete Estimating',d:'Foundation, structural, and flatwork concrete estimates with rebar, formwork, and finishing.'},
+        {n:'Structural Steel Estimating',d:'Complete structural steel takeoffs including beams, columns, connections, and erection costs.'},
         {n:'HVAC Estimating',d:'Heating, ventilation, and air conditioning estimates covering equipment, ductwork, piping, and controls.'},
-        {n:'Drywall & Framing Estimating',d:'Metal stud framing, drywall, insulation, and acoustical ceiling estimates with labor and material breakdowns.'},
+        {n:'Drywall & Framing Estimating',d:'Metal stud framing, drywall, insulation, and acoustical ceiling estimates.'},
         {n:'Roofing Estimating',d:'All roofing system estimates — TPO, EPDM, metal, shingle, tile, and green roof systems.'},
-        {n:'Sitework & Earthwork Estimating',d:'Excavation, grading, utility trenching, paving, and site preparation estimates with equipment and hauling costs.'},
-        {n:'Flooring Estimating',d:'Complete flooring takeoffs for carpet, tile, hardwood, VCT, polished concrete, and specialty flooring.'},
+        {n:'Sitework & Earthwork Estimating',d:'Excavation, grading, utility trenching, paving, and site preparation estimates.'},
+        {n:'Flooring Estimating',d:'Flooring takeoffs for carpet, tile, hardwood, VCT, polished concrete, and specialty flooring.'},
         {n:'Painting & Finishes Estimating',d:'Interior and exterior painting, wall coverings, special coatings, and finish schedule estimates.'},
       ]},
       {g:'Takeoff & Specialized Services',items:[
-        {n:'Quantity Takeoff (QTO)',d:'Precise material quantity extraction from blueprints using industry-standard takeoff software.'},
-        {n:'Material Takeoff',d:'Detailed material lists with specifications, quantities, and current market pricing for procurement planning.'},
-        {n:'Xactimate Estimating',d:'Insurance restoration estimates using Xactimate — water damage, fire, wind, and mold remediation claims.'},
+        {n:'Quantity Takeoff (QTO)',d:'Precise material quantity extraction from blueprints using Planswift, Bluebeam, and On-Screen Takeoff.'},
+        {n:'Material Takeoff',d:'Detailed material lists with specifications, quantities, and current market pricing.'},
+        {n:'Xactimate Estimating',d:'Insurance restoration estimates using Xactimate — water, fire, wind, and mold remediation.'},
         {n:'Quantity Surveying',d:'Professional QS services including cost planning, bill of quantities, and project cost management.'},
-        {n:'Budget Estimating & Feasibility',d:'Early-stage budget estimates and feasibility analysis to help owners and developers make informed go/no-go decisions.'},
-        {n:'Bid Management Support',d:'End-to-end bid preparation including estimate compilation, proposal formatting, and submission coordination.'},
+        {n:'Budget Estimating & Feasibility',d:'Early-stage budget estimates and feasibility analysis for go/no-go decisions.'},
+        {n:'Bid Management Support',d:'End-to-end bid preparation including estimate compilation, proposal formatting, and submission.'},
       ]},
     ],
     fields:[
@@ -1085,12 +1147,26 @@ const SVCS = [
     img:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80',
     stats:'40+ Transport Categories | 150+ Routes Managed',
     formHead:'Get a Shipping Quote in Minutes', formBtn:'Get My Quote',
+    photos:[
+      'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
+      'https://images.unsplash.com/photo-1519003300449-424ad0405076?w=600&q=80',
+      'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80',
+      'https://images.unsplash.com/photo-1612810806563-4cb8265c7b6e?w=600&q=80',
+      'https://images.unsplash.com/photo-1565891741441-64926e3838b8?w=600&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
+    ],
+    process:[
+      {icon:'📋',title:'Onboarding Call',desc:'We learn your fleet, lanes, preferred brokers, and rate expectations.'},
+      {icon:'🗺️',title:'Dispatcher Assigned',desc:'A dedicated dispatcher familiar with your operations is assigned.'},
+      {icon:'📡',title:'Live Operations',desc:'We find loads, negotiate rates, book freight, and track in real time.'},
+      {icon:'📈',title:'Weekly Reporting',desc:'Performance reports covering revenue per mile, utilization, and lanes.'}
+    ],
     groups:[
       {g:'Vehicle & Specialty Transport',items:[
         {n:'Auto Transport',d:'Reliable open and enclosed auto transport. Door-to-door service with real-time tracking and full insurance coverage.'},
-        {n:'Boat & Watercraft Shipping',d:'Specialized boat transport on hydraulic trailers and custom cradles. Sailboats, yachts, jet skis, and personal watercraft.'},
-        {n:'Heavy Equipment Transport',d:'Permitted heavy haul for construction equipment, industrial machinery, and oversized loads up to 200,000+ lbs.'},
-        {n:'RV & Travel Trailer Shipping',d:'Professional RV, 5th wheel, camper, and travel trailer transport with experienced drivers and proper equipment.'},
+        {n:'Boat & Watercraft Shipping',d:'Specialized boat transport on hydraulic trailers and custom cradles. Sailboats, yachts, and jet skis.'},
+        {n:'Heavy Equipment Transport',d:'Permitted heavy haul for construction equipment and industrial machinery up to 200,000+ lbs.'},
+        {n:'RV & Travel Trailer Shipping',d:'Professional RV, 5th wheel, camper, and travel trailer transport with experienced drivers.'},
         {n:'Motorcycle Shipping',d:'Enclosed and open motorcycle transport with soft-tie securing. Cruisers, sport bikes, and custom builds.'},
         {n:'Electric Vehicle Logistics',d:'Specialized EV transport with proper handling protocols for battery-electric and hybrid vehicles.'},
         {n:'Driveaway Services',d:'Professional drivers to move your vehicles point-to-point. Ideal for fleet relocations and dealer transfers.'},
@@ -1104,7 +1180,7 @@ const SVCS = [
       ]},
       {g:'Trucking & Ground Freight',items:[
         {n:'Flatbed Trucking',d:'Open-deck flatbed transport for construction materials, steel, lumber, and machinery.'},
-        {n:'Oversized & Overweight Hauling',d:'Permitted oversize transport with route surveys, pilot cars, and all necessary permits and escorts.'},
+        {n:'Oversized & Overweight Hauling',d:'Permitted oversize transport with route surveys, pilot cars, and all necessary permits.'},
         {n:'Drayage Services',d:'Port and rail drayage for efficient container pickup and delivery at major terminals.'},
         {n:'Intermodal Transport',d:'Combined rail and truck shipping for long-haul cost savings. Seamless intermodal coordination.'},
         {n:'Agricultural Equipment Shipping',d:'Farm equipment transport including tractors, combines, implements, and irrigation systems.'},
@@ -1114,7 +1190,7 @@ const SVCS = [
         {n:'Truck Dispatching Services',d:'24/7 dispatch for owner-operators and small fleets. Load booking, route planning, and paperwork management.'},
         {n:'Fleet Management Support',d:'Comprehensive fleet operations support including compliance, maintenance scheduling, and driver management.'},
         {n:'Permits & Route Planning',d:'Oversize/overweight permit acquisition, route surveys, and compliance planning for complex shipments.'},
-        {n:'DOT Compliance & Safety',d:'FMCSA/DOT compliance management, ELD monitoring, HOS tracking, driver qualification files, and audit preparation.'},
+        {n:'DOT Compliance & Safety',d:'FMCSA/DOT compliance management, ELD monitoring, HOS tracking, and audit preparation.'},
         {n:'Fleet Tracking & Telematics',d:'GPS tracking, real-time fleet visibility, geofencing, fuel management, and driver behavior monitoring.'},
         {n:'Logistics Consulting',d:'Strategic logistics consulting to optimize your supply chain, reduce costs, and improve delivery performance.'},
       ]},
@@ -1136,26 +1212,40 @@ const SVCS = [
     img:'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80',
     stats:'20+ Service Lines | 100+ Agents Deployed',
     formHead:'Scale Your Support Operations Today', formBtn:'Book a Free Consultation',
+    photos:[
+      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80',
+      'https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=600&q=80',
+      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80',
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80',
+      'https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=600&q=80',
+      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80'
+    ],
+    process:[
+      {icon:'🔍',title:'Needs Assessment',desc:'We map your processes, identify what to outsource, and calculate savings.'},
+      {icon:'📋',title:'Team & SOP Setup',desc:'We build your dedicated team and document all standard operating procedures.'},
+      {icon:'🔄',title:'Supervised Transition',desc:'Smooth handover with zero disruption to your existing operations.'},
+      {icon:'📊',title:'Ongoing Operations',desc:'Regular reporting, quality audits, and a dedicated manager always on deck.'}
+    ],
     groups:[
       {g:'Inbound Call Center',items:[
-        {n:'Tier 1 Technical Support',d:'First-line technical support for software, hardware, and SaaS products. Trained agents with product-specific knowledge bases.'},
-        {n:'Customer Care & Service',d:'Professional customer service representatives handling inquiries, complaints, returns, and account management with empathy.'},
+        {n:'Tier 1 Technical Support',d:'First-line technical support for software, hardware, and SaaS products with product-specific knowledge bases.'},
+        {n:'Customer Care & Service',d:'Professional representatives handling inquiries, complaints, returns, and account management with empathy.'},
         {n:'Help Desk Support',d:'IT and general help desk services with ticketing, escalation management, and knowledge base maintenance.'},
         {n:'Inbound Order Taking',d:'Order processing and management for e-commerce, catalog, and direct response businesses.'},
-        {n:'Live Chat Support',d:'Real-time website and app chat support with trained agents. Quick resolution times and high customer satisfaction.'},
+        {n:'Live Chat Support',d:'Real-time website and app chat support with trained agents and high customer satisfaction.'},
         {n:'Appointment Setting',d:'Professional appointment scheduling for medical practices, service businesses, and B2B sales teams.'},
       ]},
       {g:'Outbound & Sales',items:[
         {n:'Telesales & Telemarketing',d:'Professional outbound sales campaigns with trained agents, scripted calls, and performance-based metrics.'},
         {n:'Lead Generation',d:'Multi-channel lead generation campaigns including cold calling, email outreach, and social selling.'},
-        {n:'Lead Qualification & Nurturing',d:'BANT and custom qualification frameworks to identify sales-ready leads. Automated nurture sequences.'},
+        {n:'Lead Qualification & Nurturing',d:'BANT and custom qualification frameworks to identify sales-ready leads and nurture long-cycle prospects.'},
         {n:'Upselling & Cross-Selling',d:'Revenue optimization through strategic upsell and cross-sell campaigns during service interactions.'},
       ]},
       {g:'Back-Office Operations',items:[
         {n:'Data Entry & Management',d:'Accurate, high-volume data entry and database management. CRM updates, form processing, and data migration.'},
         {n:'Document Processing',d:'Invoice processing, claims handling, application reviews, and document digitization with quality controls.'},
-        {n:'Back-Office Support',d:'Administrative back-office functions including order processing, billing support, and operational tasks.'},
-        {n:'Email & Ticket Management',d:'Professional email and support ticket handling with SLA-driven response times and quality monitoring.'},
+        {n:'Back-Office Support',d:'Administrative functions including order processing, billing support, and operational tasks.'},
+        {n:'Email & Ticket Management',d:'Professional email and support ticket handling with SLA-driven response times.'},
       ]},
       {g:'Specialized Services',items:[
         {n:'Market Research & Surveys',d:'Telephone and digital surveys, competitive analysis, and customer feedback collection with detailed reporting.'},
@@ -1181,12 +1271,26 @@ const SVCS = [
     img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80',
     stats:'25+ Service Lines | 100+ Clients Managed',
     formHead:"Let's Get Your Financials in Order", formBtn:'Request a Finance Consultation',
+    photos:[
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
+      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
+      'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80',
+      'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&q=80',
+      'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=600&q=80',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80'
+    ],
+    process:[
+      {icon:'📋',title:'Financial Review',desc:'We assess your current books, software, and accounting processes.'},
+      {icon:'⚙️',title:'Setup & Migration',desc:'Clean-up, chart of accounts setup, and software configuration.'},
+      {icon:'📊',title:'Monthly Operations',desc:'Ongoing bookkeeping, reporting, and financial management.'},
+      {icon:'💡',title:'Advisory & Insights',desc:'Monthly calls, dashboards, and strategic financial guidance.'}
+    ],
     groups:[
       {g:'Core Accounting',items:[
         {n:'Bookkeeping Services',d:'Accurate, timely bookkeeping that keeps your financials clean and audit-ready. Daily, weekly, or monthly packages available.'},
         {n:'General Accounting (R2R)',d:'Full Record-to-Report cycle management including journal entries, reconciliations, and financial statement preparation.'},
         {n:'Financial Statement Preparation',d:'GAAP-compliant income statements, balance sheets, and cash flow statements with management commentary.'},
-        {n:'Month-End & Year-End Close',d:'Streamlined close processes with checklists, reconciliations, and variance analysis to meet your deadlines.'},
+        {n:'Month-End & Year-End Close',d:'Streamlined close processes with checklists, reconciliations, and variance analysis.'},
       ]},
       {g:'Accounts Payable & Receivable',items:[
         {n:'Accounts Payable (P2P)',d:'End-to-end Procure-to-Pay processing — invoice receipt, coding, approval workflows, and payment execution.'},
@@ -1228,17 +1332,31 @@ const SVCS = [
     img:'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80',
     stats:'20+ HR Services | 50+ Organizations Supported',
     formHead:'Build a Stronger People Operation', formBtn:'Book an HR Consultation',
+    photos:[
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
+      'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80',
+      'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&q=80',
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80'
+    ],
+    process:[
+      {icon:'📋',title:'HR Audit',desc:'We assess your current HR setup, gaps, and compliance risks.'},
+      {icon:'⚙️',title:'Framework Design',desc:'Custom HR policies, processes, and systems designed for your org.'},
+      {icon:'🚀',title:'Implementation',desc:'Rollout of HR programs with training and change management support.'},
+      {icon:'🔄',title:'Ongoing Support',desc:'Monthly HR help desk, compliance monitoring, and performance reporting.'}
+    ],
     groups:[
       {g:'Core HR Services',items:[
-        {n:'Recruitment & Talent Acquisition',d:'Full-cycle recruiting including sourcing, screening, interviewing, and offer management across all levels and industries.'},
-        {n:'Onboarding & Offboarding',d:'Structured onboarding programs that accelerate time-to-productivity. Compliant offboarding with knowledge transfer.'},
-        {n:'Benefits Administration',d:'Health insurance, retirement plans, and voluntary benefits management. Open enrollment, compliance, and vendor coordination.'},
+        {n:'Recruitment & Talent Acquisition',d:'Full-cycle recruiting including sourcing, screening, interviewing, and offer management across all levels.'},
+        {n:'Onboarding & Offboarding',d:'Structured onboarding that accelerates time-to-productivity. Compliant offboarding with knowledge transfer.'},
+        {n:'Benefits Administration',d:'Health insurance, retirement plans, and voluntary benefits management. Open enrollment and vendor coordination.'},
         {n:'HR Compliance & Policy',d:'Employment law compliance, handbook creation, policy development, and regulatory updates across all jurisdictions.'},
         {n:'Employee Relations',d:'Workplace investigations, conflict resolution, disciplinary processes, and employee advocacy programs.'},
-        {n:'HR Help Desk',d:'Centralized HR support for employee inquiries — benefits questions, policy clarifications, and general HR guidance.'},
+        {n:'HR Help Desk',d:'Centralized HR support for employee inquiries — benefits questions, policy clarifications, and HR guidance.'},
       ]},
       {g:'Learning & Performance',items:[
-        {n:'Training & Development',d:'Custom training programs including leadership development, skills training, compliance courses, and e-learning content.'},
+        {n:'Training & Development',d:'Custom training programs including leadership development, skills training, compliance courses, and e-learning.'},
         {n:'Performance Management',d:'Goal setting, performance reviews, 360-degree feedback, and continuous performance management frameworks.'},
         {n:'Succession Planning',d:'Talent pipeline development, leadership assessment, and succession strategies for critical roles.'},
         {n:'Employee Engagement',d:'Engagement surveys, culture programs, recognition systems, and retention strategy development.'},
@@ -1248,7 +1366,7 @@ const SVCS = [
         {n:'Compensation & Benefits Benchmarking',d:'Market-based compensation analysis, salary band development, and total rewards strategy design.'},
       ]},
       {g:'Technology & Transformation',items:[
-        {n:'IT Help Desk Support',d:'Technical support for HR systems, employee devices, and workplace technology. Tiered support with SLA-driven response.'},
+        {n:'IT Help Desk Support',d:'Technical support for HR systems, employee devices, and workplace technology with SLA-driven response.'},
         {n:'Cloud Transformation',d:'Migration of HR systems and infrastructure to cloud platforms. AWS, Azure, and GCP deployments.'},
         {n:'Robotic Process Automation',d:'RPA implementation for repetitive HR processes — onboarding, data entry, reporting, and compliance tasks.'},
         {n:'AI & GenAI Integration',d:'AI-powered HR solutions including chatbots, resume screening, predictive analytics, and intelligent automation.'},
@@ -1265,6 +1383,30 @@ const SVCS = [
       {l:'Additional Notes',n:'notes',t:'ta',ph:'Tell us about your HR challenges and goals.'},
     ]
   }
+];
+
+// ═══════════════════ TESTIMONIALS DATA (20 stories) ═══════════════════
+const TESTIMONIALS = [
+  {q:"Brio Bridge transformed our entire digital presence. Their team delivered a custom platform that increased our conversion rate by 340%. They're not just vendors — they're partners.",name:"James Crawford",co:"CEO, Pinnacle Ventures",div:"Technology"},
+  {q:"We needed reliable construction estimates at scale, and Brio Bridge delivered consistently. Their accuracy and turnaround time are unmatched in the industry.",name:"Maria Santos",co:"VP Operations, Atlas Builders",div:"Engineering"},
+  {q:"Their BPO team ramped up 40 agents in under two weeks and maintained a 97% CSAT score from month one. Incredible execution.",name:"Robert Kim",co:"COO, Clearpoint Solutions",div:"BPO"},
+  {q:"The accounting team cleaned up two years of messy books in three weeks and now our month-end close takes two days instead of three weeks. Game-changer.",name:"Sarah Thompson",co:"CFO, Meridian Group",div:"Finance"},
+  {q:"We dispatched 22 trucks through Brio Bridge and our revenue per mile went up 18% in the first quarter. Their dispatchers know freight inside out.",name:"Mike Dawson",co:"Owner-Operator, Dawson Freight",div:"Logistics"},
+  {q:"The recruitment team placed 14 engineers in 90 days. Previous agencies took 6 months. Quality of candidates was outstanding.",name:"Priya Nair",co:"Head of Talent, TechScale Inc.",div:"HR"},
+  {q:"Their CAD team turned around full architectural drawings in 48 hours. We now use them for every project — it saves us weeks.",name:"David Flores",co:"Principal, Flores Architecture",div:"Engineering"},
+  {q:"We went from 60% call abandonment to 4% after handing off our inbound support to Brio Bridge. Within 90 days. Phenomenal.",name:"Lisa Park",co:"Director of CX, ShopMax",div:"BPO"},
+  {q:"The Xactimate estimates are always on-point. We've had zero disputes with adjusters since switching to Brio Bridge for our restoration estimates.",name:"Tom Bradley",co:"Owner, Bradley Restoration",div:"Engineering"},
+  {q:"Our fractional CFO from Brio Bridge helped us close our Series A. The financial models and investor decks were top-tier.",name:"Aisha Rahman",co:"Founder, Velocit AI",div:"Finance"},
+  {q:"I was skeptical about offshore dispatch. Three months later I'm running 12 trucks without a single office employee. Brio Bridge handles everything.",name:"Carlos Mendoza",co:"Fleet Owner, Mendoza Carriers",div:"Logistics"},
+  {q:"The staff augmentation model is perfect for us — senior React developers integrated with our team from day one, no ramp-up needed.",name:"Jordan Lee",co:"CTO, Launchpad SaaS",div:"Technology"},
+  {q:"Brio Bridge handles all our payroll, benefits admin, and compliance across three states. HR used to be my biggest headache — now it runs itself.",name:"Nancy Webb",co:"CEO, Retail Partners Group",div:"HR"},
+  {q:"Our SEO traffic doubled in six months. The content strategy they built is delivering leads we didn't think were possible in our niche.",name:"Chris Olsen",co:"Marketing Director, LegalEdge Pro",div:"Technology"},
+  {q:"I gave them partial blueprints at 9pm. Full MEP estimate landed in my inbox at 6am. This is the only way to bid fast in this market.",name:"Raymond Torres",co:"GC, Torres Construction",div:"Engineering"},
+  {q:"Lead generation through Brio Bridge brought 140 qualified appointments in our first month. Our sales team has never been this busy.",name:"Stephanie Morgan",co:"VP Sales, Insuretek",div:"BPO"},
+  {q:"QuickBooks was a nightmare until Brio Bridge took it over. Clean chart of accounts, weekly reconciliations, monthly reports — exactly what we needed.",name:"Ben Harris",co:"Owner, Harris Auto Group",div:"Finance"},
+  {q:"The Shopify store they built converted at 4.2% right out of the gate. Design, copy, speed optimization — everything was dialed in perfectly.",name:"Emma Zhang",co:"Founder, Lumina Skincare",div:"Technology"},
+  {q:"Flatbed loads that used to sit empty for days are now covered within hours. Brio Bridge's rate negotiation alone saves us $2,000+ per month.",name:"Derek Simmons",co:"Operations Manager, Simmons Hauling",div:"Logistics"},
+  {q:"Their HR team built our entire onboarding process from scratch — offer letters, equipment provisioning, compliance, 90-day check-ins. New hires are raving.",name:"Olivia Chen",co:"COO, CloudCore Systems",div:"HR"},
 ];
 
 // ═══════════════════ RENDERING ═══════════════════
@@ -1321,9 +1463,35 @@ function renderSvcGrids(){
   if(a) a.innerHTML=cards;
 }
 
+// Build visual photo strip for service detail pages
+function buildVisualStrip(photos){
+  return '<div class="svc-visual-strip">'
+    + photos.slice(0,6).map(function(p){
+        return '<img src="'+p+'" alt="" loading="lazy">';
+      }).join('')
+    + '</div>';
+}
+
+// Build process strip
+function buildProcessStrip(steps){
+  return '<div class="svc-process-strip">'
+    + steps.map(function(s,i){
+        return '<div class="svc-process-item">'
+          +'<div class="svc-process-num">0'+(i+1)+'</div>'
+          +'<div class="svc-process-icon">'+s.icon+'</div>'
+          +'<h4>'+s.title+'</h4>'
+          +'<p>'+s.desc+'</p>'
+          +'</div>';
+      }).join('')
+    +'</div>';
+}
+
 function showDetail(slug){
   var s=SVCS.find(function(x){return x.slug===slug;});
   if(!s) return;
+
+  var visualStrip = buildVisualStrip(s.photos);
+  var processStrip = buildProcessStrip(s.process);
 
   var subHTML=s.groups.map(function(gr){
     var items=gr.items.map(function(it){
@@ -1335,55 +1503,60 @@ function showDetail(slug){
   var formHTML=s.fields.map(function(f){return fld(f);}).join('');
 
   document.getElementById('detailContent').innerHTML=
-    '<section class="svc-hero"><div class="svc-hero-img"><img src="'+s.img+'" alt="'+s.name+'" loading="eager"></div>'+
-    '<div class="container"><div class="svc-hero-content">'+
-    '<button class="back-btn" onclick="nav(\'services\')">&#8592; All Services</button>'+
-    '<div class="svc-tag">'+s.name+'</div>'+
-    '<h1>'+s.tagline+'</h1>'+
-    '<p class="svc-hero-desc">'+s.desc+'</p>'+
-    '<p class="svc-stats-line">'+s.stats+'</p>'+
-    '</div></div></section>'+
-    '<section class="section"><div class="container"><div class="svc-layout">'+
-    '<div>'+subHTML+'</div>'+
-    '<div class="form-sticky">'+
-    '<div id="sfSucc_'+slug+'" class="success-box" style="display:none">'+
-    '<div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>'+
-    '<h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.5rem">Message Sent!</h3>'+
-    '<p style="font-size:.875rem;color:var(--muted)">We\'ll get back to you within one business day.</p>'+
-    '<button onclick="document.getElementById(\'sfSucc_'+slug+'\').style.display=\'none\';document.getElementById(\'sfWrap_'+slug+'\').style.display=\'block\'" style="margin-top:1rem;font-size:.85rem;color:var(--gold);background:none;border:none;cursor:pointer;font-weight:600">Send Another</button>'+
-    '</div>'+
-    '<div id="sfWrap_'+slug+'" class="form-wrap">'+
-    '<h3>'+s.formHead+'</h3>'+
-    '<p class="form-sub">Fill out the form and our team will respond within 1 business day.</p>'+
-    '<form id="sf_'+slug+'" onsubmit="submitSvc(event,\''+slug+'\')" >'+
-    '<input type="hidden" name="access_key" value="f8044505-5226-420a-ab2d-38ff2ca0dd12">'+
-    '<input type="hidden" name="subject" value="New '+s.name+' inquiry - BrioBridge">'+
-    '<input type="checkbox" name="botcheck" style="display:none">'+
-    '<div class="f-row">'+
-    '<div class="f-group"><label class="f-label">Full Name <span class="f-req">*</span></label><input type="text" name="name" class="f-input" placeholder="John Smith" required></div>'+
-    '<div class="f-group"><label class="f-label">Email <span class="f-req">*</span></label><input type="email" name="email" class="f-input" placeholder="john@company.com" required></div>'+
-    '</div>'+
-    '<div class="f-row">'+
-    '<div class="f-group"><label class="f-label">Phone</label><input type="tel" name="phone" class="f-input" placeholder="+1 (555) 000-0000"></div>'+
-    '<div class="f-group"><label class="f-label">Company</label><input type="text" name="company" class="f-input" placeholder="Acme Inc."></div>'+
-    '</div>'+
-    formHTML+
-    '<div class="f-consent-wrap"><label class="f-consent" style="display:flex;align-items:flex-start;gap:.625rem;cursor:pointer;font-size:.75rem;color:var(--muted);line-height:1.65">'+
-    '<input type="checkbox" id="c_'+slug+'" name="consent" required style="width:14px;height:14px;margin-top:.15rem;flex-shrink:0;accent-color:var(--gold)">'+
-    '<span>I agree to the <a onclick="openModal(\'privacy\')" style="color:var(--blue);text-decoration:none">Privacy Policy</a> and consent to being contacted by Brio Bridge regarding my enquiry.</span>'+
-    '</label></div>'+
-    '<div class="f-error-msg" id="sfErr_'+slug+'" style="display:none;font-size:.75rem;color:#ef4444;margin-bottom:.75rem"></div>'+
-    '<button type="submit" class="btn-submit" id="sfBtn_'+slug+'">'+s.formBtn+'</button>'+
-    '</form></div></div>'+
-    '</div></div></section>'+
-    '<section class="section section-dark"><div class="container" style="text-align:center"><div class="reveal">'+
-    '<h2 class="section-title title-light" style="margin-bottom:1rem">Ready to Get Started?</h2>'+
-    '<p class="lead lead-light" style="max-width:460px;margin:0 auto 2rem">Have questions or want to discuss your specific needs? Our team is ready to help.</p>'+
-    '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem">'+
-    '<button class="btn btn-gold" onclick="nav(\'contact\')">Schedule a Call &#8594;</button>'+
-    '<a href="tel:+16462601320" class="btn btn-outline">&#128222; +1 (646) 260-1320</a>'+
-    '</div></div></div></section>'+
-    '<div id="ftr-detail">'+buildFooter()+'</div>';
+    '<section class="svc-hero"><div class="svc-hero-img"><img src="'+s.img+'" alt="'+s.name+'" loading="eager"></div>'
+    +'<div class="container"><div class="svc-hero-content">'
+    +'<button class="back-btn" onclick="nav(\'services\')">&#8592; All Services</button>'
+    +'<div class="svc-tag">'+s.name+'</div>'
+    +'<h1>'+s.tagline+'</h1>'
+    +'<p class="svc-hero-desc">'+s.desc+'</p>'
+    +'<p class="svc-stats-line">'+s.stats+'</p>'
+    +'</div></div></section>'
+    +'<section class="section"><div class="container">'
+    // Visual photo strip ABOVE the layout
+    + visualStrip
+    // Process strip
+    + processStrip
+    +'<div class="svc-layout">'
+    +'<div>'+subHTML+'</div>'
+    +'<div class="form-sticky">'
+    +'<div id="sfSucc_'+slug+'" class="success-box" style="display:none">'
+    +'<div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>'
+    +'<h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.5rem">Message Sent!</h3>'
+    +'<p style="font-size:.875rem;color:var(--muted)">We\'ll get back to you within one business day.</p>'
+    +'<button onclick="document.getElementById(\'sfSucc_'+slug+'\').style.display=\'none\';document.getElementById(\'sfWrap_'+slug+'\').style.display=\'block\'" style="margin-top:1rem;font-size:.85rem;color:var(--gold);background:none;border:none;cursor:pointer;font-weight:600">Send Another</button>'
+    +'</div>'
+    +'<div id="sfWrap_'+slug+'" class="form-wrap">'
+    +'<h3>'+s.formHead+'</h3>'
+    +'<p class="form-sub">Fill out the form and our team will respond within 1 business day.</p>'
+    +'<form id="sf_'+slug+'" onsubmit="submitSvc(event,\''+slug+'\')">'
+    +'<input type="hidden" name="access_key" value="f8044505-5226-420a-ab2d-38ff2ca0dd12">'
+    +'<input type="hidden" name="subject" value="New '+s.name+' inquiry - BrioBridge">'
+    +'<input type="checkbox" name="botcheck" style="display:none">'
+    +'<div class="f-row">'
+    +'<div class="f-group"><label class="f-label">Full Name <span class="f-req">*</span></label><input type="text" name="name" class="f-input" placeholder="John Smith" required></div>'
+    +'<div class="f-group"><label class="f-label">Email <span class="f-req">*</span></label><input type="email" name="email" class="f-input" placeholder="john@company.com" required></div>'
+    +'</div>'
+    +'<div class="f-row">'
+    +'<div class="f-group"><label class="f-label">Phone</label><input type="tel" name="phone" class="f-input" placeholder="+1 (555) 000-0000"></div>'
+    +'<div class="f-group"><label class="f-label">Company</label><input type="text" name="company" class="f-input" placeholder="Acme Inc."></div>'
+    +'</div>'
+    +formHTML
+    +'<div class="f-consent-wrap"><label style="display:flex;align-items:flex-start;gap:.625rem;cursor:pointer;font-size:.75rem;color:var(--muted);line-height:1.65">'
+    +'<input type="checkbox" id="c_'+slug+'" name="consent" required style="width:14px;height:14px;margin-top:.15rem;flex-shrink:0;accent-color:var(--gold)">'
+    +'<span>I agree to the <a onclick="openModal(\'privacy\')" style="color:var(--blue);text-decoration:none">Privacy Policy</a> and consent to being contacted by Brio Bridge regarding my enquiry.</span>'
+    +'</label></div>'
+    +'<div id="sfErr_'+slug+'" style="display:none;font-size:.75rem;color:#ef4444;margin-bottom:.75rem"></div>'
+    +'<button type="submit" class="btn-submit" id="sfBtn_'+slug+'">'+s.formBtn+'</button>'
+    +'</form></div></div>'
+    +'</div></div></section>'
+    +'<section class="section section-dark"><div class="container" style="text-align:center"><div class="reveal">'
+    +'<h2 class="section-title title-light" style="margin-bottom:1rem">Ready to Get Started?</h2>'
+    +'<p class="lead lead-light" style="max-width:460px;margin:0 auto 2rem">Have questions or want to discuss your specific needs? Our team is ready to help.</p>'
+    +'<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem">'
+    +'<button class="btn btn-gold" onclick="nav(\'contact\')">Schedule a Call &#8594;</button>'
+    +'<a href="tel:+16462601320" class="btn btn-outline">&#128222; +1 (646) 260-1320</a>'
+    +'</div></div></div></section>'
+    +'<div id="ftr-detail">'+buildFooter()+'</div>';
 
   nav('detail');
   initReveal();
@@ -1448,6 +1621,78 @@ function initCounters(){
   document.querySelectorAll('.ctr[data-end]').forEach(function(el){obs.observe(el);});
 }
 
+// ═══════════════════ TESTIMONIAL CAROUSEL ═══════════════════
+var testiIdx = 0;
+var testiPerSlide = 3;
+
+function buildTestiCarousel(){
+  var track = document.getElementById('testiTrack');
+  if(!track) return;
+  track.innerHTML = TESTIMONIALS.map(function(t){
+    var divColors = {Technology:'var(--blue)',Engineering:'var(--gold)',BPO:'#2E7D32',Finance:'var(--gold)',Logistics:'#1565C0',HR:'#6b21a8'};
+    var col = divColors[t.div] || 'var(--gold)';
+    return '<div class="testi-card">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.875rem">'
+      +'<div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>'
+      +'<span style="font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:4px;background:'+col+'20;color:'+col+'">'+t.div+'</span>'
+      +'</div>'
+      +'<p class="testi-q">"'+t.q+'"</p>'
+      +'<div class="testi-foot"><div class="name">'+t.name+'</div><div class="co">'+t.co+'</div></div>'
+      +'</div>';
+  }).join('');
+  updateDots();
+}
+
+function updateDots(){
+  var dotsEl = document.getElementById('testiDots');
+  if(!dotsEl) return;
+  var total = TESTIMONIALS.length;
+  var maxIdx = Math.ceil(total/testiPerSlide)-1;
+  dotsEl.innerHTML = '';
+  for(var i=0;i<=maxIdx;i++){
+    var dot = document.createElement('div');
+    dot.className = 'testi-dot'+(i===Math.floor(testiIdx/testiPerSlide)?' active':'');
+    dot.setAttribute('data-i',i);
+    dot.onclick = function(){
+      testiGoTo(parseInt(this.getAttribute('data-i')));
+    };
+    dotsEl.appendChild(dot);
+  }
+}
+
+function testiGoTo(slideIdx){
+  var track = document.getElementById('testiTrack');
+  if(!track) return;
+  var maxSlide = Math.ceil(TESTIMONIALS.length/testiPerSlide)-1;
+  slideIdx = Math.max(0, Math.min(slideIdx, maxSlide));
+  testiIdx = slideIdx * testiPerSlide;
+  var card = track.querySelector('.testi-card');
+  if(!card) return;
+  var cardW = card.offsetWidth + 24;
+  track.style.transform = 'translateX(-'+(slideIdx * (card.offsetWidth + 24))+'px)';
+  updateDots();
+}
+
+function testiPrev(){
+  testiGoTo(Math.floor(testiIdx/testiPerSlide)-1);
+}
+function testiNext(){
+  testiGoTo(Math.floor(testiIdx/testiPerSlide)+1);
+}
+
+// Auto-advance carousel
+var testiAuto;
+function startTestiAuto(){
+  testiAuto = setInterval(function(){
+    var curSlide = Math.floor(testiIdx/testiPerSlide);
+    var maxSlide = Math.ceil(TESTIMONIALS.length/testiPerSlide)-1;
+    testiGoTo(curSlide>=maxSlide ? 0 : curSlide+1);
+  }, 5000);
+}
+function stopTestiAuto(){
+  clearInterval(testiAuto);
+}
+
 // ═══════════════════ MODALS ═══════════════════
 function openModal(id){
   document.getElementById('modal-'+id).classList.add('open');
@@ -1497,16 +1742,16 @@ function submitSvc(e,slug){
 
 // ═══════════════════ INIT ═══════════════════
 document.addEventListener('DOMContentLoaded',function(){
-  // Hero right cards
+  // Hero right cards — real BrioBridge categories
   var heroRight=document.getElementById('heroRight');
   if(heroRight){
     var hCards=[
-      {icon:'&#128187;',name:'Technology & Digital Solutions',sub:'Web, Mobile, Cloud, SEO, Paid Ads, IT',slug:'technology'},
-      {icon:'&#128203;',name:'BPO & Customer Support',sub:'Inbound, Lead Generation, Virtual Assistants',slug:'bpo'},
-      {icon:'&#128202;',name:'Cost Estimation & QS',sub:'BOQ, Quantity Takeoffs, Bid Preparation',slug:'construction-estimating'},
-      {icon:'&#128666;',name:'Fleet & Dispatch',sub:'24/7 Dispatch, Load Tracking, Freight Support',slug:'logistics'},
-      {icon:'&#127959;',name:'Engineering & Architecture',sub:'Revit BIM, Structural, 3D Visualization',slug:'construction-estimating'},
-      {icon:'&#128176;',name:'Accounting & Bookkeeping',sub:'Bookkeeping, Payroll, QuickBooks, Tax Prep',slug:'finance'},
+      {icon:'&#128187;',name:'Technology & Digital Solutions',sub:'Custom Software · Web Dev · Mobile Apps · UI/UX · Digital Marketing · E-Commerce · Staff Augmentation',slug:'technology'},
+      {icon:'&#128203;',name:'BPO / Customer Support',sub:'Inbound Call Center · Lead Generation · Telesales · Help Desk · Live Chat · Back-Office · Multilingual',slug:'bpo'},
+      {icon:'&#127959;',name:'Engineering & Estimation',sub:'Structural Eng · CAD Drafting · BIM Modeling · MEP Estimating · Xactimate · QTO · Quantity Surveying',slug:'construction-estimating'},
+      {icon:'&#128666;',name:'Logistics & Fleet Management',sub:'Truck Dispatching · Freight Shipping · Auto Transport · Heavy Haul · Fleet Ops · DOT Compliance · Ocean Freight',slug:'logistics'},
+      {icon:'&#128200;',name:'Finance & Accounting',sub:'Bookkeeping · Accounts Payable/Receivable · Payroll · Tax Prep · CFO Advisory · NetSuite ERP · FP&A',slug:'finance'},
+      {icon:'&#128101;',name:'HR & People Operations',sub:'Recruitment · Onboarding · Benefits Admin · HR Compliance · Performance Mgmt · Payroll · RPA & AI',slug:'hr'},
     ];
     heroRight.innerHTML=hCards.map(function(h){
       return '<div class="h-svc-card" onclick="showDetail(\''+h.slug+'\')">'
@@ -1521,8 +1766,24 @@ document.addEventListener('DOMContentLoaded',function(){
   buildMega();
   buildMobLinks();
   renderSvcGrids();
+  buildTestiCarousel();
+  startTestiAuto();
   initReveal();
   initCounters();
+
+  // Pause auto on hover
+  var wrap = document.getElementById('testiCarouselWrap');
+  if(wrap){
+    wrap.addEventListener('mouseenter', stopTestiAuto);
+    wrap.addEventListener('mouseleave', startTestiAuto);
+  }
+
+  // Responsive: adjust perSlide
+  function setPerSlide(){
+    testiPerSlide = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+  setPerSlide();
+  window.addEventListener('resize', function(){ setPerSlide(); testiGoTo(0); });
 });
 </script>
 </body>
