@@ -670,21 +670,29 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
     </div>
   </section>
 
-  <!-- TESTIMONIALS CAROUSEL -->
+  <!-- TESTIMONIALS -->
   <section class="section">
     <div class="container">
       <div style="text-align:center;margin-bottom:3.5rem" class="reveal">
         <div class="eyebrow" style="justify-content:center">Client Stories</div>
         <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
-        <p class="lead" style="max-width:540px;margin:.875rem auto 0">20 real stories from clients across every division — technology, engineering, logistics, BPO, finance, and HR.</p>
       </div>
-      <div class="testi-carousel-wrap reveal" id="testiCarouselWrap">
-        <div class="testi-carousel-track" id="testiTrack"></div>
-      </div>
-      <div class="testi-nav">
-        <button class="testi-btn" onclick="testiPrev()">&#8592;</button>
-        <div class="testi-dots" id="testiDots"></div>
-        <button class="testi-btn" onclick="testiNext()">&#8594;</button>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-q">"Brio Bridge transformed our entire digital presence. Their team delivered a custom platform that increased our conversion rate by 340%. They're not just vendors — they're partners."</p>
+          <div class="testi-foot"><div class="name">James Crawford</div><div class="co">CEO, Pinnacle Ventures</div></div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.1s">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-q">"We needed reliable construction estimates at scale, and Brio Bridge delivered consistently. Their accuracy and turnaround time are unmatched in the industry."</p>
+          <div class="testi-foot"><div class="name">Maria Santos</div><div class="co">VP Operations, Atlas Builders</div></div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.2s">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-q">"Their BPO team ramped up 40 agents in under two weeks and maintained a 97% CSAT score from month one. Incredible execution."</p>
+          <div class="testi-foot"><div class="name">Robert Kim</div><div class="co">COO, Clearpoint Solutions</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1625,7 +1633,7 @@ function initCounters(){
 var testiIdx = 0;
 var testiPerSlide = 3;
 
-function buildTestiCarousel(){
+function buildTestiCarousel(){return;
   var track = document.getElementById('testiTrack');
   if(!track) return;
   track.innerHTML = TESTIMONIALS.map(function(t){
@@ -1643,7 +1651,7 @@ function buildTestiCarousel(){
   updateDots();
 }
 
-function updateDots(){
+function updateDots(){return;
   var dotsEl = document.getElementById('testiDots');
   if(!dotsEl) return;
   var total = TESTIMONIALS.length;
@@ -1654,42 +1662,41 @@ function updateDots(){
     dot.className = 'testi-dot'+(i===Math.floor(testiIdx/testiPerSlide)?' active':'');
     dot.setAttribute('data-i',i);
     dot.onclick = function(){
-      testiGoTo(parseInt(this.getAttribute('data-i')));
+      testiGoTo(parseInt(this.getAttribute('data-i'))*testiPerSlide);
     };
     dotsEl.appendChild(dot);
   }
 }
 
-function testiGoTo(slideIdx){
+function testiGoTo(idx){
   var track = document.getElementById('testiTrack');
   if(!track) return;
-  var maxSlide = Math.ceil(TESTIMONIALS.length/testiPerSlide)-1;
-  slideIdx = Math.max(0, Math.min(slideIdx, maxSlide));
-  testiIdx = slideIdx * testiPerSlide;
+  var maxIdx = TESTIMONIALS.length - testiPerSlide;
+  testiIdx = Math.max(0, Math.min(idx, maxIdx));
   var card = track.querySelector('.testi-card');
   if(!card) return;
-  var cardW = card.offsetWidth + 24;
-  track.style.transform = 'translateX(-'+(slideIdx * (card.offsetWidth + 24))+'px)';
+  var cardW = card.offsetWidth + 24; // gap
+  track.style.transform = 'translateX(-'+(testiIdx * cardW)+'px)';
   updateDots();
 }
 
-function testiPrev(){
-  testiGoTo(Math.floor(testiIdx/testiPerSlide)-1);
+function testiPrev(){return;
+  testiGoTo(testiIdx - testiPerSlide);
 }
-function testiNext(){
-  testiGoTo(Math.floor(testiIdx/testiPerSlide)+1);
+function testiNext(){return;
+  testiGoTo(testiIdx + testiPerSlide);
 }
 
 // Auto-advance carousel
 var testiAuto;
-function startTestiAuto(){
+function startTestiAuto(){return;
   testiAuto = setInterval(function(){
-    var curSlide = Math.floor(testiIdx/testiPerSlide);
-    var maxSlide = Math.ceil(TESTIMONIALS.length/testiPerSlide)-1;
-    testiGoTo(curSlide>=maxSlide ? 0 : curSlide+1);
+    var next = testiIdx + testiPerSlide;
+    if(next >= TESTIMONIALS.length) next = 0;
+    testiGoTo(next);
   }, 5000);
 }
-function stopTestiAuto(){
+function stopTestiAuto(){return;
   clearInterval(testiAuto);
 }
 
@@ -1766,24 +1773,8 @@ document.addEventListener('DOMContentLoaded',function(){
   buildMega();
   buildMobLinks();
   renderSvcGrids();
-  buildTestiCarousel();
-  startTestiAuto();
   initReveal();
   initCounters();
-
-  // Pause auto on hover
-  var wrap = document.getElementById('testiCarouselWrap');
-  if(wrap){
-    wrap.addEventListener('mouseenter', stopTestiAuto);
-    wrap.addEventListener('mouseleave', startTestiAuto);
-  }
-
-  // Responsive: adjust perSlide
-  function setPerSlide(){
-    testiPerSlide = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-  }
-  setPerSlide();
-  window.addEventListener('resize', function(){ setPerSlide(); testiGoTo(0); });
 });
 </script>
 </body>
