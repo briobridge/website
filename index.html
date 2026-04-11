@@ -209,8 +209,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .svc-hero h1{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
 .svc-hero-desc{font-size:1rem;color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:1.25rem}
 .svc-stats-line{font-size:.8rem;color:rgba(255,255,255,.35);padding-top:1rem;margin-top:.75rem;border-top:1px solid rgba(255,255,255,.08)}
-.svc-layout{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start}
-@media(min-width:1024px){.svc-layout{grid-template-columns:1fr 380px}}
+.svc-layout{display:block}
 .subcat-section{margin-bottom:2.75rem}
 .subcat-section:last-child{margin-bottom:0}
 .subcat-group-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
@@ -220,7 +219,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .subcat-card:hover{border-color:rgba(201,146,42,.35);box-shadow:0 4px 20px rgba(201,146,42,.08);transform:translateY(-2px)}
 .subcat-card h4{font-size:.875rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
 .subcat-card p{font-size:.78rem;color:var(--text);line-height:1.7}
-.form-sticky{position:sticky;top:88px}
+
 .form-wrap{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:2rem;box-shadow:var(--shadow-lg)}
 .form-wrap h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
 .form-sub{font-size:.83rem;color:var(--muted);margin-bottom:1.75rem}
@@ -858,7 +857,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
           <div class="eyebrow">Contact Details</div>
           <h2 class="section-title" style="font-size:1.75rem;margin-bottom:2rem">We're Here to Help</h2>
           <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+16462601320">+1 (646) 260-1320</a></div></div></div>
-          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">Email</div><div class="ci-val">hello@briobridge.com</div></div></div>
+          <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:hello@briobridge.com"><span class="__cf_email__" data-cfemail="b8d0ddd4d4d7f8dacad1d7dacad1dcdfdd96dbd7d5">[email&#160;protected]</span></a></div></div></div>
           <div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="ci-label">Response Time</div><div class="ci-val">Within 1 business day</div></div></div>
           <div style="margin-top:1.5rem">
             <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:1rem">Our Offices</p>
@@ -911,11 +910,11 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
       <p>Brio Bridge ("we," "us," or "our") is committed to protecting the privacy of our clients, partners, and website visitors.</p>
       <h4>1. Information We Collect</h4><p>We may collect personal information including: name, email address, phone number, company name, job title, and project details submitted through our contact forms. We also collect technical data such as IP addresses, browser type, and usage analytics.</p>
       <h4>2. How We Use Your Information</h4><p>We use collected information to respond to inquiries; deliver and improve our services; communicate about projects and offerings; comply with legal obligations; and protect our rights and property.</p>
-      <h4>3. Telephone Contact &amp; TCPA Compliance</h4><p>By providing your phone number and checking the consent box on our contact form, you expressly consent to receive telephone calls, text messages (SMS), and follow-up communications from Brio Bridge at the phone number provided. This consent is not a condition of purchasing any goods or services. You may opt out at any time by replying STOP to any text message or emailing hello@briobridge.com.</p>
+      <h4>3. Telephone Contact &amp; TCPA Compliance</h4><p>By providing your phone number and checking the consent box on our contact form, you expressly consent to receive telephone calls, text messages (SMS), and follow-up communications from Brio Bridge at the phone number provided. This consent is not a condition of purchasing any goods or services. You may opt out at any time by replying STOP to any text message or emailing <a href="mailto:hello@briobridge.com"><span class="__cf_email__" data-cfemail="4028252c2c2f002232292f2232292427256e232f2d">[email&#160;protected]</span></a>.</p>
       <h4>4. Information Sharing</h4><p>We do not sell or rent your personal information to third parties. We may share information with trusted service providers who assist in operating our website and conducting our business, subject to confidentiality agreements.</p>
       <h4>5. Data Security</h4><p>We implement industry-standard security measures to protect your personal information.</p>
-      <h4>6. Your Rights</h4><p>You may request access to, correction of, or deletion of your personal information by contacting us at hello@briobridge.com. We will respond within 30 business days.</p>
-      <h4>7. Contact Us</h4><p>Questions about this Privacy Policy? Contact us at hello@briobridge.com or +1 (646) 260-1320.</p>
+      <h4>6. Your Rights</h4><p>You may request access to, correction of, or deletion of your personal information by contacting us at <a href="mailto:hello@briobridge.com"><span class="__cf_email__" data-cfemail="e78f828b8b88a785958e8885958e838082c984888a">[email&#160;protected]</span></a>. We will respond within 30 business days.</p>
+      <h4>7. Contact Us</h4><p>Questions about this Privacy Policy? Contact us at <a href="mailto:hello@briobridge.com"><span class="__cf_email__" data-cfemail="1c74797070735c7e6e75737e6e75787b79327f7371">[email&#160;protected]</span></a> or +1 (646) 260-1320.</p>
     </div>
   </div>
 </div>
@@ -937,7 +936,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
       <h4>5. Cancellation Policy</h4>
       <p>(a) Before work commences: deposit is forfeited; no liability for remaining fees. (b) After commencement: Client is liable for all work to date at standard rates plus third-party costs incurred. (c) Monthly retainers require 30 days written notice; fees during notice period are non-refundable. (d) Brio Bridge may terminate any engagement for cause — including non-payment, breach of contract, or misrepresentation — without refund and without liability.</p>
       <h4>6. Dispute Resolution</h4>
-      <p>Disputes must be submitted in writing to hello@briobridge.com within 7 calendar days of receiving the disputed deliverable. Disputes not submitted within this window are deemed accepted and waived. Disputes shall be resolved by binding arbitration. <strong>Brio Bridge's maximum liability shall not exceed the total amount paid in the 90 days preceding the dispute.</strong> Brio Bridge is not liable for indirect, consequential, incidental, punitive, or exemplary damages under any circumstances.</p>
+      <p>Disputes must be submitted in writing to <a href="mailto:hello@briobridge.com" class="__cf_email__" data-cfemail="afc7cac3c3c0efcdddc6c0cdddc6cbc8ca81ccc0c2">[email&#160;protected]</a> within 7 calendar days of receiving the disputed deliverable. Disputes not submitted within this window are deemed accepted and waived. Disputes shall be resolved by binding arbitration. <strong>Brio Bridge's maximum liability shall not exceed the total amount paid in the 90 days preceding the dispute.</strong> Brio Bridge is not liable for indirect, consequential, incidental, punitive, or exemplary damages under any circumstances.</p>
       <h4>7. Chargebacks &amp; Unauthorized Payment Disputes</h4>
       <p>Initiating a chargeback without first completing our dispute resolution process constitutes a breach of this Policy. In such cases, Brio Bridge reserves the right to: (a) Immediately suspend all services without liability; (b) Terminate the client relationship permanently; (c) Submit all evidence to contest the chargeback with payment processors and card networks; (d) Pursue collection of the disputed amount plus chargeback fees, administrative costs, and legal fees through all available civil remedies; (e) Report the debt to collection agencies where applicable. Brio Bridge has a documented history of successfully contesting unjustified chargebacks and will vigorously pursue all available remedies.</p>
       <h4>8. Stolen, Fraudulent &amp; Unauthorized Card Payments</h4>
@@ -947,7 +946,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
       <h4>10. Modifications</h4>
       <p>Brio Bridge reserves the right to modify this Policy at any time. Continued engagement or payment following any modification constitutes acceptance of the updated Policy.</p>
       <h4>11. Contact</h4>
-      <p><strong>Brio Bridge — Billing Department</strong> | Email: hello@briobridge.com | Phone: +1 (646) 260-1320 | Subject: "Billing Inquiry — [Your Company Name]"</p>
+      <p><strong>Brio Bridge — Billing Department</strong> | Email: <a href="mailto:hello@briobridge.com" class="__cf_email__" data-cfemail="0169646d6d6e416373686e6373686566642f626e6c">[email&#160;protected]</a> | Phone: +1 (646) 260-1320 | Subject: "Billing Inquiry — [Your Company Name]"</p>
     </div>
   </div>
 </div>
@@ -990,7 +989,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="tel:+16462601320">+1 (646) 260-1320</a>
-        hello@briobridge.com
+        <a href="mailto:hello@briobridge.com"><span class="__cf_email__" data-cfemail="335b565f5f5c7351415a5c51415a5754561d505c5e">[email&#160;protected]</span></a>
         <a style="cursor:default">📍 Lahore, Pakistan (HQ)</a>
         <a style="cursor:default">📍 New York, USA</a>
         <a style="cursor:default">📍 Riyadh, Saudi Arabia</a>
@@ -1519,14 +1518,31 @@ function showDetail(slug){
     +'<p class="svc-hero-desc">'+s.desc+'</p>'
     +'<p class="svc-stats-line">'+s.stats+'</p>'
     +'</div></div></section>'
+
     +'<section class="section"><div class="container">'
-    // Visual photo strip ABOVE the layout
     + visualStrip
-    // Process strip
     + processStrip
-    +'<div class="svc-layout">'
     +'<div>'+subHTML+'</div>'
-    +'<div class="form-sticky">'
+    +'</div></section>'
+
+    +'<section class="section section-alt">'
+    +'<div class="container">'
+    +'<div class="contact-layout">'
+
+    +'<div>'
+    +'<div class="eyebrow">Get a Quote</div>'
+    +'<h2 class="section-title" style="font-size:1.75rem;margin-bottom:1.25rem">'+s.formHead+'</h2>'
+    +'<p class="lead" style="margin-bottom:2rem">Tell us about your project and we\'ll respond with a clear proposal within 1 business day — no commitment required.</p>'
+    +'<div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+16462601320">+1 (646) 260-1320</a></div></div></div>'
+    +'<div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:hello@briobridge.com">hello@briobridge.com</a></div></div></div>'
+    +'<div class="ci-item"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="ci-label">Response Time</div><div class="ci-val">Within 1 business day</div></div></div>'
+    +'<div style="margin-top:1.75rem;padding:1.25rem 1.5rem;background:var(--navy);border-radius:10px;display:flex;align-items:flex-start;gap:.875rem">'
+    +'<div style="font-size:1.3rem;flex-shrink:0">&#9889;</div>'
+    +'<p style="font-size:.81rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0"><strong style="color:#fff">Free Consultation.</strong> Every engagement starts with a free scoping call. No obligation, no pressure — just a clear plan and honest pricing.</p>'
+    +'</div>'
+    +'</div>'
+
+    +'<div>'
     +'<div id="sfSucc_'+slug+'" class="success-box" style="display:none">'
     +'<div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>'
     +'<h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.5rem">Message Sent!</h3>'
@@ -1534,9 +1550,9 @@ function showDetail(slug){
     +'<button onclick="document.getElementById(\'sfSucc_'+slug+'\').style.display=\'none\';document.getElementById(\'sfWrap_'+slug+'\').style.display=\'block\'" style="margin-top:1rem;font-size:.85rem;color:var(--gold);background:none;border:none;cursor:pointer;font-weight:600">Send Another</button>'
     +'</div>'
     +'<div id="sfWrap_'+slug+'" class="form-wrap">'
-    +'<h3>'+s.formHead+'</h3>'
-    +'<p class="form-sub">Fill out the form and our team will respond within 1 business day.</p>'
-    +'<form id="sf_'+slug+'" onsubmit="submitSvc(event,\''+slug+'\')">'
+    +'<h3 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.3rem">Send Us a Message</h3>'
+    +'<p class="form-sub">Fill out the form below and we\'ll be in touch shortly.</p>'
+    +'<form id="sf_'+slug+'" onsubmit="submitSvc(event,\''+slug+'\')" >'
     +'<input type="hidden" name="access_key" value="f8044505-5226-420a-ab2d-38ff2ca0dd12">'
     +'<input type="hidden" name="subject" value="New '+s.name+' inquiry - BrioBridge">'
     +'<input type="checkbox" name="botcheck" style="display:none">'
@@ -1551,12 +1567,15 @@ function showDetail(slug){
     +formHTML
     +'<div class="f-consent-wrap"><label style="display:flex;align-items:flex-start;gap:.625rem;cursor:pointer;font-size:.75rem;color:var(--muted);line-height:1.65">'
     +'<input type="checkbox" id="c_'+slug+'" name="consent" required style="width:14px;height:14px;margin-top:.15rem;flex-shrink:0;accent-color:var(--gold)">'
-    +'<span>I agree to the <a onclick="openModal(\'privacy\')" style="color:var(--blue);text-decoration:none">Privacy Policy</a> and consent to being contacted by Brio Bridge regarding my enquiry.</span>'
+    +'<span>I agree to the <a onclick="openModal(\'privacy\')" style="color:var(--blue);text-decoration:none">Privacy Policy</a> and consent to being contacted by Brio Bridge.</span>'
     +'</label></div>'
     +'<div id="sfErr_'+slug+'" style="display:none;font-size:.75rem;color:#ef4444;margin-bottom:.75rem"></div>'
     +'<button type="submit" class="btn-submit" id="sfBtn_'+slug+'">'+s.formBtn+'</button>'
-    +'</form></div></div>'
+    +'</form></div>'
+    +'</div>'
+
     +'</div></div></section>'
+
     +'<section class="section section-dark"><div class="container" style="text-align:center"><div class="reveal">'
     +'<h2 class="section-title title-light" style="margin-bottom:1rem">Ready to Get Started?</h2>'
     +'<p class="lead lead-light" style="max-width:460px;margin:0 auto 2rem">Have questions or want to discuss your specific needs? Our team is ready to help.</p>'
@@ -1565,6 +1584,7 @@ function showDetail(slug){
     +'<a href="tel:+16462601320" class="btn btn-outline">&#128222; +1 (646) 260-1320</a>'
     +'</div></div></div></section>'
     +'<div id="ftr-detail">'+buildFooter()+'</div>';
+
 
   nav('detail');
   initReveal();
@@ -1775,6 +1795,20 @@ document.addEventListener('DOMContentLoaded',function(){
   renderSvcGrids();
   initReveal();
   initCounters();
+
+  // Pause auto on hover
+  var wrap = document.getElementById('testiCarouselWrap');
+  if(wrap){
+    wrap.addEventListener('mouseenter', stopTestiAuto);
+    wrap.addEventListener('mouseleave', startTestiAuto);
+  }
+
+  // Responsive: adjust perSlide
+  function setPerSlide(){
+    testiPerSlide = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+  setPerSlide();
+  window.addEventListener('resize', function(){ setPerSlide(); testiGoTo(0); });
 });
 </script>
 </body>
