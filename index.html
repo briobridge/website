@@ -21,6 +21,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
 body{font-family:'Poppins',sans-serif;font-weight:300;line-height:1.8;color:var(--ink);background:#fff;overflow-x:hidden}
+#bb-prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-lt));z-index:10000;pointer-events:none;transition:width .08s linear}
 .page{display:none}.page.active{display:block;animation:pgIn .35s ease}
 @keyframes pgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
@@ -111,10 +112,11 @@ nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 .h-svc-sub{font-size:.72rem;color:rgba(255,255,255,.45);margin-top:.1rem}
 .h-svc-arrow{color:rgba(255,255,255,.3);font-size:.9rem;transition:color .2s}
 .h-svc-card:hover .h-svc-arrow{color:var(--gold)}
-.hero-stats-row{display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
-.hs-item{}
-.hs-num{font-size:1.75rem;font-weight:800;color:var(--gold);letter-spacing:-1px;line-height:1}
-.hs-lbl{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-top:.2rem}
+.hero-stats-row{display:flex;gap:0;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.hs-item{display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;padding:0 .5rem;border-right:1px solid rgba(255,255,255,.1)}
+.hs-item:last-child{border-right:none}
+.hs-num{font-size:1.75rem;font-weight:800;color:var(--gold);letter-spacing:-1px;line-height:1;display:block;width:100%;text-align:center}
+.hs-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-top:.3rem;display:block;text-align:center}
 @media(max-width:1023px){.hero-content{grid-template-columns:1fr}.hero-right{display:none}}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,146,42,.12);border:1px solid rgba(201,146,42,.3);color:var(--gold-lt);font-size:.73rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:.4rem 1rem;border-radius:100px;margin-bottom:2rem}
 .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pl 2s ease-in-out infinite}
@@ -184,7 +186,7 @@ nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
 @media(min-width:1024px){.team-grid{grid-template-columns:repeat(4,1fr)}}
 .team-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1.5px solid var(--border);transition:all .3s var(--ease)}
 .team-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-.team-card img{width:100%;height:220px;object-fit:cover;object-position:top}
+.team-card img{width:100%;height:240px;object-fit:cover;object-position:center 15%}
 .team-card-body{padding:1.25rem}
 .team-card-body h3{font-size:1rem;font-weight:700;color:var(--navy)}
 .team-card-body p{font-size:.8rem;font-weight:600;color:var(--gold);margin-top:.2rem}
@@ -416,6 +418,10 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
 
 @media(max-width:1023px){.nav-links,.topbar,.btn-nav,.nav-phone{display:none!important}.hamburger{display:flex!important}}
 @media(max-width:640px){.hero h1{font-size:2.5rem}.hero-btns{flex-direction:column}.btn{justify-content:center}.about-layout{gap:2rem}.f-row{grid-template-columns:1fr}}
+
+
+
+
 </style>
 </head>
 <body>
@@ -678,17 +684,17 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
         <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
       </div>
       <div class="testi-grid">
-        <div class="testi-card reveal">
+        <div class="testi-card">
           <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="testi-q">"Brio Bridge transformed our entire digital presence. Their team delivered a custom platform that increased our conversion rate by 340%. They're not just vendors — they're partners."</p>
           <div class="testi-foot"><div class="name">James Crawford</div><div class="co">CEO, Pinnacle Ventures</div></div>
         </div>
-        <div class="testi-card reveal" style="transition-delay:.1s">
+        <div class="testi-card">
           <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="testi-q">"We needed reliable construction estimates at scale, and Brio Bridge delivered consistently. Their accuracy and turnaround time are unmatched in the industry."</p>
           <div class="testi-foot"><div class="name">Maria Santos</div><div class="co">VP Operations, Atlas Builders</div></div>
         </div>
-        <div class="testi-card reveal" style="transition-delay:.2s">
+        <div class="testi-card">
           <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="testi-q">"Their BPO team ramped up 40 agents in under two weeks and maintained a 97% CSAT score from month one. Incredible execution."</p>
           <div class="testi-foot"><div class="name">Robert Kim</div><div class="co">COO, Clearpoint Solutions</div></div>
@@ -907,47 +913,202 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
   <div class="modal-box">
     <div class="modal-head"><h3>Privacy Policy</h3><button class="modal-close" onclick="closeModal('privacy')">×</button></div>
     <div class="modal-body">
-      <p><strong>Effective Date:</strong> January 1, 2024</p>
-      <p>Brio Bridge ("we," "us," or "our") is committed to protecting the privacy of our clients, partners, and website visitors.</p>
-      <h4>1. Information We Collect</h4><p>We may collect personal information including: name, email address, phone number, company name, job title, and project details submitted through our contact forms. We also collect technical data such as IP addresses, browser type, and usage analytics.</p>
-      <h4>2. How We Use Your Information</h4><p>We use collected information to respond to inquiries; deliver and improve our services; communicate about projects and offerings; comply with legal obligations; and protect our rights and property.</p>
-      <h4>3. Telephone Contact &amp; TCPA Compliance</h4><p>By providing your phone number and checking the consent box on our contact form, you expressly consent to receive telephone calls, text messages (SMS), and follow-up communications from Brio Bridge at the phone number provided. This consent is not a condition of purchasing any goods or services. You may opt out at any time by replying STOP to any text message or emailing hello@briobridge.com.</p>
-      <h4>4. Information Sharing</h4><p>We do not sell or rent your personal information to third parties. We may share information with trusted service providers who assist in operating our website and conducting our business, subject to confidentiality agreements.</p>
-      <h4>5. Data Security</h4><p>We implement industry-standard security measures to protect your personal information.</p>
-      <h4>6. Your Rights</h4><p>You may request access to, correction of, or deletion of your personal information by contacting us at hello@briobridge.com. We will respond within 30 business days.</p>
-      <h4>7. Contact Us</h4><p>Questions about this Privacy Policy? Contact us at hello@briobridge.com or +1 (646) 260-1320.</p>
+      <p><strong>Effective Date:</strong> January 1, 2025 &nbsp;|&nbsp; <strong>Last Revised:</strong> January 1, 2025</p>
+      <p>This Privacy Policy ("Policy") is provided by Brio Bridge LLC ("Brio Bridge," "Company," "we," "us," or "our"), a professional services company operating from Lahore, Pakistan, with offices in New York (USA), London (UK), and Riyadh (Saudi Arabia). This Policy governs how we collect, use, disclose, and safeguard personal information obtained through our website briobridge.com ("Site") and our professional services. By accessing the Site or engaging our services, you agree to this Policy in its entirety. If you do not agree, please discontinue use immediately.</p>
+
+      <h4>1. Information We Collect</h4>
+      <p><strong>Information You Provide Directly:</strong> Full name; business name and title; email address; telephone number (mobile and/or landline); mailing address; project descriptions, requirements, and related documents; payment information (processed exclusively through third-party PCI-DSS compliant gateways — we do not store raw card data); and any other content you submit through our forms, email, or communications.</p>
+      <p><strong>Information Collected Automatically:</strong> IP address; browser type, version, and language; device type and operating system; pages visited and time spent; referral URLs; and clickstream data. We use cookies, pixel tags, and similar tracking technologies including Google Analytics and Meta Pixel. By continuing to use our Site, you consent to these technologies. You may disable cookies in your browser settings, though some Site features may not function properly.</p>
+
+      <h4>2. How We Use Your Information</h4>
+      <p>We use collected information to: (a) respond to inquiries and provide requested quotes and proposals; (b) deliver, manage, and improve our professional services; (c) process payments and maintain billing records; (d) send transactional communications related to your engagement; (e) send marketing communications where you have consented or where permitted by applicable law, including the CAN-SPAM Act — you may opt out at any time; (f) conduct internal analytics, research, and service improvement; (g) comply with legal, regulatory, contractual, and ethical obligations; (h) enforce our Terms and Conditions and contractual agreements; and (i) protect the rights, property, and safety of Brio Bridge, our staff, clients, and the public.</p>
+
+      <h4>3. Telephone Communications & TCPA Compliance</h4>
+      <p>By providing your telephone number and checking the consent checkbox on any of our forms, you expressly authorize Brio Bridge and its authorized agents to contact you at the provided number via: (a) telephone calls, including calls using an automatic telephone dialing system (ATDS) or artificial/prerecorded voice messages; and (b) text messages (SMS/MMS). This consent is not a condition of purchasing any product or service. Message and data rates may apply. You may revoke consent at any time by: replying STOP to any text message; saying "stop" or "unsubscribe" during any call; or emailing hello@briobridge.com with the subject "OPT OUT." Brio Bridge complies with the Telephone Consumer Protection Act (TCPA), 47 U.S.C. § 227, and all FCC regulations thereunder.</p>
+
+      <h4>4. CAN-SPAM Act Compliance</h4>
+      <p>All marketing emails from Brio Bridge comply with the CAN-SPAM Act of 2003. Each marketing email includes: a clear identification of the sender; a valid physical postal address; a clear and conspicuous opt-out mechanism; and prompt honoring of opt-out requests within 10 business days. Transactional and relationship emails are exempt from these opt-out requirements but remain subject to truthfulness standards.</p>
+
+      <h4>5. California Privacy Rights — CCPA/CPRA</h4>
+      <p>If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA): (a) Right to Know — request disclosure of personal information we have collected, used, disclosed, and sold in the past 12 months; (b) Right to Delete — request deletion of your personal information, subject to certain exceptions; (c) Right to Correct — request correction of inaccurate personal information; (d) Right to Opt-Out — we do not sell personal information as defined under the CCPA; (e) Right to Non-Discrimination — we will not discriminate against you for exercising your CCPA rights. To exercise any right, email hello@briobridge.com with "CCPA Request" in the subject line. We will respond within 45 days as required by law.</p>
+
+      <h4>6. How We Share Your Information</h4>
+      <p>We do not sell, rent, or trade your personal information to third parties for their own marketing purposes. We may share your information: (a) with trusted service providers who assist in website operation, payment processing, email delivery, and analytics, under strict confidentiality and data processing agreements; (b) with professional advisors (attorneys, accountants, auditors) under confidentiality obligations; (c) in connection with a merger, acquisition, or asset sale, provided the acquiring entity is bound by this Policy; (d) when required by applicable law, valid court order, subpoena, government agency request, or law enforcement inquiry; (e) to protect the rights, property, or safety of Brio Bridge, our clients, or the public; and (f) with your explicit written consent.</p>
+
+      <h4>7. Payment Processing & Stolen Card Disclaimer</h4>
+      <p>Brio Bridge does not directly collect, process, transmit, or store payment card information. All payment transactions are processed exclusively through third-party payment gateways that are PCI-DSS Level 1 compliant. Brio Bridge expressly disclaims all liability for any payment made using a stolen, cloned, counterfeit, fraudulently obtained, or otherwise unauthorized payment card or bank account. In the event that funds are received by Brio Bridge in good faith and it is later determined that the payment was made with an unauthorized instrument: (a) Brio Bridge acted as an innocent merchant relying on the authorization provided by the payment processor; (b) any investigation, chargeback, or fraud claim is the responsibility of the cardholder, issuing bank, payment network, and/or relevant law enforcement; (c) services rendered in good faith prior to notification of fraud will not be reversed or refunded; and (d) Brio Bridge reserves the right to pursue all available civil and legal remedies against any party who uses unauthorized payment instruments.</p>
+
+      <h4>8. Data Retention</h4>
+      <p>We retain personal information for as long as necessary to fulfill the purposes for which it was collected, comply with applicable legal and regulatory obligations, resolve disputes, and enforce our agreements. Client records, contracts, and related communications are retained for a minimum of seven (7) years following the conclusion of the engagement, consistent with U.S. business records retention standards. Financial and billing records are retained for a minimum of seven (7) years as required by IRS guidelines. Marketing contact data is retained until you opt out. You may request deletion of your data subject to our legal retention obligations.</p>
+
+      <h4>9. Data Security</h4>
+      <p>We implement commercially reasonable and industry-standard administrative, technical, and physical safeguards to protect your personal information from unauthorized access, disclosure, alteration, or destruction. These measures include encrypted data transmission (TLS/SSL), access controls, and regular security assessments. However, no data transmission over the Internet or electronic storage system is 100% secure. You acknowledge and accept this inherent risk. Brio Bridge is not liable for unauthorized access to personal information resulting from circumstances beyond our reasonable control, including cyberattacks, data breaches at third-party service providers, or force majeure events.</p>
+
+      <h4>10. Third-Party Links</h4>
+      <p>Our Site may contain links to third-party websites, platforms, or services. Brio Bridge is not responsible for the privacy practices, content, security, or data handling of any third-party site. We encourage you to review the privacy policies of any third-party sites before providing personal information.</p>
+
+      <h4>11. Children's Privacy — COPPA Compliance</h4>
+      <p>Our Site and services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children under 13 in violation of the Children's Online Privacy Protection Act (COPPA). If we discover that we have inadvertently collected personal information from a child under 13, we will promptly delete such information. If you believe we have collected information from a child under 13, please contact us at hello@briobridge.com.</p>
+
+      <h4>12. Your Rights & Choices</h4>
+      <p>Subject to applicable law, you may request: (a) access to the personal information we hold about you; (b) correction of inaccurate or incomplete information; (c) deletion of your personal information; (d) restriction of processing in certain circumstances; and (e) a portable copy of your data. To exercise these rights, contact us at hello@briobridge.com. We will verify your identity before processing any data rights request. We will respond within 30 days (or as required by applicable law). We reserve the right to deny requests that are manifestly unfounded, excessive, or legally impermissible.</p>
+
+      <h4>13. Governing Law</h4>
+      <p>This Policy is governed by the laws of the State of New York, United States, without regard to conflict of law principles. Any disputes arising under this Policy shall be resolved in accordance with the dispute resolution provisions set forth in our Terms and Conditions.</p>
+
+      <h4>14. Changes to This Policy</h4>
+      <p>Brio Bridge reserves the right to update or modify this Policy at any time. Changes will be posted on this page with an updated effective date. Material changes will be communicated via email to active clients where practicable. Your continued use of the Site or our services following any modification constitutes your acceptance of the updated Policy. We recommend reviewing this Policy periodically.</p>
+
+      <h4>15. Contact — Privacy Inquiries</h4>
+      <p><strong>Brio Bridge LLC — Privacy Office</strong><br>Email: hello@briobridge.com<br>Phone: +1 (646) 260-1320<br>Please include "Privacy Inquiry" in the subject line.</p>
     </div>
   </div>
 </div>
-
 <div class="modal-ov" id="modal-refund" onclick="if(event.target===this)closeModal('refund')">
   <div class="modal-box">
-    <div class="modal-head"><h3>Refund &amp; Payment Policy</h3><button class="modal-close" onclick="closeModal('refund')">×</button></div>
+    <div class="modal-head"><h3>Refund, Payment & Service Terms</h3><button class="modal-close" onclick="closeModal('refund')">×</button></div>
     <div class="modal-body">
-      <p><strong>Effective Date:</strong> January 1, 2024 | <strong>Last Updated:</strong> January 1, 2025</p>
-      <p>This Refund &amp; Payment Policy ("Policy") governs all financial transactions between Brio Bridge LLC ("Brio Bridge," "we," "us," "our") and its clients. By engaging our services or making any payment to Brio Bridge, you agree to be legally bound by this Policy in its entirety.</p>
+      <p><strong>Effective Date:</strong> January 1, 2025 &nbsp;|&nbsp; <strong>Last Revised:</strong> January 1, 2025</p>
+      <p>This Refund, Payment & Service Terms policy ("Policy") governs all financial transactions and service engagements between Brio Bridge LLC ("Brio Bridge," "we," "us," "our") and its clients ("Client," "you"). This Policy is incorporated by reference into all service agreements, statements of work (SOWs), and proposals issued by Brio Bridge. By making any payment or executing any service agreement with Brio Bridge, you agree to be legally bound by this Policy in its entirety.</p>
+
       <h4>1. General No-Refund Policy</h4>
-      <p><strong>All sales and service fees paid to Brio Bridge are final and non-refundable.</strong> Due to the nature of professional services — which involve immediate allocation of personnel, resources, infrastructure, and expertise upon engagement — Brio Bridge does not offer refunds under ordinary circumstances. This applies to all divisions: Technology, Engineering, Logistics, BPO, Finance, and HR. By initiating a payment, you acknowledge that services represent a binding commitment of Brio Bridge resources and that compensation is earned upon engagement commencement, not upon project completion.</p>
+      <p><strong>All payments made to Brio Bridge are final and non-refundable as a general rule.</strong> Professional services involve the immediate and irreversible allocation of expert personnel, time, proprietary methodology, software tools, third-party resources, and infrastructure upon engagement commencement. Compensation is earned from the moment work begins, not upon final delivery. This no-refund position applies across all six service divisions unless an explicit exception is stated in this Policy or in a separately executed written agreement.</p>
+
       <h4>2. Payment Terms</h4>
-      <p>(a) Project-based engagements require a non-refundable deposit of 50–100% prior to commencement; (b) Monthly retainers are billed in advance and non-refundable once the billing period begins; (c) Invoices are due upon receipt; (d) Late payments incur a finance charge of 1.5% per month (18% per annum); (e) Brio Bridge may suspend services immediately upon non-payment without liability.</p>
-      <h4>3. Non-Refundable Items</h4>
-      <p>Absolutely non-refundable under all circumstances: (a) Onboarding, setup, and consultation fees; (b) Any work commenced, including drafts, prototypes, or research; (c) Retainer fees for any commenced billing period; (d) Third-party costs, licenses, software, or ad spend incurred on your behalf; (e) Rush fees; (f) Any deliverable delivered, reviewed, or accessed by the Client; (g) Services paused due to Client failure to provide materials, access, or approvals.</p>
-      <h4>4. Limited Exception — Non-Delivery</h4>
-      <p>A service credit (at Brio Bridge's sole discretion) may be considered only if: Brio Bridge has completely failed to commence any work within 30 calendar days of the agreed start date through no fault of the Client, and written notice is provided within 5 business days thereafter. Any credit shall be limited to the uncommitted portion of fees paid and issued as a service credit — not a cash refund. This exception does not apply where delays result from Client failure to provide information or approvals, force majeure events, or scope changes.</p>
+      <p>(a) <strong>Deposits:</strong> All engagements require a non-refundable deposit of 50%–100% of the total estimated fee prior to work commencement. The specific deposit amount is stated in the applicable SOW or proposal. (b) <strong>Retainers:</strong> Monthly retainer fees are invoiced and due at the start of each billing cycle and are non-refundable once the billing period has commenced, regardless of service utilization. (c) <strong>Milestone Payments:</strong> Project-based engagements may be structured with milestone-based payments. Each milestone payment is due upon completion of the preceding milestone and is non-refundable. (d) <strong>Net Terms:</strong> Unless otherwise specified in writing, all invoices are due Net 7 days from the invoice date. (e) <strong>Late Payment:</strong> Overdue balances accrue a late payment fee of 1.5% per month (18% per annum) on the outstanding principal from the due date. (f) <strong>Suspension:</strong> Brio Bridge reserves the right to suspend all services immediately and without notice upon non-payment, without any liability to the Client for resulting delays, losses, or damages. (g) <strong>Collections:</strong> Accounts unpaid after 60 days may be referred to a collections agency. The Client shall be liable for all collection costs, including attorney's fees.</p>
+
+      <h4>3. Universally Non-Refundable Items (All Divisions)</h4>
+      <p>The following are absolutely non-refundable under any circumstances across all service divisions: (a) Onboarding, setup, and account configuration fees; (b) Initial consultation fees and discovery sessions; (c) Any work product commenced, including drafts, prototypes, research, outlines, or partial deliverables; (d) Retainer and subscription fees for any period already commenced; (e) Third-party costs incurred on the Client's behalf (software licenses, advertising spend, API fees, permit fees, subcontractor costs, filing fees, etc.); (f) Rush service or expedited delivery premiums; (g) Any deliverable that has been delivered to, accessed by, reviewed by, or approved by the Client in any form; (h) Services delayed or disrupted due to Client failure to provide required materials, access, approvals, feedback, or information in a timely manner; (i) Services paused at Client's request; (j) Translation, interpretation, or localization services; and (k) Training, documentation, and knowledge-transfer sessions.</p>
+
+      <h4>4. Division-Specific Refund & Review Terms</h4>
+      <p>The following terms apply on a per-division basis and supersede the general no-refund policy only to the extent explicitly stated:</p>
+
+      <p><strong>4A. Technology & Digital Solutions</strong><br>
+      <em>Review Period:</em> Clients may request a revision or dispute a deliverable within <strong>14 calendar days</strong> of delivery. After 14 days, all deliverables are deemed accepted without reservation.<br>
+      <em>Revisions:</em> Each SOW includes a defined number of revision rounds. Revisions within scope and within the review period are included. Out-of-scope changes are billed separately.<br>
+      <em>Refund Eligibility:</em> No refunds are issued for completed work. If Brio Bridge is unable to deliver a defined milestone due solely to our material failure (not client-caused delays), a partial service credit (not cash refund) may be issued at our sole discretion for the undelivered portion only.<br>
+      <em>Staff Augmentation:</em> No refunds on any billed period. Minimum 14-day written notice to reduce or terminate augmented staff. Client is liable for the full notice period regardless of utilization.</p>
+
+      <p><strong>4B. Engineering & Estimation (CAD, BIM, Estimating, QTO, Xactimate)</strong><br>
+      <em>No Review Period — No Refunds.</em> Estimation, takeoff, and engineering deliverables are time-sensitive professional work products used for bidding, procurement, and regulatory submissions. <strong>No review period, revision window, or refund applies to any estimation or engineering service.</strong> Once delivered, the work is complete and payment is fully earned. This applies regardless of whether the estimate was used, whether the Client won the bid, whether project plans changed, or whether the Client's deadline has passed. Xactimate and insurance restoration estimates are similarly final upon delivery. Errors reported within <strong>48 hours</strong> of delivery may be reviewed and corrected at Brio Bridge's discretion as a professional courtesy — this does not constitute a refund or admission of liability.</p>
+
+      <p><strong>4C. Logistics & Fleet Management (Dispatch, Fleet Ops, DOT Compliance)</strong><br>
+      <em>Dispatching Services:</em> No refunds on any dispatching fees, whether flat-rate monthly or per-load commission. Once a load is booked or a truck is dispatched, the fee is fully earned. Monthly retainer: 30-day written notice required to cancel; fees during notice period are non-refundable.<br>
+      <em>Fleet Management & DOT Compliance:</em> Monthly retainers are non-refundable. Services are deemed rendered on a per-day basis. Pro-rata credits are not issued for partial months.<br>
+      <em>Consulting Engagements:</em> Consulting fees are non-refundable once the engagement begins. Reports and recommendations delivered are final.</p>
+
+      <p><strong>4D. BPO / Customer Support</strong><br>
+      <em>Review Period:</em> Service quality disputes must be raised in writing within <strong>7 calendar days</strong> of the end of each billing cycle. Disputes not submitted within this window are waived.<br>
+      <em>Agent Performance:</em> Brio Bridge will make reasonable efforts to address documented performance issues. Replacement of underperforming agents is offered as a remedy — not refunds.<br>
+      <em>Minimum Commitment:</em> All BPO engagements carry a minimum 30-day commitment. No refunds or credits are issued for the minimum commitment period under any circumstances. After the minimum period, cancellation requires 30 days' written notice; fees during the notice period are non-refundable.<br>
+      <em>Setup Fees:</em> Non-refundable under all circumstances.</p>
+
+      <p><strong>4E. Finance & Accounting</strong><br>
+      <em>Review Period:</em> Clients may dispute a financial deliverable (bookkeeping reports, tax filings, financial statements) within <strong>7 calendar days</strong> of delivery. After this period, deliverables are deemed accepted.<br>
+      <em>Tax Services:</em> Tax preparation and filing fees are non-refundable once the return is prepared, regardless of tax outcome, audit result, or amendment requirements. Amendments due to Client-provided incorrect information are billed separately.<br>
+      <em>CFO Advisory:</em> Monthly retainer fees are non-refundable. 30-day written notice is required to terminate. Results from advisory services (fundraising outcomes, investor decisions, business performance) are not guaranteed and do not affect fee obligations.<br>
+      <em>ERP Implementation:</em> Milestone-based; each completed milestone is non-refundable. Project delays caused by Client (lack of access, data, personnel) do not suspend payment obligations.</p>
+
+      <p><strong>4F. HR & People Operations</strong><br>
+      <em>Review Period:</em> Clients may dispute an HR deliverable (policy documents, handbooks, job descriptions, training materials) within <strong>14 calendar days</strong> of delivery.<br>
+      <em>Recruitment:</em> Recruitment fees are earned upon the Client's acceptance of a candidate offer. If a placed candidate voluntarily departs or is terminated within <strong>30 days</strong> of start date due to reasons unrelated to Client misconduct, Brio Bridge will conduct one replacement search at no additional placement fee. This is a one-time replacement guarantee per placement — not a refund. No replacement is offered if the Client terminates the employment relationship.<br>
+      <em>Payroll Administration:</em> Monthly fees are non-refundable. Errors in payroll processing reported within <strong>3 business days</strong> of delivery will be corrected at no charge. Errors reported after 3 business days may incur correction fees.<br>
+      <em>Full HR Outsourcing:</em> Monthly retainer non-refundable. 60-day written notice required to terminate full HR outsourcing agreements.</p>
+
       <h4>5. Cancellation Policy</h4>
-      <p>(a) Before work commences: deposit is forfeited; no liability for remaining fees. (b) After commencement: Client is liable for all work to date at standard rates plus third-party costs incurred. (c) Monthly retainers require 30 days written notice; fees during notice period are non-refundable. (d) Brio Bridge may terminate any engagement for cause — including non-payment, breach of contract, or misrepresentation — without refund and without liability.</p>
+      <p>(a) <strong>Before Work Commences:</strong> If Client cancels in writing before any work has begun, the deposit is forfeited in full. No additional fees are due.<br>
+      (b) <strong>After Work Commences:</strong> Client is liable for: (i) all work completed to date, calculated at Brio Bridge's standard hourly or day rates, whichever is greater; (ii) all third-party costs already incurred on Client's behalf; and (iii) any non-cancellable commitments made on Client's behalf (subcontractors, software licenses, etc.).<br>
+      (c) <strong>Retainer & Monthly Services:</strong> Cancellation requires written notice per the division-specific notice period above. All fees accrued through the end of the notice period are due and non-refundable.<br>
+      (d) <strong>Termination for Cause:</strong> Brio Bridge reserves the right to immediately terminate any engagement for cause, including but not limited to: non-payment; material breach of any agreement; abusive, threatening, or harassing conduct toward Brio Bridge personnel; provision of false or misleading information; or use of unauthorized payment instruments. Termination for cause forfeits all fees paid and does not entitle the Client to any refund or credit.</p>
+
       <h4>6. Dispute Resolution</h4>
-      <p>Disputes must be submitted in writing to hello@briobridge.com within 7 calendar days of receiving the disputed deliverable. Disputes not submitted within this window are deemed accepted and waived. Disputes shall be resolved by binding arbitration. <strong>Brio Bridge's maximum liability shall not exceed the total amount paid in the 90 days preceding the dispute.</strong> Brio Bridge is not liable for indirect, consequential, incidental, punitive, or exemplary damages under any circumstances.</p>
-      <h4>7. Chargebacks &amp; Unauthorized Payment Disputes</h4>
-      <p>Initiating a chargeback without first completing our dispute resolution process constitutes a breach of this Policy. In such cases, Brio Bridge reserves the right to: (a) Immediately suspend all services without liability; (b) Terminate the client relationship permanently; (c) Submit all evidence to contest the chargeback with payment processors and card networks; (d) Pursue collection of the disputed amount plus chargeback fees, administrative costs, and legal fees through all available civil remedies; (e) Report the debt to collection agencies where applicable. Brio Bridge has a documented history of successfully contesting unjustified chargebacks and will vigorously pursue all available remedies.</p>
-      <h4>8. Stolen, Fraudulent &amp; Unauthorized Card Payments</h4>
-      <p><strong>Brio Bridge expressly bears no liability for payments made using stolen, cloned, fraudulently obtained, or otherwise unauthorized payment instruments.</strong> Brio Bridge acts as an innocent recipient in good faith and cannot verify payment authorization at processing time. All payment processing is handled by third-party PCI-DSS compliant gateways — Brio Bridge does not store or access raw card data. Any fraud investigation is the sole responsibility of the cardholder, card issuer, payment processor, and/or law enforcement. Work performed prior to notification of fraudulent payment will not be reversed, as resources were committed in good faith. Clients using unauthorized payment methods are fully liable for all resulting losses, fees, legal costs, and civil or criminal penalties. Brio Bridge will cooperate with law enforcement but cannot be held financially responsible for fraud perpetrated by third parties.</p>
-      <h4>9. Currency &amp; Taxes</h4>
-      <p>All prices are in USD unless specified in writing. Clients are solely responsible for applicable local taxes, withholding taxes, or other fiscal obligations in their jurisdiction.</p>
-      <h4>10. Modifications</h4>
-      <p>Brio Bridge reserves the right to modify this Policy at any time. Continued engagement or payment following any modification constitutes acceptance of the updated Policy.</p>
-      <h4>11. Contact</h4>
-      <p><strong>Brio Bridge — Billing Department</strong> | Email: hello@briobridge.com | Phone: +1 (646) 260-1320 | Subject: "Billing Inquiry — [Your Company Name]"</p>
+      <p>(a) <strong>Internal Dispute Process:</strong> All disputes regarding services, invoices, or deliverables must be submitted in writing to hello@briobridge.com within the applicable review period for each division (see Section 4) or within <strong>7 calendar days</strong> of the disputed event if no division-specific period applies. Disputes not submitted within the applicable window are conclusively waived and deemed accepted.<br>
+      (b) <strong>Response Time:</strong> Brio Bridge will respond to timely dispute submissions within 10 business days with a proposed resolution.<br>
+      (c) <strong>Binding Arbitration:</strong> If the parties cannot resolve a dispute through good-faith negotiation within 30 days, the dispute shall be submitted to binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules. The arbitration shall take place in New York County, New York. The arbitrator's decision shall be final and binding and may be entered as a judgment in any court of competent jurisdiction.<br>
+      (d) <strong>Class Action Waiver:</strong> All claims must be brought in the parties' individual capacity and not as a plaintiff or class member in any purported class or representative proceeding. The arbitrator may not consolidate more than one person's claims.<br>
+      (e) <strong>Limitation of Liability:</strong> Brio Bridge's maximum aggregate liability to the Client for any and all claims shall not exceed the total fees paid by the Client to Brio Bridge in the <strong>90 calendar days</strong> immediately preceding the event giving rise to the claim. Brio Bridge shall not be liable for any indirect, incidental, consequential, special, punitive, or exemplary damages, including but not limited to lost profits, lost data, or loss of business opportunity, regardless of the theory of liability.<br>
+      (f) <strong>Governing Law:</strong> This Policy and all disputes arising hereunder shall be governed by the laws of the State of New York, without regard to its conflict of law provisions. Subject to the arbitration requirement, the parties consent to exclusive jurisdiction in the state and federal courts located in New York County, New York.</p>
+
+      <h4>7. Chargebacks & Payment Disputes</h4>
+      <p>Initiating a chargeback, payment reversal, or dispute with your bank, card issuer, or payment processor without first completing Brio Bridge's internal dispute resolution process (Section 6(a)) constitutes a material breach of this Policy and any applicable service agreement. Upon any such chargeback, Brio Bridge reserves the right to, without limitation: (a) immediately suspend all services without notice and without any liability for resulting damages; (b) permanently terminate the Client relationship; (c) submit comprehensive evidence to the payment processor, card network, and issuing bank to contest the chargeback, including contracts, communications, invoices, and proof of delivery; (d) seek recovery of the full disputed amount plus chargeback fees (which typically range from $25–$100 per occurrence as charged by the payment processor), attorney's fees, administrative costs, and collection costs through all available civil and legal remedies; and (e) report the outstanding balance to credit bureaus and collection agencies where applicable. Brio Bridge has a documented practice of contesting chargebacks and will vigorously pursue all available remedies for bad-faith disputes.</p>
+
+      <h4>8. Stolen, Fraudulent & Unauthorized Payment Instruments</h4>
+      <p>Brio Bridge expressly bears zero liability for payments made using stolen, cloned, counterfeit, compromised, fraudulently obtained, or otherwise unauthorized payment cards, bank accounts, or payment instruments. Brio Bridge acts as an innocent recipient and merchant of record in good faith. Our payment processing is handled exclusively by third-party PCI-DSS compliant payment gateways — Brio Bridge does not have access to, store, or process raw card data at any point. In the event a payment received by Brio Bridge is subsequently identified as having been made with an unauthorized instrument: (a) Brio Bridge has no obligation to reverse, refund, or credit any amounts; (b) all work performed prior to notification of the unauthorized payment was rendered in good faith and remains fully compensable; (c) any investigation, chargeback, or fraud claim is the sole responsibility of the cardholder, the issuing financial institution, the payment processor, and/or relevant law enforcement authorities; (d) Brio Bridge will cooperate fully with legitimate law enforcement investigations but shall not be held financially liable for fraud perpetrated by third parties; and (e) any person or entity that knowingly uses an unauthorized payment instrument to obtain services from Brio Bridge shall be fully and solely liable for all resulting losses, fees, chargeback costs, legal fees, and any applicable civil or criminal penalties under 18 U.S.C. § 1029 (fraud and related activity in connection with access devices) and applicable state law.</p>
+
+      <h4>9. Currency, Taxes & Foreign Transactions</h4>
+      <p>All prices quoted by Brio Bridge are in United States Dollars (USD) unless explicitly stated otherwise in a written proposal or SOW. Clients are solely responsible for all applicable local, state, federal, and international taxes, import duties, withholding taxes, value-added taxes (VAT), goods and services taxes (GST), and any other fiscal obligations arising in their jurisdiction. Brio Bridge is not responsible for currency conversion fees or foreign transaction fees charged by the Client's bank or payment processor.</p>
+
+      <h4>10. Force Majeure</h4>
+      <p>Brio Bridge shall not be liable for any delay or failure to perform services resulting from circumstances beyond our reasonable control, including but not limited to acts of God, natural disasters, war, terrorism, civil unrest, government actions, power or internet outages, cyberattacks, pandemics, or labor disputes. During a force majeure event, payment obligations of the Client are not suspended or waived.</p>
+
+      <h4>11. Entire Agreement & Modifications</h4>
+      <p>This Policy, together with any applicable SOW, proposal, or service agreement, constitutes the entire agreement between the parties with respect to the subject matter herein. Brio Bridge reserves the right to modify this Policy at any time. Updated versions will be posted on our website with a revised effective date. Continued engagement or payment following any modification constitutes acceptance of the updated Policy. Modifications to specific SOW terms require a written amendment signed by both parties.</p>
+
+      <h4>12. Contact — Billing & Disputes</h4>
+      <p><strong>Brio Bridge LLC — Billing Department</strong><br>Email: hello@briobridge.com<br>Phone: +1 (646) 260-1320<br>Please include "Billing Inquiry — [Your Company Name]" in the subject line.</p>
+    </div>
+  </div>
+</div>
+<div class="modal-ov" id="modal-tnc" onclick="if(event.target===this)closeModal('tnc')">
+  <div class="modal-box">
+    <div class="modal-head"><h3>Terms &amp; Conditions</h3><button class="modal-close" onclick="closeModal('tnc')">×</button></div>
+    <div class="modal-body">
+      <p><strong>Effective Date:</strong> January 1, 2025 &nbsp;|&nbsp; <strong>Last Revised:</strong> January 1, 2025</p>
+      <p>These Terms and Conditions ("Terms") constitute a legally binding agreement between Brio Bridge LLC ("Brio Bridge," "we," "us," or "our") and you ("Client," "User," or "you"). These Terms govern your access to and use of the website briobridge.com ("Site") and all professional services provided by Brio Bridge. By accessing our Site, submitting an inquiry, executing a service agreement, or making any payment to Brio Bridge, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety. If you do not agree, you must immediately cease using the Site and refrain from engaging our services.</p>
+
+      <h4>1. Services</h4>
+      <p>Brio Bridge provides professional business services across six divisions: Technology & Digital Solutions, Engineering & Estimation, Logistics & Fleet Management, BPO / Customer Support, Finance & Accounting, and HR & People Operations. The specific scope, deliverables, timeline, and fees for each engagement are defined in a Statement of Work (SOW) or written proposal mutually agreed upon by the parties. In the event of any conflict between these Terms and a specific SOW, the SOW shall control solely with respect to the conflicting provision.</p>
+
+      <h4>2. Eligibility & Account Responsibility</h4>
+      <p>You represent and warrant that: (a) you are at least 18 years of age; (b) you have the legal authority to enter into a binding agreement on behalf of yourself or any entity you represent; (c) all information you provide is accurate, current, and complete; and (d) you will promptly update any information that changes. You are responsible for maintaining the confidentiality of any login credentials and for all activities conducted under your account.</p>
+
+      <h4>3. Client Obligations</h4>
+      <p>To enable Brio Bridge to perform services effectively, the Client agrees to: (a) provide accurate, complete, and timely information, materials, data, access, and approvals required for service delivery; (b) designate a qualified point of contact with decision-making authority; (c) respond to Brio Bridge communications within 3 business days unless otherwise agreed; (d) review and provide feedback on deliverables within the applicable review window specified in the Refund & Payment Policy; and (e) ensure that all materials provided to Brio Bridge are lawful, do not infringe third-party rights, and do not contain malicious code or content. Delays in service delivery caused by Client's failure to meet these obligations shall not entitle the Client to any reduction in fees, refund, or extension of any warranty or guarantee.</p>
+
+      <h4>4. Fees, Invoicing & Payment</h4>
+      <p>All fees are as specified in the applicable SOW or proposal. Brio Bridge reserves the right to adjust fees for ongoing engagements with 30 days' written notice. All payment terms, late fees, suspension rights, and collection policies are governed by the Refund, Payment & Service Terms policy, which is incorporated herein by reference. Acceptance of a proposal or SOW constitutes Client's agreement to the stated fees and payment schedule.</p>
+
+      <h4>5. Intellectual Property</h4>
+      <p><strong>Pre-Existing IP:</strong> Each party retains ownership of all intellectual property created prior to or independently of the engagement ("Background IP"). Brio Bridge retains all rights to its methodologies, frameworks, tools, templates, software, and know-how.<br>
+      <strong>Work Product:</strong> Upon receipt of full payment for a deliverable, Brio Bridge assigns to the Client the right to use the specific work product created for the Client under the SOW, excluding any Background IP embedded therein. Brio Bridge retains a non-exclusive, perpetual license to use anonymized versions of work product for portfolio and marketing purposes.<br>
+      <strong>Non-Payment:</strong> No intellectual property rights transfer to the Client until all outstanding fees are paid in full. Brio Bridge may revoke access to any deliverable for which full payment has not been received.<br>
+      <strong>Third-Party IP:</strong> If the scope requires use of third-party software, fonts, images, or other licensed materials, the Client is responsible for obtaining and maintaining appropriate licenses.</p>
+
+      <h4>6. Confidentiality</h4>
+      <p>Each party agrees to maintain the confidentiality of the other party's non-public business information ("Confidential Information") disclosed in connection with the engagement. Confidential Information shall not be disclosed to third parties without prior written consent, except: (a) to employees, contractors, or advisors on a need-to-know basis who are bound by equivalent confidentiality obligations; (b) as required by law, regulation, or valid court order, provided the disclosing party gives reasonable prior notice where legally permissible; or (c) information that is or becomes publicly available through no breach of these Terms. This confidentiality obligation survives termination of the engagement for a period of three (3) years.</p>
+
+      <h4>7. Warranties & Disclaimers</h4>
+      <p>Brio Bridge warrants that services will be performed in a professional and workmanlike manner consistent with industry standards. <strong>EXCEPT AS EXPRESSLY STATED, BRIO BRIDGE MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. BRIO BRIDGE DOES NOT WARRANT THAT SERVICES WILL ACHIEVE ANY SPECIFIC BUSINESS OUTCOME, REVENUE TARGET, SEARCH RANKING, REGULATORY APPROVAL, BID WIN, INVESTMENT RESULT, OR OTHER RESULT.</strong> Estimation and engineering deliverables represent professional opinions based on available information and are not guarantees of actual project costs or performance.</p>
+
+      <h4>8. Limitation of Liability</h4>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW: (a) BRIO BRIDGE'S TOTAL AGGREGATE LIABILITY FOR ANY AND ALL CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR ANY SERVICE ENGAGEMENT SHALL NOT EXCEED THE TOTAL FEES PAID BY THE CLIENT IN THE 90 DAYS PRECEDING THE CLAIM; (b) BRIO BRIDGE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING LOST PROFITS, LOST REVENUE, LOSS OF DATA, LOSS OF GOODWILL, BUSINESS INTERRUPTION, OR COST OF SUBSTITUTE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; AND (c) THESE LIMITATIONS APPLY REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR OTHERWISE). Some jurisdictions do not allow the exclusion of certain damages; in such jurisdictions, our liability is limited to the maximum extent permitted by law.</p>
+
+      <h4>9. Indemnification</h4>
+      <p>Client agrees to indemnify, defend, and hold harmless Brio Bridge LLC and its officers, directors, employees, contractors, and agents from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorney's fees) arising out of or related to: (a) Client's breach of these Terms or any SOW; (b) Client's use of deliverables in violation of applicable law or third-party rights; (c) materials, data, or instructions provided by Client that infringe third-party intellectual property rights, violate applicable law, or cause harm; (d) Client's negligence or willful misconduct; or (e) any unauthorized payment instrument used by or on behalf of the Client.</p>
+
+      <h4>10. Prohibited Uses</h4>
+      <p>You agree not to use the Site or our services to: (a) violate any applicable federal, state, local, or international law or regulation; (b) engage in fraudulent, deceptive, or misleading activity; (c) infringe upon the intellectual property rights of any third party; (d) transmit malicious code, viruses, or disruptive content; (e) harvest, scrape, or collect personal information of others without authorization; (f) circumvent, disable, or otherwise interfere with the security features of the Site; (g) use our services to produce content or engage in activities that are illegal, defamatory, obscene, or harmful; or (h) resell or sublicense our services without prior written consent.</p>
+
+      <h4>11. Termination</h4>
+      <p>Either party may terminate an engagement upon written notice as specified in the applicable SOW or the Refund & Payment Policy. Brio Bridge reserves the right to immediately terminate any engagement and/or access to the Site for any Client who: breaches these Terms; fails to make timely payment; engages in abusive or threatening conduct; provides fraudulent information; or uses unauthorized payment methods. Termination does not release the Client from any outstanding payment obligations. Sections 5, 6, 8, 9, and 12 of these Terms survive termination.</p>
+
+      <h4>12. Dispute Resolution & Governing Law</h4>
+      <p>All disputes arising out of or in connection with these Terms shall be governed by the laws of the State of New York, USA, without regard to conflict of law principles. Disputes shall be resolved through binding arbitration as set forth in Section 6 of the Refund, Payment & Service Terms policy, which is incorporated herein. The parties expressly waive any right to a jury trial. For injunctive or emergency relief, either party may seek relief in the state or federal courts of New York County, New York, and each party consents to personal jurisdiction therein.</p>
+
+      <h4>13. Electronic Communications & E-Sign Compliance</h4>
+      <p>By using the Site and submitting forms, you consent to receiving electronic communications from Brio Bridge, including emails, text messages, and in-app notifications. You agree that electronic agreements, contracts, signatures, and communications satisfy any legal requirement that such communications be in writing, consistent with the Electronic Signatures in Global and National Commerce Act (E-SIGN Act), 15 U.S.C. § 7001 et seq., and applicable state law. An email confirmation or digital signature on a proposal or SOW constitutes a legally binding agreement.</p>
+
+      <h4>14. Accessibility</h4>
+      <p>Brio Bridge is committed to making our Site accessible to all users. If you encounter accessibility barriers, please contact us at hello@briobridge.com so we can assist you.</p>
+
+      <h4>15. Entire Agreement & Severability</h4>
+      <p>These Terms, together with our Privacy Policy, Refund & Payment Policy, and any applicable SOW or service agreement, constitute the entire agreement between the parties with respect to the subject matter herein and supersede all prior negotiations, representations, warranties, and agreements. If any provision of these Terms is found invalid or unenforceable by a court of competent jurisdiction, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force and effect.</p>
+
+      <h4>16. Waiver</h4>
+      <p>Failure by either party to enforce any provision of these Terms shall not constitute a waiver of that party's right to enforce such provision in the future. All waivers must be in writing and signed by an authorized representative of the waiving party.</p>
+
+      <h4>17. Contact</h4>
+      <p><strong>Brio Bridge LLC — Legal</strong><br>Email: hello@briobridge.com<br>Phone: +1 (646) 260-1320<br>Please include "Legal Inquiry" in the subject line.</p>
     </div>
   </div>
 </div>
@@ -962,11 +1123,22 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
         <div class="footer-tagline">Bridging Vision to Reality</div>
         <p class="footer-desc">A globally operating services company with roots in Pakistan, helping businesses scale across every function — from technology and finance to logistics and people operations.</p>
         <div class="footer-socials">
-          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
-          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          <a href="https://www.linkedin.com/company/briobridge" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61570704331725" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/briobridgehq/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://x.com/BrioBridgeHQ" target="_blank" rel="noopener" class="social-btn" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+          </a>
+          <a href="https://www.threads.com/@briobridgehq" target="_blank" rel="noopener" class="social-btn" aria-label="Threads">
+            <svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.068c0-3.516.85-6.37 2.495-8.423C5.845 1.341 8.599.16 12.18.136h.013c2.809.019 5.195.794 7.093 2.303 1.662 1.319 2.791 3.146 3.357 5.43l-2.127.57c-.44-1.706-1.313-3.077-2.596-4.076-1.504-1.194-3.466-1.803-5.833-1.818-2.875.019-5.14.884-6.73 2.57C3.762 6.875 3 9.29 3 12.068c0 2.78.762 5.195 2.357 6.954 1.59 1.686 3.855 2.551 6.73 2.57 1.875-.013 3.415-.377 4.573-1.08 1.298-.782 2.02-1.94 2.144-3.44.09-1.077-.107-1.98-.583-2.683-.394-.576-.961-1.003-1.676-1.27.141.77.156 1.582.048 2.43-.247 1.932-1.32 3.078-3.19 3.406-1.219.215-2.446.05-3.46-.46-.838-.426-1.43-1.079-1.71-1.886-.314-.906-.233-1.962.233-2.97.537-1.176 1.49-1.956 2.787-2.316a8.8 8.8 0 0 1 2.698-.253c-.144-.928-.491-1.576-1.035-1.93-.672-.435-1.614-.452-2.513-.047l-.835-1.917c1.344-.585 2.793-.563 4.075.062 1.439.696 2.28 1.981 2.5 3.819a10.96 10.96 0 0 1 .02 2.056c.716.38 1.307.912 1.753 1.575.73 1.068 1.034 2.425.9 4.025-.19 2.286-1.261 4.006-3.096 4.97-1.423.748-3.193 1.127-5.258 1.14zm.54-9.977c-.457.013-.9.073-1.318.178-.85.216-1.45.686-1.783 1.39-.233.506-.267 1.047-.099 1.524.154.441.471.786.94 1.025.673.341 1.503.45 2.35.302 1.267-.225 1.812-.899 1.975-2.154.078-.606.058-1.25-.057-1.906a6.54 6.54 0 0 0-2.007-.359z"/></svg>
+          </a>
+          
         </div>
       </div>
       <div class="footer-col">
@@ -986,6 +1158,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
         <a onclick="nav('contact')">Contact</a>
         <button onclick="openModal('privacy')">Privacy Policy</button>
         <button onclick="openModal('refund')">Refund Policy</button>
+        <button onclick="openModal('tnc')">Terms &amp; Conditions</button>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -1002,6 +1175,7 @@ footer{background:var(--navy);padding:5rem 0 2rem;border-top:1px solid rgba(201,
         <span>© 2025 Brio Bridge. All rights reserved.</span>
         <a onclick="openModal('privacy')">Privacy Policy</a>
         <a onclick="openModal('refund')">Refund Policy</a>
+        <a onclick="openModal('tnc')">Terms &amp; Conditions</a>
       </div>
       <span class="footer-tagline-r">Bridging Vision to Reality</span>
     </div>
@@ -1748,6 +1922,10 @@ function submitSvc(e,slug){
 }
 
 // ═══════════════════ INIT ═══════════════════
+// Scroll progress bar
+var _prog=document.createElement('div');_prog.id='bb-prog';document.body.insertBefore(_prog,document.body.firstChild);
+window.addEventListener('scroll',function(){var h=document.documentElement;_prog.style.width=((window.scrollY/(h.scrollHeight-h.clientHeight))*100)+'%';},{passive:true});
+
 document.addEventListener('DOMContentLoaded',function(){
   // Hero right cards — real BrioBridge categories
   var heroRight=document.getElementById('heroRight');
@@ -1776,6 +1954,11 @@ document.addEventListener('DOMContentLoaded',function(){
   initReveal();
   initCounters();
 });
+
+
+
+
+
 </script>
 </body>
 </html>
